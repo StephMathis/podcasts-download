@@ -8,8 +8,8 @@
 
 import * as angular from 'angular';
 import {userListModule} from './user-list/user-list.module';
-import {trackListModule} from './podcast-list/podcast-view/track-list/track-list.module';
+import {episodeListModule} from './podcast-list/podcast-view/episode-list/episode-list.module';
 
 export const appModule = angular.module('app', [
-    userListModule.name, trackListModule.name
+    userListModule.name, episodeListModule.name
 ]);

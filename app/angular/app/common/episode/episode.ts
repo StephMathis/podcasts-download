@@ -1,12 +1,12 @@
-interface TrackSchema {
+interface EpisodeSchema {
     title?: string;
 }
 
-export class Track implements TrackSchema {
+export class Episode implements EpisodeSchema {
 
     title: string;
 
-    constructor(args: TrackSchema) {
+    constructor(args: EpisodeSchema) {
         this.title = args.title;
         if (this.title === null) {
             this.title = "pas terrible ce titre";

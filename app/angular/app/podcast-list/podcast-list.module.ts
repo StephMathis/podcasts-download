@@ -5,10 +5,10 @@
  * $Id: $
  */
 
-import {TrackViewComponent} from './podcast-view/track-list/track-view/track-view.component';
+import {EpisodeViewComponent} from './podcast-view/episode-list/episode-view/episode-view.component';
 
 
 export const podcastListModule = angular.module('app.podcastList', []);
 
-podcastListModule.component('mhTrackComponent', TrackViewComponent.config);
+podcastListModule.component('mhEpisodeComponent', EpisodeViewComponent.config);
 
