@@ -14,7 +14,7 @@ module.exports = function start(done) {
     var gulp = require('gulp');
 
     gulp.parallel(
-        'runserver',
+        'serve',
         'watch'
     )(done);
 

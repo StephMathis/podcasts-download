@@ -2,6 +2,7 @@
 import './common'
 import './legacy-app';
 
+
 import * as angular from 'angular';
 import {appModule} from './app/app.module';
 

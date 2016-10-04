@@ -1,0 +1,196 @@
+/**
+ * Created by amel on 02/10/16.
+ */
+
+import * as $ from 'jquery';
+import {podcastListModule} from "../../../../app/angular/app/podcast-list/podcast-list.module";
+import {Podcast} from "../../../../app/angular/app/common/podcast/podcast.component";
+
+
+xdescribe('PodcastListComponent', () => {
+
+    beforeEach(angular.mock.module(podcastListModule.name));
+
+    beforeEach(angular.mock.module('wishtack.templates'));
+
+    beforeEach(inject(($compile,
+                       $templateCache,
+                       $rootScope,
+                        $q,
+                       podcastStore) => {
+
+        this.$compile = $compile;
+        this.$templateCache = $templateCache;
+        this.$rootScope = $rootScope;
+        this.$q = $q;
+
+
+       // spyOn(podcastStore, 'podcastList')
+         //   .and.returnValue($q.resolve(require('!json!../../../../app/angular/app/common/podcast/podcast-store.json')));
+
+    }));
+
+    beforeEach(() => {
+
+       /* this.$templateCache.put(
+            require('../../../../app/angular/app/podcast-list/podcast-list.component.html'),
+            require('!!raw-loader!../../../../app/angular/app/podcast-list/podcast-list.component.html')
+        );
+
+        this.$templateCache.put(
+            require('../../app/podcast-list/podcast-preview/podcast-preview.component.html'),
+            require('!!raw-loader!../../app/podcast-list/podcast-preview/podcast-preview.component.html')
+        );
+*/
+    });
+
+    beforeEach(() => {
+
+        this.podcastList = [
+
+            new Podcast({
+                "content": "{'cover_url': 'http://media.radiofrance-podcast.net/podcast09/RF_OMM_0000014223_ITE.jpg', 'link': 'http://www.france-info.com/', 'description': \"Chaque dimanche, toute l'actualitÃ© Ã©conomique des compagnies aÃ©riennes, des constructeurs et des aÃ©roports, mais aussi les nouvelles technologies, les sports, l'aviation lÃ©gÃ¨re, le vol libre.\", 'episodes': [{'enclosures': [{'url': 'http://rf.proxycast.org/1213045486408179712/18996-25.09.2016-ITEMA_21086138-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2179200}], 'published': 1474782960, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-25.09.2016-ITEMA_21086138-0.mp3', 'total_time': 128, 'title': 'Chroniques du ciel du dimanche 25 septembre 2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 25.09.2016', 'link': 'http://www.franceinfo.fr/node/119294', 'description': 'durÃ©e : 00:02:08 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1210445056171843584/18996-18.09.2016-ITEMA_21079474-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2146432}], 'published': 1474177500, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-18.09.2016-ITEMA_21079474-0.mp3', 'total_time': 126, 'title': 'Chroniques du ciel 18.09.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 18.09.2016', 'link': 'http://www.franceinfo.fr/', 'description': 'durÃ©e : 00:02:06 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1207847461167570944/18996-11.09.2016-ITEMA_21073027-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 3135616}], 'published': 1473572700, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-11.09.2016-ITEMA_21073027-0.mp3', 'total_time': 133, 'title': 'Chroniques du ciel 11.09.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 11.09.2016', 'link': 'http://www.franceinfo.fr/', 'description': 'durÃ©e : 00:02:13 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1202657237319819264/18996-28.08.2016-ITEMA_21060235-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 3096704}], 'published': 1472363100, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-28.08.2016-ITEMA_21060235-0.mp3', 'total_time': 131, 'title': 'Chroniques du ciel 28.08.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 28.08.2016', 'link': 'http://www.franceinfo.fr/', 'description': 'durÃ©e : 00:02:11 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1197462092563619840/18996-14.08.2016-ITEMA_21050648-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2943104}], 'published': 1471153500, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-14.08.2016-ITEMA_21050648-0.mp3', 'total_time': 121, 'title': 'Chroniques du ciel 14.08.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 14.08.2016', 'link': 'http://www.france-info.com/', 'description': 'durÃ©e : 00:02:01 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1192267010881363968/18996-31.07.2016-ITEMA_21041975-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2949248}], 'published': 1469943900, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-31.07.2016-ITEMA_21041975-0.mp3', 'total_time': 122, 'title': 'Chroniques du ciel 31.07.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 31.07.2016', 'link': 'http://www.france-info.com/', 'description': 'durÃ©e : 00:02:02 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1189668947633381376/18996-24.07.2016-ITEMA_21037663-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2266080}], 'published': 1469339100, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-24.07.2016-ITEMA_21037663-0.mp3', 'total_time': 120, 'title': 'Chroniques du ciel 24.07.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 24.07.2016', 'link': 'http://www.france-info.com/', 'description': 'durÃ©e : 00:02:00 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1187071678832713728/18996-17.07.2016-ITEMA_21033446-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2626528}], 'published': 1468734300, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-17.07.2016-ITEMA_21033446-0.mp3', 'total_time': 142, 'title': 'Chroniques du ciel 17.07.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 17.07.2016', 'link': 'http://www.france-info.com/', 'description': 'durÃ©e : 00:02:22 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1184474427937529856/18996-10.07.2016-ITEMA_21029445-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2380768}], 'published': 1468129500, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-10.07.2016-ITEMA_21029445-0.mp3', 'total_time': 127, 'title': 'Chroniques du ciel 10.07.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 10.07.2016', 'link': 'http://www.france-info.com/', 'description': 'durÃ©e : 00:02:07 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1181876370263777280/18996-03.07.2016-ITEMA_21025265-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2315232}], 'published': 1467524700, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-03.07.2016-ITEMA_21025265-0.mp3', 'total_time': 123, 'title': 'Chroniques du ciel 03.07.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 03.07.2016', 'link': 'http://www.france-info.com/', 'description': 'durÃ©e : 00:02:03 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1179279068638486529/18996-26.06.2016-ITEMA_21019617-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2462688}], 'published': 1466919900, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-26.06.2016-ITEMA_21019617-0.mp3', 'total_time': 132, 'title': 'Chroniques du ciel 26.06.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 26.06.2016', 'link': 'http://www.france-info.com/', 'description': 'durÃ©e : 00:02:12 - par : FrÃ©dÃ©ric BENIADA'}, {'enclosures': [{'url': 'http://rf.proxycast.org/1176676304313917440/18996-19.06.2016-ITEMA_21013689-0.mp3', 'mime_type': 'audio/mpeg', 'file_size': 2298848}], 'published': 1466315100, 'guid': 'http://media.radiofrance-podcast.net/podcast09/18996-19.06.2016-ITEMA_21013689-0.mp3', 'total_time': 122, 'title': 'Chroniques du ciel 19.06.2016', 'payment_url': None, 'subtitle': 'Ã‰mission du 19.06.2016', 'link': 'http://www.france-info.com/', 'description': 'durÃ©e : 00:02:02 - par : FrÃ©dÃ©ric BENIADA'}], 'title': 'Chroniques du ciel'}",
+                "episodes": [{
+                    "duration": "128",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0yNS4wOS4yMDE2LUlURU1BXzIxMDg2MTM4LTAubXAz",
+                    "published": "1474782960",
+                    "size": "2179200",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-25.09.2016-ITEMA_21086138-0.mp3",
+                    "subtitle": "Ã‰mission du 25.09.2016",
+                    "title": "Chroniques du ciel du dimanche 25 septembre 2016"
+                }, {
+                    "duration": "126",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0xOC4wOS4yMDE2LUlURU1BXzIxMDc5NDc0LTAubXAz",
+                    "published": "1474177500",
+                    "size": "2146432",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-18.09.2016-ITEMA_21079474-0.mp3",
+                    "subtitle": "Ã‰mission du 18.09.2016",
+                    "title": "Chroniques du ciel 18.09.2016"
+                }, {
+                    "duration": "133",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0xMS4wOS4yMDE2LUlURU1BXzIxMDczMDI3LTAubXAz",
+                    "published": "1473572700",
+                    "size": "3135616",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-11.09.2016-ITEMA_21073027-0.mp3",
+                    "subtitle": "Ã‰mission du 11.09.2016",
+                    "title": "Chroniques du ciel 11.09.2016"
+                }, {
+                    "duration": "131",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0yOC4wOC4yMDE2LUlURU1BXzIxMDYwMjM1LTAubXAz",
+                    "published": "1472363100",
+                    "size": "3096704",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-28.08.2016-ITEMA_21060235-0.mp3",
+                    "subtitle": "Ã‰mission du 28.08.2016",
+                    "title": "Chroniques du ciel 28.08.2016"
+                }, {
+                    "duration": "121",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0xNC4wOC4yMDE2LUlURU1BXzIxMDUwNjQ4LTAubXAz",
+                    "published": "1471153500",
+                    "size": "2943104",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-14.08.2016-ITEMA_21050648-0.mp3",
+                    "subtitle": "Ã‰mission du 14.08.2016",
+                    "title": "Chroniques du ciel 14.08.2016"
+                }, {
+                    "duration": "122",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0zMS4wNy4yMDE2LUlURU1BXzIxMDQxOTc1LTAubXAz",
+                    "published": "1469943900",
+                    "size": "2949248",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-31.07.2016-ITEMA_21041975-0.mp3",
+                    "subtitle": "Ã‰mission du 31.07.2016",
+                    "title": "Chroniques du ciel 31.07.2016"
+                }, {
+                    "duration": "120",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0yNC4wNy4yMDE2LUlURU1BXzIxMDM3NjYzLTAubXAz",
+                    "published": "1469339100",
+                    "size": "2266080",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-24.07.2016-ITEMA_21037663-0.mp3",
+                    "subtitle": "Ã‰mission du 24.07.2016",
+                    "title": "Chroniques du ciel 24.07.2016"
+                }, {
+                    "duration": "142",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0xNy4wNy4yMDE2LUlURU1BXzIxMDMzNDQ2LTAubXAz",
+                    "published": "1468734300",
+                    "size": "2626528",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-17.07.2016-ITEMA_21033446-0.mp3",
+                    "subtitle": "Ã‰mission du 17.07.2016",
+                    "title": "Chroniques du ciel 17.07.2016"
+                }, {
+                    "duration": "127",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0xMC4wNy4yMDE2LUlURU1BXzIxMDI5NDQ1LTAubXAz",
+                    "published": "1468129500",
+                    "size": "2380768",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-10.07.2016-ITEMA_21029445-0.mp3",
+                    "subtitle": "Ã‰mission du 10.07.2016",
+                    "title": "Chroniques du ciel 10.07.2016"
+                }, {
+                    "duration": "123",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0wMy4wNy4yMDE2LUlURU1BXzIxMDI1MjY1LTAubXAz",
+                    "published": "1467524700",
+                    "size": "2315232",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-03.07.2016-ITEMA_21025265-0.mp3",
+                    "subtitle": "Ã‰mission du 03.07.2016",
+                    "title": "Chroniques du ciel 03.07.2016"
+                }, {
+                    "duration": "132",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0yNi4wNi4yMDE2LUlURU1BXzIxMDE5NjE3LTAubXAz",
+                    "published": "1466919900",
+                    "size": "2462688",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-26.06.2016-ITEMA_21019617-0.mp3",
+                    "subtitle": "Ã‰mission du 26.06.2016",
+                    "title": "Chroniques du ciel 26.06.2016"
+                }, {
+                    "duration": "122",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0xOS4wNi4yMDE2LUlURU1BXzIxMDEzNjg5LTAubXAz",
+                    "published": "1466315100",
+                    "size": "2298848",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-19.06.2016-ITEMA_21013689-0.mp3",
+                    "subtitle": "Ã‰mission du 19.06.2016",
+                    "title": "Chroniques du ciel 19.06.2016"
+                }],
+                "podcast_url": null,
+                "resource_uri": "/api/v1/podcasts/aHR0cDovL3JhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS9yc3NfMTg5OTYueG1s/"
+            })
+        ];
+
+    });
+
+
+
+    it('should display a podcast list', () => {
+
+
+
+        let scope = this.$rootScope.$new();
+
+
+
+        scope.podcastList = this.podcastList;
+
+
+
+        let rawElement = this.$compile(`<sm-podcast-list sm-podcast-list="podcastList">`)(scope);
+
+        let element = $(rawElement);
+
+
+
+        scope.$apply();
+
+
+
+        expect(element.find('sm-podcast-preview').length).toEqual(1);
+
+
+
+        expect(angular.element(element.find('sm-podcast-preview')[0]).scope()['podcast'])
+
+            .toEqual(scope.podcastList[0]);
+
+    });
+
+
+
+});
+
+ 
+
