@@ -23,7 +23,7 @@ describe('UserStore', () => {
         this.userStore= userStore;
     }));
 
-    xit('should load user list', () => {
+    it('should load user list', () => {
 
         let userList;
         let userStore = this.userStore;

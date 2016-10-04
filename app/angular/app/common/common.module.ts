@@ -6,7 +6,9 @@
  */
 
 import {userModule} from './user/user.module';
+import {podcastModule} from "./podcast/podcast.module";
 
 export const commonModule = angular.module('app.common', [
-    userModule.name
+    userModule.name,
+    podcastModule.name
 ]);

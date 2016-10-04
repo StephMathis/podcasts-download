@@ -6,7 +6,7 @@
  */
 
 
-import * as $ from 'jquery';
+//import * as $ from 'jquery';
 import {User} from '../../../../app/angular/app/common/user/user';
 import {userListModule} from '../../../../app/angular/app/user-list/user-list.module';
 
@@ -50,6 +50,8 @@ describe('UserListComponent', () => {
     });
 
     it('should display user list', () => {
+
+
 
         let rawElement;
         let element;
