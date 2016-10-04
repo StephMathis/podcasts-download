@@ -17,3 +17,4 @@ export const appModule = angular.module('app', [
     podcastListModule.name,
     episodeListModule.name
 ]);
+
