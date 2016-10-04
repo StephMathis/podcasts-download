@@ -1,7 +1,3 @@
-/**
- * Created by amel on 02/10/16.
- */
-
 import {podcastModule} from "../common/podcast/podcast.module";
 import {PodcastPreviewComponent} from "./podcast-preview/podcast-preview.component";
 import {PodcastListComponent} from "./podcast-list.component";
@@ -13,3 +9,4 @@ export const podcastListModule = angular.module('app.podcastList', [
 
 podcastListModule.component('smPodcastList', PodcastListComponent.config);
 podcastListModule.component('smPodcastPreview', PodcastPreviewComponent.config);
+
