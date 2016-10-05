@@ -34,8 +34,8 @@ export class PodcastStore {
             "resource_uri": "/api/v1/podcasts/aHR0cDovL3JhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS9yc3NfMTg5OTYueG1s/"
         });
 
-        this._podcastList = [podcast];
-        return this.$q.resolve(this._podcastList);
+        let podcasts = [podcast];
+        return this.$q.resolve(podcasts).then(list => this._podcastList = list);
 
     }
 

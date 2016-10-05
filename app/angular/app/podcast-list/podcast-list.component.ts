@@ -22,7 +22,7 @@ export class PodcastListComponent {
 
     podcastList() {
         this.podcastStore.podcastList()
-            .then(podcastList => this.podcastList = podcastList);
+            .then(list => this._podcastList = list);
     }
 
 }
