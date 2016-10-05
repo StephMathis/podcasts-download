@@ -17,7 +17,7 @@ export class RestangularResources {
 
     episodeResource(podcastId) {
 
-        return this.RestangularApp.service('episodes', this.podcastResource(podcastId));
+        return this.RestangularApp.service('episodes/', this.podcastResource(podcastId));
 
     }
 
