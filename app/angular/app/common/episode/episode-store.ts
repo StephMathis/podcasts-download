@@ -4,20 +4,20 @@
  */
 
 import {Episode} from "./episode.component";
-//import {RestangularResources} from "../restangular/resources/restangular.resources";
+import {RestangularResources} from "../restangular/resources/restangular.resources";
 
 export class EpisodeStore {
 
     _episodeList: Promise<Episode[]>;
-    //restangularResources: RestangularResources;
+    restangularResources: RestangularResources;
 
-    constructor(private $q){
+    constructor(private $q,
+                private restangularResources){
         'ngInject'
-
-        //this.episodeList();
+        this.restangularResources = restangularResources;
     }
 
-    episodeList(): Promise <Episode[]>{
+    /*episodeList(): Promise <Episode[]>{
 
         let episodeList = [
             new Episode( {
@@ -41,9 +41,9 @@ export class EpisodeStore {
                 )
         ];
         return this.$q.resolve(episodeList).then(list => this._episodeList = list);
-    }
+    }*/
 
-   /* episodeList(): Promise<Episode[]> {
+    episodeList(): Promise<Episode[]> {
 
         if (this._episodeList == null) {
 
@@ -57,5 +57,5 @@ export class EpisodeStore {
 
         return this._episodeList;
     }
-    */
+
 }

@@ -13,7 +13,7 @@ export class EpisodeListComponent {
     };
 
     _episodeList: Promise<Episode[]>;
-   // restangularResources: RestangularResources;
+    restangularResources: RestangularResources;
 
     constructor(private episodeStore) {
         'ngInject';
