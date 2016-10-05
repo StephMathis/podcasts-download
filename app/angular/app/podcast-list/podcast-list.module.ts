@@ -7,6 +7,6 @@ export const podcastListModule = angular.module('app.podcastList', [
     podcastModule.name
 ]);
 
-podcastListModule.component('smPodcastList', PodcastListComponent.config);
-podcastListModule.component('smPodcastPreview', PodcastPreviewComponent.config);
+podcastListModule.component('mhPodcastList', PodcastListComponent.config);
+podcastListModule.component('mhPodcastPreview', PodcastPreviewComponent.config);
 

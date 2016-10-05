@@ -2,6 +2,7 @@
  * Created by amel on 03/10/16.
  */
 
+
 export class RestangularApp {
 
     $get(Restangular) {
@@ -23,8 +24,6 @@ export class RestangularApp {
                 if (operation === "getList") {
 
                     newResponse = response.objects;
-
-                    newResponse.metadata = response.meta;
 
                 } else {
 

@@ -7,7 +7,7 @@ export class PodcastPreviewComponent {
 
     static config = {
         bindings: <any>{
-            podcast: '<smPodcast'
+            podcast: '<mhPodcast'
         },
         controller: PodcastPreviewComponent,
         templateUrl: require('./podcast-preview.component.html')

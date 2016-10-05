@@ -7,12 +7,11 @@ import {RestangularApp} from './restangular.component';
 
 
 
-export const restangularModule = angular.module('ei.pfm.common.restangular', [
+export const restangularModule = angular.module('app.common.restangular', [
     'restangular'
 ]);
 
 
 
 restangularModule.provider('RestangularApp', RestangularApp);
-
 restangularModule.service('restangularResources', RestangularResources);

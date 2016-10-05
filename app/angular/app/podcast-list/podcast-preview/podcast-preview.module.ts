@@ -10,4 +10,4 @@ export const podcastPreviewModule = angular.module('app.podcastList.podcastPrevi
     podcastModule.name
 ]);
 
-podcastPreviewModule.component('smPodcastPreview', PodcastPreviewComponent.config);
+podcastPreviewModule.component('mhPodcastPreview', PodcastPreviewComponent.config);

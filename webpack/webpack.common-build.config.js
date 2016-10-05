@@ -44,13 +44,8 @@ module.exports = webpackMerge.smart(require('./webpack.common.config'), {
         new webpack.optimize.OccurenceOrderPlugin(true),
         /* Injecting tags in html. */
         new HtmlWebpackPlugin({
-<<<<<<< HEAD:webpack.common-build.config.js
-            filename: path.join(webpackHelper.templatesDirectoryName, 'home.html'),
-            template: path.join(webpackHelper.appTemplatesPath, 'home.html')
-=======
             filename: webpackHelper.distIndexHtmlRelativePath,
             template: webpackHelper.appIndexHtmlPath
->>>>>>> master:webpack/webpack.common-build.config.js
         })
     ]
 });

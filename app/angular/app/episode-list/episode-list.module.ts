@@ -10,5 +10,5 @@ export const episodeListModule = angular.module('app.episodeList', [
     episodeModule.name
 ]);
 
-episodeListModule.component('smEpisodeList', EpisodeListComponent.config);
-episodeListModule.component('smEpisodePreview', EpisodePreviewComponent.config);
+episodeListModule.component('mhEpisodeList', EpisodeListComponent.config);
+episodeListModule.component('mhEpisodePreview', EpisodePreviewComponent.config);

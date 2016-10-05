@@ -6,7 +6,7 @@ export class EpisodePreviewComponent {
 
     static config = {
         bindings: <any>{
-            episode: '<smEpisode'
+            episode: '<mhEpisode'
         },
         controller: EpisodePreviewComponent,
         templateUrl: require('./episode-preview.component.html')
