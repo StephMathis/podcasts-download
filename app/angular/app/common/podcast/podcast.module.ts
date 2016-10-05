@@ -3,10 +3,10 @@
  */
 
 import {PodcastStore} from "./podcast-store";
-import {restangularModule} from "../restangular/restangular.module";
+//import {restangularModule} from "../restangular/restangular.module";
 
 export const podcastModule = angular.module('app.common.podcast', [
-    restangularModule.name
+//    restangularModule.name
 ]);
 
 podcastModule.service('podcastStore', PodcastStore);

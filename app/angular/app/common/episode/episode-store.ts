@@ -4,30 +4,23 @@
  */
 
 import {Episode} from "./episode.component";
-import {RestangularResources} from "../restangular/resources/restangular.resources";
+//import {RestangularResources} from "../restangular/resources/restangular.resources";
 
 export class EpisodeStore {
 
     _episodeList: Promise<Episode[]>;
-    restangularResources: RestangularResources;
+    //restangularResources: RestangularResources;
 
     constructor(private $q){
         'ngInject'
 
-        this.episodeList();
+        //this.episodeList();
     }
 
-   /* episodeList(): Promise <Episode[]>{
+    episodeList(): Promise <Episode[]>{
 
-        this._episodeList = [
-            new Episode( {"duration": "127",
-            "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0wMi4xMC4yMDE2LUlURU1BXzIxMDkyNzE4LTAubXAz",
-            "published": "1475387760",
-            "size": "2162816",
-            "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-02.10.2016-ITEMA_21092718-0.mp3",
-            "subtitle": "Ã‰mission du 02.10.2016",
-            "title": "Chroniques du ciel du dimanche 2 octobre 2016"}),
-            new Episode({
+        let episodeList = [
+            new Episode( {
                 "duration": "128",
                 "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0yNS4wOS4yMDE2LUlURU1BXzIxMDg2MTM4LTAubXAz",
                 "published": "1474782960",
@@ -35,13 +28,22 @@ export class EpisodeStore {
                 "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-25.09.2016-ITEMA_21086138-0.mp3",
                 "subtitle": "Ã‰mission du 25.09.2016",
                 "title": "Chroniques du ciel du dimanche 25 septembre 2016"
-            })
-
+                }),
+                new Episode( {
+                    "duration": "126",
+                    "episode_id": "aHR0cDovL21lZGlhLnJhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS8xODk5Ni0xOC4wOS4yMDE2LUlURU1BXzIxMDc5NDc0LTAubXAz",
+                    "published": "1474177500",
+                    "size": "2146432",
+                    "source_url": "http://media.radiofrance-podcast.net/podcast09/18996-18.09.2016-ITEMA_21079474-0.mp3",
+                    "subtitle": "Ã‰mission du 18.09.2016",
+                    "title": "Chroniques du ciel 18.09.2016"
+                }
+                )
         ];
-        return this.$q.resolve(this._episodeList);
-    }*/
+        return this.$q.resolve(episodeList).then(list => this._episodeList = list);
+    }
 
-    episodeList(): Promise<Episode[]> {
+   /* episodeList(): Promise<Episode[]> {
 
         if (this._episodeList == null) {
 
@@ -55,4 +57,5 @@ export class EpisodeStore {
 
         return this._episodeList;
     }
+    */
 }

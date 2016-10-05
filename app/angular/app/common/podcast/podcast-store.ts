@@ -3,21 +3,21 @@
  */
 
 import {Podcast, PodcastContent} from "./podcast.component";
-import {RestangularApp} from "../restangular/restangular.component";
+//import {RestangularApp} from "../restangular/restangular.component";
 
 export class PodcastStore {
 
     _podcastList: Promise<Podcast[]>;
-    restangularApp: RestangularApp;
-    restangularResources;
+  //  restangularApp: RestangularApp;
+    //restangularResources;
 
     constructor(private $q){
         'ngInject'
 
-        this.podcastList();
+      //  this.podcastList();
     }
 
-    /*podcastList(): Promise <Podcast[]>{
+    podcastList(): Promise <Podcast[]>{
 
        let content = new PodcastContent(
             {
@@ -37,9 +37,9 @@ export class PodcastStore {
         this._podcastList = [podcast];
         return this.$q.resolve(this._podcastList);
 
-    }*/
+    }
 
-    podcastList(): Promise<Podcast[]> {
+    /*podcastList(): Promise<Podcast[]> {
 
             if (this._podcastList == null) {
 
@@ -52,5 +52,5 @@ export class PodcastStore {
         }
 
         return this._podcastList;
-    }
+    }*/
 }
