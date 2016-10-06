@@ -9,6 +9,12 @@ export class RestangularResources {
 
     }
 
+    podcastListResource(podcastId) {
+
+        return this.RestangularApp.service('podcasts/');
+
+    }
+
     podcastResource(podcastId) {
 
         return this.RestangularApp.service('podcasts').one(podcastId);

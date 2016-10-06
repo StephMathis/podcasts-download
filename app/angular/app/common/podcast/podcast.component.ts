@@ -25,12 +25,12 @@ export class PodcastContent{
 export class Podcast implements PodcastSchema{
 
     content: PodcastContent;
-    podcast_url: string;
+    url: string;
     resource_uri: string;
 
     constructor(args) {
-        this.content = args.content;
-        this.podcast_url = args.podcast_url;
+        this.content = new PodcastContent(args.content);
+        this.url = args.podcast_url;
         this.resource_uri = args.resource_uri;
     }
 

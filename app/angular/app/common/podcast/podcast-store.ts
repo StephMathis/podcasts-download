@@ -11,12 +11,13 @@ export class PodcastStore {
   //  restangularApp: RestangularApp;
     //restangularResources;
 
-    constructor(private $q){
+    constructor(private $q, private restangularResources){
         'ngInject'
 
       //  this.podcastList();
     }
 
+/*
     podcastList(): Promise <Podcast[]>{
 
        let content = new PodcastContent(
@@ -38,7 +39,21 @@ export class PodcastStore {
         return this.$q.resolve(podcasts).then(list => this._podcastList = list);
 
     }
+*/
 
+    podcastList(): Promise<Podcast[]> {
+
+        if (this._podcastList == null) {
+
+            this._podcastList = this.restangularResources.podcastListResource()
+                .getList()
+                .then((podcastList) => {
+                    return podcastList.map(podcast => new Podcast(podcast));
+                });
+        }        
+
+        return this._podcastList;
+    }
     /*podcastList(): Promise<Podcast[]> {
 
             if (this._podcastList == null) {
