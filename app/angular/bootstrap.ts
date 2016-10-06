@@ -6,7 +6,6 @@ import './legacy-app';
 
 
 
-
 import {appModule} from './app/app.module';
 
 angular.element(document).ready(function() {

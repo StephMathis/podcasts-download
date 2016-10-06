@@ -7,7 +7,8 @@ import {EpisodePreviewComponent} from "./episode-preview/episode-preview.compone
 import {EpisodeListComponent} from "./episode-list.component";
 
 export const episodeListModule = angular.module('app.episodeList', [
-    episodeModule.name
+    episodeModule.name,
+    'ngMaterial'
 ]);
 
 episodeListModule.component('mhEpisodeList', EpisodeListComponent.config);

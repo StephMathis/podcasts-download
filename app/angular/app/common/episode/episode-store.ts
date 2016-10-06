@@ -9,12 +9,10 @@ import {RestangularResources} from "../restangular/resources/restangular.resourc
 export class EpisodeStore {
 
     _episodeList: Promise<Episode[]>;
-    _restangularResources: RestangularResources;
 
     constructor(private $q,
                 private restangularResources){
         'ngInject'
-        this._restangularResources = restangularResources;
     }
 
     /*episodeList(): Promise <Episode[]>{
@@ -47,7 +45,7 @@ export class EpisodeStore {
 
         if (this._episodeList == null) {
 
-            this._episodeList = this._restangularResources
+            this._episodeList = this.restangularResources
                 .episodeResource('aHR0cDovL3JhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS9yc3NfMTg5OTYueG1s')
                 .getList()
                 .then((episodeList) => {
