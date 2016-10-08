@@ -14,5 +14,10 @@ export class PodcastPreviewComponent {
     };
 
     podcast;
+    hideEpisodes = true;
+    
+    toggleEpisodes() {
+        this.hideEpisodes = !this.hideEpisodes;
+    }
 
 }

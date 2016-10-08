@@ -1,7 +1,7 @@
 /**
  * Created by amel on 02/10/16.
  */
-require('!!style!css!./podcast-list.style.css');
+//require('!!style!css!./podcast-list.style.css');
 import {Podcast} from "../common/podcast/podcast.component";
 
 export class PodcastListComponent {

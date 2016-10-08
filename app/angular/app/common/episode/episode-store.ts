@@ -8,7 +8,7 @@ import {RestangularResources} from "../restangular/resources/restangular.resourc
 
 export class EpisodeStore {
 
-    _episodeList: Promise<Episode[]>;
+    //_episodeList: { [podcastId : string] : Promise<Episode[]>};
 
     constructor(private $q,
                 private restangularResources){
@@ -41,19 +41,22 @@ export class EpisodeStore {
         return this.$q.resolve(episodeList).then(list => this._episodeList = list);
     }*/
 
-    episodeList(): Promise<Episode[]> {
-
+    episodeList(podcastId): Promise<Episode[]> {
+/*
         if (this._episodeList == null) {
 
             this._episodeList = this.restangularResources
-                .episodeResource('aHR0cDovL3JhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS9yc3NfMTg5OTYueG1s')
-                .getList()
+                .episodeResource(podcastId)
                 .then((episodeList) => {
                     return episodeList.map(episode => new Episode(episode));
                 });
         }
-
-        return this._episodeList;
+*/
+        return this.restangularResources
+                .episodeResource(podcastId)
+                .then((episodeList) => {
+                    return episodeList.map(episode => new Episode(episode));
+                });
     }
 
 }

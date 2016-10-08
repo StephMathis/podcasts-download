@@ -12,5 +12,6 @@
 <md-card-actions layout="row" layout-align="end center">
    <!--  <md-button>Action 1</md-button>
     <md-button>Action 2</md-button> -->
-    <md-button ui-sref="episodes">Episodes</md-button>
+    <md-button class="md-raised md-primary" ng-click="$ctrl.toggleEpisodes()">&Eacute;pisodes</md-button>
 </md-card-actions>
+<mh-episode-list ng-hide="$ctrl.hideEpisodes" mh-podcast-id="$ctrl.podcast.podcastId"></mh-episode-list>

@@ -5,7 +5,6 @@
 interface PodcastSchema {
     content?: PodcastContent;
     podcast_url?: string;
-    resource_uri?: string;
 }
 
 export class PodcastContent{
@@ -26,12 +25,12 @@ export class Podcast implements PodcastSchema{
 
     content: PodcastContent;
     url: string;
-    resource_uri: string;
+    podcastId: string;
 
     constructor(args) {
         this.content = new PodcastContent(args.content);
         this.url = args.podcast_url;
-        this.resource_uri = args.resource_uri;
+        this.podcastId = args.podcast_id;        
     }
 
     isEqual({podcast}: {podcast: Podcast}) {

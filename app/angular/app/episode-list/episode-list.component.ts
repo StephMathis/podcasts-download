@@ -8,6 +8,9 @@ import {RestangularResources} from "../common/restangular/resources/restangular.
 export class EpisodeListComponent {
 
     static config = {
+        bindings : {
+            podcastId: '<mhPodcastId'
+        },
         controller: EpisodeListComponent,
         templateUrl: require('./episode-list.component.html')
     };
@@ -23,7 +26,8 @@ export class EpisodeListComponent {
 
 
     episodeList() {
-        this.episodeStore.episodeList()
+        console.log('EpisodeListComponent.episodeList, podcastId='+this.podcastId);
+        this.episodeStore.episodeList(this.podcastId)
             .then(episodeList => this.episodeList = episodeList);
     }
 

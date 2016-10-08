@@ -32,7 +32,6 @@ export class PodcastStore {
         let podcast = new Podcast({
             "content": content,
             "podcast_url": null,
-            "resource_uri": "/api/v1/podcasts/aHR0cDovL3JhZGlvZnJhbmNlLXBvZGNhc3QubmV0L3BvZGNhc3QwOS9yc3NfMTg5OTYueG1s/"
         });
 
         let podcasts = [podcast];
