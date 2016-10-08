@@ -13,7 +13,7 @@ import _ from 'lodash';
 // import 'angular-animate/angular-animate';
 // import 'angular-aria/angular-aria';
 import 'angular-material/angular-material';
-// import 'angular-ui-router/release/angular-ui-router';
+import 'angular-ui-router/release/angular-ui-router';
 
 require('!!style!css!angular-material/angular-material.css');
 
