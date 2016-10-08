@@ -7,6 +7,8 @@ import {RestangularResources} from "../common/restangular/resources/restangular.
 
 export class EpisodeListComponent {
 
+    podcastId : string;
+
     static config = {
         bindings : {
             podcastId: '<mhPodcastId'
