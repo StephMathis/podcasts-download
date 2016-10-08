@@ -1,8 +1,18 @@
-<div>
-    <div ng-repeat="podcast in $ctrl._podcastList">
-        <mh-podcast-preview
-                mh-podcast="podcast">
-        </mh-podcast-preview>
+<md-toolbar class="demo-toolbar _md _md-toolbar-transitions">
+    <div class="md-toolbar-tools">
+        <h3>Podcasts</h3>
     </div>
+</md-toolbar>
 
+<div ng-cloak >
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card ng-repeat="podcast in $ctrl._podcastList">
+                <mh-podcast-preview
+                        mh-podcast="podcast">
+                </mh-podcast-preview>
+            </md-card>
+        </div>
+        </div>
+    </md-content>
 </div>

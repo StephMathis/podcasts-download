@@ -1,10 +1,16 @@
-<div>
-
-    <div class="podcast-preview-image" layout="raw">
-        <img src="{{ $ctrl.podcast.content.cover_url }}" height="150px"/>
-        <h1 class="md-title">{{ $ctrl.podcast.content.title }}</h1>
-        <h2 class="md-subhead">{{ $ctrl.podcast.content.description }}</h2>
-        <span class="podcast-preview-url">{{ $ctrl.podcast.url }}</span>
-     </div>
-</div>
-
+<md-card-title>
+    <md-card-title-text>
+        <span class="md-headline" ui-sref="episodes">{{ $ctrl.podcast.content.title }}</span>
+        <span class="md-subhead">{{ $ctrl.podcast.content.description }}</span>
+    </md-card-title-text>
+    <md-card-title-media>
+        <div class="md-media-lg card-media">
+            <img src="{{ $ctrl.podcast.content.cover_url }}" height="200px"/>
+        </div>
+    </md-card-title-media>
+</md-card-title>
+<md-card-actions layout="row" layout-align="end center">
+   <!--  <md-button>Action 1</md-button>
+    <md-button>Action 2</md-button> -->
+    <md-button ui-sref="episodes">Episodes</md-button>
+</md-card-actions>
