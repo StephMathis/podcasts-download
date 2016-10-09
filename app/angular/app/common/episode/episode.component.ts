@@ -10,22 +10,24 @@
 export class Episode {
 
     duration: string;
-    episode_id: string;
+    episodeId: string;
     published: string;
     size: string;
-    source_url: string;
+    sourceUrl: string;
     subtitle: string;
     title: string;
     contentUrl: string;
+    downloaded: boolean;
 
     constructor(args) {
         this.duration = args.duration;
-        this.episode_id = args.episode_id;
+        this.episodeId = args.episode_id;
         this.published = args.published;
         this.size = args.size;
-        this.source_url = args.source_url;
+        this.sourceUrl = args.source_url;
         this.subtitle = args.subtitle;
         this.title = args.title;
+        this.downloaded = false;
     }
 
     isEqual({episode}: {episode: Episode}) {
@@ -37,6 +39,9 @@ export class Episode {
     }
     getContentUrl() {
         return this.contentUrl;
+    }
+    setAlreadyDownloaded(downloaded : boolean) {
+        this.downloaded = downloaded;
     }
 
 }

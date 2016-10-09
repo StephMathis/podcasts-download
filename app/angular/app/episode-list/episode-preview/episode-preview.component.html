@@ -6,7 +6,11 @@
     </div>
 
     <div layout="row" layout-align="end center">
-        <md-button class="md-fab md-primary" aria-label="Download" href="{{ $ctrl.episode.contentUrl }}">
+        <md-button class="md-fab" 
+                   ng-class="{'md-primary': $ctrl.episode.downloaded === false, 'md-warn' : $ctrl.episode.downloaded === true}" 
+                   aria-label="Download" 
+                   href="{{ $ctrl.episode.contentUrl }}" 
+                   ng-click="$ctrl.setDownloaded()">
           T&eacute;l&eacute;charger
         </md-button>
     </div>

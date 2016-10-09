@@ -4,14 +4,17 @@
  */
 
 import {Episode} from "./episode.component";
-import {RestangularResources} from "../restangular/resources/restangular.resources";
+//import {RestangularResources} from "../restangular/resources/restangular.resources";
+import {podcastslocalstorageModule} from "../podcastslocalstorage/podcastslocalstorage.module";
 
 export class EpisodeStore {
 
     //_episodeList: { [podcastId : string] : Promise<Episode[]>};
 
     constructor(private $q,
-                private restangularResources){
+                private restangularResources, 
+                private podcastsLocalstorageResources
+                ){
         'ngInject'
     }
 
@@ -59,10 +62,20 @@ export class EpisodeStore {
                         let episode = new Episode(episodeWS);
                         let contentUrl = this.restangularResources.episodeContentUrl(podcastId, episodeWS.episode_id);
                         episode.setContentUrl(contentUrl);
+                        episode.setAlreadyDownloaded(this.getAlreadyDownloaded(episode));
                         return episode;
                     } 
                     return episodeList.map(episode => buildEpisode(episode));
                 });
     }
 
+    getAlreadyDownloaded(episode: Episode) : boolean {
+        return this.podcastsLocalstorageResources.getProperty("downloaded." + episode.episodeId) === true;
+    }
+    setAlreadyDownloaded(episode: Episode) {
+        console.log("setAlreadyDownloaded : "+this.podcastsLocalstorageResources.getProperty("downloaded." + episode.episodeId));
+        episode.setAlreadyDownloaded(true);
+        this.podcastsLocalstorageResources.setProperty("downloaded." + episode.episodeId, true);
+        console.log("setAlreadyDownloaded : "+this.podcastsLocalstorageResources.getProperty("downloaded." + episode.episodeId));
+    }
 }

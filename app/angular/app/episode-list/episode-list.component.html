@@ -17,7 +17,7 @@
     <md-list>
         <md-list-item ng-repeat="episode in $ctrl.episodeList">
             <mh-episode-preview
-                    mh-episode="episode">
+                    mh-episode="episode" mh-download-notifier="$ctrl.episodeStore.setAlreadyDownloaded(episode)">
             </mh-episode-preview>
             <md-divider ng-if="!$last"></md-divider>
         </md-list-item>
