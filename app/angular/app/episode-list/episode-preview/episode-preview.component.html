@@ -1,16 +1,20 @@
 <div layout="row">
-    <div layout="column">
-        <span class="episode-preview-title"> {{ $ctrl.episode.title}} </span>
-        <span class="episode-preview-size"> {{ $ctrl.episode.size}} </span>
-        <span class="episode-preview-title"> {{ $ctrl.episode.duration}} </span>
+    <div class="md-list-item-text" flex="66">
+        <h3 layout-align="left">{{ $ctrl.episode.title}} </h3>
+        <p layout-align="left">{{ $ctrl.episode.size}} - {{ $ctrl.episode.duration}}</p>
     </div>
-
-    <div layout="row" layout-align="end center">
-        <md-button class="md-fab md-primary" aria-label="Download" href="{{ $ctrl.episode.contentUrl }}">
-          T&eacute;l&eacute;charger
+    <div  flex="33">
+        <md-button href="{{ $ctrl.episode.contentUrl }}" aria-label="Download">
+            <i class="material-icons">backup</i>
         </md-button>
     </div>
-
 </div>
+
+
+
+
+
+
+
 
 
