@@ -1,8 +1,16 @@
-<div>
+<div layout="row">
+    <div layout="column">
+        <span class="episode-preview-title"> {{ $ctrl.episode.title}} </span>
+        <span class="episode-preview-size"> {{ $ctrl.episode.size}} </span>
+        <span class="episode-preview-title"> {{ $ctrl.episode.duration}} </span>
+    </div>
 
-    <span class="episode-preview-title"> {{ $ctrl.episode.title}} </span>
-    <span class="episode-preview-size"> {{ $ctrl.episode.size}} </span>
-    <span class="episode-preview-title"> {{ $ctrl.episode.duration}} </span>
+    <div layout="row" layout-align="end center">
+        <md-button class="md-fab md-primary" aria-label="Download" href="{{ $ctrl.episode.contentUrl }}">
+          T&eacute;l&eacute;charger
+        </md-button>
+    </div>
+
 </div>
 
 

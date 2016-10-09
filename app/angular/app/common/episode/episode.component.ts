@@ -16,6 +16,7 @@ export class Episode {
     source_url: string;
     subtitle: string;
     title: string;
+    contentUrl: string;
 
     constructor(args) {
         this.duration = args.duration;
@@ -29,6 +30,13 @@ export class Episode {
 
     isEqual({episode}: {episode: Episode}) {
         return this === episode;
+    }
+
+    setContentUrl(contentUrl) {
+        this.contentUrl = contentUrl;
+    }
+    getContentUrl() {
+        return this.contentUrl;
     }
 
 }

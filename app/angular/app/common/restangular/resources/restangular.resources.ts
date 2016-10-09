@@ -9,22 +9,28 @@ export class RestangularResources {
 
     }
 
-    podcastListResource(podcastId) {
+    podcastListResource(podcastId: string) {
 
         return this.RestangularApp.service('podcasts/');
 
     }
 
-    podcastResource(podcastId) {
+    podcastResource(podcastId : string) {
 
         return this.RestangularApp.service('podcasts').one(podcastId);
 
     }
 
-    episodeResource(podcastId) {
-
+    episodeResource(podcastId : string) {
         return this.RestangularApp.one('podcasts', podcastId).getList('episodes');
 
+    }
+
+    episodeContentUrl(podcastId : string, episodeId : string) {
+        return this.podcastResource(podcastId)
+                   .one('episodes',episodeId)
+                   .getRestangularUrl() 
+                   + '/content/';
     }
 
 }

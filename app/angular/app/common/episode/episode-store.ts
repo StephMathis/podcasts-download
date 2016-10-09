@@ -55,7 +55,13 @@ export class EpisodeStore {
         return this.restangularResources
                 .episodeResource(podcastId)
                 .then((episodeList) => {
-                    return episodeList.map(episode => new Episode(episode));
+                    let buildEpisode = (episodeWS) => {
+                        let episode = new Episode(episodeWS);
+                        let contentUrl = this.restangularResources.episodeContentUrl(podcastId, episodeWS.episode_id);
+                        episode.setContentUrl(contentUrl);
+                        return episode;
+                    } 
+                    return episodeList.map(episode => buildEpisode(episode));
                 });
     }
 

@@ -10,7 +10,7 @@ export class EpisodeListComponent {
     podcastId : string;
 
     static config = {
-        bindings : {
+        bindings : <any>{
             podcastId: '<mhPodcastId'
         },
         controller: EpisodeListComponent,
@@ -28,7 +28,6 @@ export class EpisodeListComponent {
 
 
     episodeList() {
-        console.log('EpisodeListComponent.episodeList, podcastId='+this.podcastId);
         this.episodeStore.episodeList(this.podcastId)
             .then(episodeList => this.episodeList = episodeList);
     }
