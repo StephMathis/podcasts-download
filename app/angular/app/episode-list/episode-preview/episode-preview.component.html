@@ -1,11 +1,9 @@
 <div layout="row">
-    <div layout="column">
-        <span class="episode-preview-title"> {{ $ctrl.episode.title}} </span>
-        <span class="episode-preview-size"> {{ $ctrl.episode.size}} </span>
-        <span class="episode-preview-title"> {{ $ctrl.episode.duration}} </span>
+    <div class="md-list-item-text" flex="66">
+        <h3 layout-align="left">{{ $ctrl.episode.title}} </h3>
+        <p layout-align="left">{{ $ctrl.episode.size}} - {{ $ctrl.episode.duration}}</p>
     </div>
-
-    <div layout="row" layout-align="end center">
+    <div flex="33" > <!-- layout="row" layout-align="end center" -->
         <md-button class="md-fab" 
                    ng-class="{'md-primary': $ctrl.episode.downloaded === false, 'md-warn' : $ctrl.episode.downloaded === true}" 
                    aria-label="Download" 
@@ -14,7 +12,13 @@
           T&eacute;l&eacute;charger
         </md-button>
     </div>
-
 </div>
+
+
+
+
+
+
+
 
 
