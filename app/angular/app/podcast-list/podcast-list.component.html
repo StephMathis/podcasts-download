@@ -6,8 +6,8 @@
 
 <div ng-cloak >
     <md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card ng-repeat="podcast in $ctrl._podcastList">
+        <div class='md-padding' layout="row" layout-wrap>
+            <md-card flex="30" flex-sm="80" ng-repeat="podcast in $ctrl._podcastList">
                 <mh-podcast-preview
                         mh-podcast="podcast">
                 </mh-podcast-preview>
