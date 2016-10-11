@@ -5,9 +5,11 @@
 import {episodeModule} from "../common/episode/episode.module";
 import {EpisodePreviewComponent} from "./episode-preview/episode-preview.component";
 import {EpisodeListComponent} from "./episode-list.component";
+import {filtersModule} from '../common/filters/filters.module';
 
 export const episodeListModule = angular.module('app.episodeList', [
     episodeModule.name,
+    filtersModule.name,
     'ngMaterial'
 ]);
 

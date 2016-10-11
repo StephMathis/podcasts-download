@@ -36,15 +36,13 @@ export const filesizefilter = ($filter) => {
 import {episodeModule} from "../../common/episode/episode.module";
 import {EpisodePreviewComponent} from "./episode-preview.component";
 import {filtersModule} from '../../common/filters/filters.module';
-import {filesizefilter} from "../../common/filters/filesize.filter";
 
 export const episodePreviewModule = angular.module('app.episodeList.episodePreview', [
-    episodeModule.name,
-    filtersModule.name
+    episodeModule.name
 ]);
 
 episodePreviewModule.component('mhEpisodePreview', EpisodePreviewComponent.config);
-episodePreviewModule.filter('mhfilesizeag', filesizefilter)
+//episodePreviewModule.filter('mhfilesizeag', filtersModule.filesizefilter)
 
 /*
 export function LabelCase() {
