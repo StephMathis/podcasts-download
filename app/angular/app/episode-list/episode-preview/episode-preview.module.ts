@@ -35,11 +35,11 @@ export const filesizefilter = ($filter) => {
 
 import {episodeModule} from "../../common/episode/episode.module";
 import {EpisodePreviewComponent} from "./episode-preview.component";
-import {filtersModule} from '../../common/filters/filters.module';
+//import {filtersModule} from '../../common/filters/filters.module';
 
 export const episodePreviewModule = angular.module('app.episodeList.episodePreview', [
     episodeModule.name,
-    filtersModule.name
+    //filtersModule.name
 ]);
 
 episodePreviewModule.component('mhEpisodePreview', EpisodePreviewComponent.config);
