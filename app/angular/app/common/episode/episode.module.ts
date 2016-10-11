@@ -5,13 +5,15 @@ import 'angular-local-storage';
 import {restangularModule} from "../restangular/restangular.module";
 import {podcastslocalstorageModule} from "../podcastslocalstorage/podcastslocalstorage.module";
 import {EpisodeStore} from "./episode-store";
-import {filesizefilter} from "./episode-filesize.filter";
+import {filtersModule} from "../filters/filters.module";
+
 
 export const episodeModule = angular.module('app.common.episode', [
-    restangularModule.name , 'LocalStorageModule', podcastslocalstorageModule.name //, podcastslocalstorageModule.name
+    restangularModule.name , 'LocalStorageModule', podcastslocalstorageModule.name, //, podcastslocalstorageModule.name
+    filtersModule.name
 ]);
 
 episodeModule.service('episodeStore', EpisodeStore);
-episodeModule.filter('mhfilesize', filesizefilter)
+
 
 
