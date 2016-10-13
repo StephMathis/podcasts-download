@@ -5,6 +5,10 @@
 
 export const timefilter = ($filter) => {
     return (seconds) => {
-        return $filter('date')(new Date(0,0,0).setSeconds(seconds), 'HH:mm:ss');
+        let format : string = 'mm:ss';
+        if (seconds >= 3600) {
+            format = 'HH:mm:ss';
+        }
+        return $filter('date')(new Date(0,0,0).setSeconds(seconds), format);
     };
 };
