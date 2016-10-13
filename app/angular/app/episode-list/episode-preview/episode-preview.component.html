@@ -14,7 +14,7 @@
     </div>
 </div> -->
 
-        
+ <div layout="row" layout-wrap>       
         <div flex="66" class="md-list-item-text compact">
             <h3>{{ $ctrl.episode.title}}</h3>
             <p>{{ $ctrl.episode.size | mhfilesize }} - {{ $ctrl.episode.duration | mhseconds }}</p>
@@ -29,8 +29,7 @@
             <i class="material-icons">backup</i>
         </md-button>
       </div>
-
-
+</div>
         <md-divider ng-if="!$last"></md-divider>
 
        
