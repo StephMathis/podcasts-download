@@ -25,7 +25,7 @@
             <md-subheader class="md-no-sticky">Episodes</md-subheader>
             <md-list-item class="md-2-line contact-item" ng-repeat="episode in $ctrl.episodeList"
                           >
-                <mh-episode-preview
+                <mh-episode-preview flex="100"
                     mh-episode="episode" 
                     mh-download-notifier="$ctrl.episodeStore.setAlreadyDownloaded(episode)">
             </mh-episode-preview>

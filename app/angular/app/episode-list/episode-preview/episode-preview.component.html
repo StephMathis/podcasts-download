@@ -14,19 +14,23 @@
     </div>
 </div> -->
 
-        <md-button flex="33" href="{{ $ctrl.episode.contentUrl }}"
+        
+        <div flex="66" class="md-list-item-text compact">
+            <h3>{{ $ctrl.episode.title}}</h3>
+            <p>{{ $ctrl.episode.size | mhfilesize }} - {{ $ctrl.episode.duration | mhseconds }}</p>
+        </div>
+        <div flex="33" >
+
+        <md-button href="{{ $ctrl.episode.contentUrl }}"
             ng-class="{'md-primary': $ctrl.episode.downloaded === false, 'md-warn' : $ctrl.episode.downloaded === true}" 
             aria-label="Download" 
             href="{{ $ctrl.episode.contentUrl }}" 
             ng-click="$ctrl.setDownloaded()">
             <i class="material-icons">backup</i>
         </md-button>
+      </div>
 
 
-        <div flex="66" class="md-list-item-text compact">
-            <h3>{{ $ctrl.episode.title}}</h3>
-            <p>{{ $ctrl.episode.size | mhfilesize }} - {{ $ctrl.episode.duration | mhseconds }}</p>
-        </div>
         <md-divider ng-if="!$last"></md-divider>
 
        
