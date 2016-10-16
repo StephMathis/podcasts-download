@@ -21,15 +21,17 @@ export class EpisodePreviewComponent {
 
     episode;
 
-    setDownloaded = () => {
-        console.log("EpisodePreviewComponent.setDownloaded");
-        console.log('https://metaheuristic.fr/podcast-api/v1/trackers/' + this.episode.trackerId);
+    getContentUrlWithTracker = () => {
+        //console.log(this.episode.contentUrl);
+        //console.log(this.downloadTrackerStore.getUrlWithTracker(this.episode.contentUrl));
+        return this.downloadTrackerStore.getUrlWithTracker(this.episode.contentUrl);
+    }
+
+    downloadRequested = () => {
         if (this.downloadNotifier !== null) {
             this.downloadNotifier();
         }
-        console.log(this.episode);
-        this.downloadTrackerStore.add(this.episode);
-        this.downloadTrackerStore.checkAllStatus();
+        //this.downloadTrackerStore.add(this.episode);
         return true;
     }
 

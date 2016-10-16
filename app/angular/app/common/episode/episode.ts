@@ -17,8 +17,8 @@ export class Episode {
     subtitle: string;
     title: string;
     contentUrl: string;
-    contentUrlWithTracker: string;
-    trackerId: string;
+    // contentUrlWithTracker: string;
+    // trackerId: string;
     downloaded: boolean;
 
     constructor(args) {
@@ -42,18 +42,18 @@ export class Episode {
     getContentUrl() {
         return this.contentUrl;
     }
-    setTrackerId(trackerId) {
-        this.trackerId = trackerId;
-    }
-    getTrackerId() {
-        return this.trackerId;
-    }
-    setContentUrlWithTracker(contentUrlWithTracker) {
-        this.contentUrlWithTracker = contentUrlWithTracker;
-    }
-    getContentUrlWithTracker() {
-        return this.contentUrlWithTracker;
-    }
+    // setTrackerId(trackerId) {
+    //     this.trackerId = trackerId;
+    // }
+    // getTrackerId() {
+    //     return this.trackerId;
+    // }
+    // setContentUrlWithTracker(contentUrlWithTracker) {
+    //     this.contentUrlWithTracker = contentUrlWithTracker;
+    // }
+    // getContentUrlWithTracker() {
+    //     return this.contentUrlWithTracker;
+    // }
     setAlreadyDownloaded(downloaded : boolean) {
         this.downloaded = downloaded;
     }

@@ -16,14 +16,20 @@ export class DownloadTrackerStore {
     _pending : boolean = false;
     length: number = 0;
 
+    trackerGroupId: string;
+    episodePendings: string[] = new Array();
+
     constructor(private $q,
                 private $interval,
                 private restangularResources
                 ){
         'ngInject'
-    }
-
+        this.trackerGroupId = "podcast-" + Math.floor(Math.random() * 100000) + 1;
+        this.checkAllStatus();
+        }
+/*
     add(episode) {
+        let 
         let tracker = new Tracker({"trackerId": episode.getTrackerId(), "status":undefined});
         let downloadTracker = new DownloadTracker({"tracker": tracker, "episode":episode});
         this._trackers.push(downloadTracker);
@@ -31,13 +37,35 @@ export class DownloadTrackerStore {
         console.log("DownloadTrackerStore.add : ",downloadTracker);
         console.log(this._trackers); 
     }
+*/
+
+    getUrlWithTracker(url: string) {
+        return url+"?tracker_group_id="+this.trackerGroupId;
+    }
 
     _checkAllStatus() {
         if (this._pending) {
             return;
         }
         this._pending = true;
-        console.log("DownloadTrackerStore.checkAllStatus : start (" + this._trackers.length + ")");
+
+        //console.log("DownloadTrackerStore.checkAllStatus : start (" + this._trackers.length + ")");
+        this.restangularResources.trackerGroupResource(this.trackerGroupId)
+            .then( (trackersWS) => {
+                let items_status = trackersWS.items_status;
+                let episodes: string[] = new Array();
+                //console.log(trackersWS);
+                //console.log(items_status);
+                // TODO : faire en sorte que le ws soit retourne en tant qu'objet liste et non une chaine de caractere
+                items_status = JSON.parse(items_status.replace(/'/g,'"'));
+                //console.log(items_status);
+                episodes = items_status.filter((item) => {return item.status !== "Finished"} ).map((item)=>{return item.id;});
+                this.episodePendings = episodes;
+                this.length = this.episodePendings.length;
+                this._pending = false;
+            });
+
+/*
         var trackersToTreat = this._trackers.slice(); // copy of array to avoid conflict with add method
         var trackers = Array();
         var nbTrackersTreated = 0;
@@ -68,7 +96,7 @@ export class DownloadTrackerStore {
                     }                    
                 });
         }
-        
+*/        
         //this.length = this._trackers.length;
 
         //     for (var episodeId in this._trackers[podcastId]) {

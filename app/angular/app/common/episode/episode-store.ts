@@ -13,7 +13,8 @@ export class EpisodeStore {
 
     constructor(private $q,
                 private restangularResources, 
-                private podcastsLocalstorageResources
+                private podcastsLocalstorageResources,
+                private downloadTrackerStore
                 ){
         'ngInject'
     }
@@ -25,11 +26,11 @@ export class EpisodeStore {
                     let buildEpisode = (episodeWS) => {
                         let episode = new Episode(episodeWS);
                         let contentUrl = this.restangularResources.episodeContentUrl(podcastId, episodeWS.episode_id);
-                        let trackerId = Math.floor(Math.random() * 100000) + 1;  
-                        let contentUrlWithTracker = this.restangularResources.episodeContentUrlWithTracker(podcastId, episodeWS.episode_id, trackerId);
+                        //let trackerId = Math.floor(Math.random() * 100000) + 1;  
+                        //let contentUrlWithTracker = this.restangularResources.episodeContentUrlWithTracker(podcastId, episodeWS.episode_id, trackerId);
                         episode.setContentUrl(contentUrl);
-                        episode.setTrackerId(trackerId);
-                        episode.setContentUrlWithTracker(contentUrlWithTracker);
+                        //episode.setTrackerId(trackerId);
+                        //episode.setContentUrlWithTracker(contentUrlWithTracker);
                         episode.setAlreadyDownloaded(this.getAlreadyDownloaded(episode));
                         return episode;
                     } 

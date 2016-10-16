@@ -44,7 +44,13 @@ export class RestangularResources {
     }
 
     trackerResource(trackerId) {
-        return this.RestangularApp.service('trackers').one(trackerId).get();
+        //return this.RestangularApp.service('trackers').one(trackerId).get();
+        return this.RestangularApp.oneUrl('trackers', 'http://steph-linux/podcast-api/v1/trackers/' + trackerId).get();
+    }
+
+    trackerGroupResource(trackerGroupId) {
+        return this.RestangularApp.service('trackergroups').one(trackerGroupId).get();
+        //return this.RestangularApp.oneUrl('trackers', 'http://steph-linux/podcast-api/v1/trackers/' + trackerId).get();
     }
 
 }
