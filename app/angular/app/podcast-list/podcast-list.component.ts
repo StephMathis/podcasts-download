@@ -13,7 +13,7 @@ export class PodcastListComponent {
 
     _podcastList: Podcast[];
 
-    constructor(private podcastStore) {
+    constructor(private podcastStore, private downloadTrackerStore) {
         'ngInject';
 
         this.podcastList();

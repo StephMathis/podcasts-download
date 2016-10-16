@@ -21,10 +21,9 @@
         </div>
         <div flex="33" >
 
-        <md-button href="{{ $ctrl.episode.contentUrl }}"
+        <md-button href="{{ $ctrl.episode.contentUrlWithTracker }}"
             ng-class="{'md-primary': $ctrl.episode.downloaded === false, 'md-warn' : $ctrl.episode.downloaded === true}" 
             aria-label="Download" 
-            href="{{ $ctrl.episode.contentUrl }}" 
             ng-click="$ctrl.setDownloaded()">
             <i class="material-icons">backup</i>
         </md-button>

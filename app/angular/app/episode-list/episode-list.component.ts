@@ -2,7 +2,7 @@
  * Created by amel on 02/10/16.
  */
 
-import {Episode} from "../common/episode/episode.component";
+import {Episode} from "../common/episode/episode";
 import {RestangularResources} from "../common/restangular/resources/restangular.resources";
 
 export class EpisodeListComponent {

@@ -26,11 +26,25 @@ export class RestangularResources {
 
     }
 
-    episodeContentUrl(podcastId : string, episodeId : string) {
+    episodeUrl(podcastId : string, episodeId : string) {
         return this.podcastResource(podcastId)
                    .one('episodes',episodeId)
-                   .getRestangularUrl() 
-                   + '/content/';
+                   .getRestangularUrl();
+    }
+
+    episodeContentUrl(podcastId : string, episodeId : string) {
+        return this.episodeUrl(podcastId, episodeId) + '/content/';
+    }
+
+    episodeContentUrlWithTracker(podcastId : string, episodeId : string, trackerId : string) {
+        return this.podcastResource(podcastId)
+                   .one('episodes', episodeId)
+                   .one('contentwithtracker', trackerId)
+                   .getRestangularUrl();
+    }
+
+    trackerResource(trackerId) {
+        return this.RestangularApp.service('trackers').one(trackerId).get();
     }
 
 }
