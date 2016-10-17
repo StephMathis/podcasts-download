@@ -31,7 +31,7 @@ export class EpisodePreviewComponent {
         if (this.downloadNotifier !== null) {
             this.downloadNotifier();
         }
-        //this.downloadTrackerStore.add(this.episode);
+        this.downloadTrackerStore.add(this.episode);
         return true;
     }
 
