@@ -1,4 +1,4 @@
-<div layout="column" ng-cloak flex-gt-sm="100" flex>
+<!-- <div layout="column" ng-cloak flex-gt-sm="100" flex>
     <md-content>
         <md-list>
             <md-subheader class="md-no-sticky">Episodes</md-subheader>
@@ -12,4 +12,37 @@
             </md-list-item>
         </md-list>
     </md-content>
-</div>
+</div> -->
+
+
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Episodes</h2>
+                <span flex></span>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="">
+                    <i class="material-icons">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-content>
+                    <md-list>
+                        <md-list-item
+                                class="md-2-line contact-item"
+                                ng-repeat="episode in $ctrl.episodeList">
+                            <mh-episode-preview flex="100"
+                                                mh-episode="episode"
+                                                mh-download-notifier="$ctrl.episodeStore.setAlreadyDownloaded(episode)">
+                            </mh-episode-preview>
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+
+            </div>
+        </md-dialog-content>
+
+    </form>
