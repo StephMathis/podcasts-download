@@ -1,17 +1,13 @@
 <md-card-title>
     <md-card-title-text>
-        <span class="md-title" ng-click="$ctrl.toggleEpisodes()">{{ $ctrl.podcast.content.title }}</span>
+        <span class="md-title" ng-click="$ctrl.showEpisodes()">{{ $ctrl.podcast.content.title }}</span>
        <!--  <span class="md-subhead">{{ $ctrl.podcast.content.description }}</span> -->
     </md-card-title-text>
     <md-card-title-media>
         <div class="md-media-lg card-media">
             <img ng-src="{{ $ctrl.podcast.content.cover_url }}"
                  height="200px"
-                 ng-click="$ctrl.toggleEpisodes()"/>
+                 ng-click="$ctrl.showEpisodes()"/>
         </div>
     </md-card-title-media>
 </md-card-title>
-<!--<md-card-actions layout="row" layout-align="end center">
-   <md-button class="md-raised md-primary" ng-click="$ctrl.toggleEpisodes()">&Eacute;pisodes</md-button>
-</md-card-actions>-->
-<mh-episode-list ng-hide="$ctrl.hideEpisodes" mh-podcast-id="$ctrl.podcast.podcastId"></mh-episode-list>

@@ -26,13 +26,10 @@ appModule.config($stateProvider => {
         template: '<mh-podcast-list></mh-podcast-list>'
     }
 
-    var episodesState = {
-        name: 'episodes',
-        url: '/episodes',
-        template: '<mh-episode-list></mh-episode-list>'
-    }
-
     $stateProvider.state(podcastsState);
-    $stateProvider.state(episodesState);
+});
+
+appModule.config($urlRouterProvider => {
+    $urlRouterProvider.when('', '/podcasts');
 });
 

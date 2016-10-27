@@ -13,7 +13,7 @@ import {userListModule} from '../../../../app/angular/app/user-list/user-list.mo
 describe('UserListComponent', () => {
 
     beforeEach(angular.mock.module(userListModule.name));
-    beforeEach(angular.mock.module('wishtack.templates'));
+    beforeEach(angular.mock.module('wishtack.templates'));+
 
     beforeEach(inject(($compile,
                        $http,
