@@ -19,9 +19,11 @@ export class EpisodeListComponent {
 
     _episodeList: Promise<Episode[]>;
     restangularResources: RestangularResources;
+    isLoading;
 
     constructor(private episodeStore) {
         'ngInject';
+        this.isLoading = true;
 
         this.episodeList();
     }
@@ -29,7 +31,10 @@ export class EpisodeListComponent {
 
     episodeList() {
         this.episodeStore.episodeList(this.podcastId)
-            .then(episodeList => this.episodeList = episodeList);
+            .then(episodeList => {
+                this.episodeList = episodeList;
+                this.isLoading = false;
+            });
     }
 
 

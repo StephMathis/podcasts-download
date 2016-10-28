@@ -28,4 +28,4 @@ var ProtractorOnPrepare = dejavu.Class.declare({
 
 });
 
-new ProtractorOnPrepare().run();
+//new ProtractorOnPrepare().run();
