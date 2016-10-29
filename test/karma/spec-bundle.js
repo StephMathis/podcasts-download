@@ -16,9 +16,8 @@
  */
 Error.stackTraceLimit = Infinity;
 
-
-require('../../app/angular/common');
 require('angular');
+require('../../app/angular/common');
 require('angular-mocks');
 require('jquery');
 require('phantomjs-polyfill');
