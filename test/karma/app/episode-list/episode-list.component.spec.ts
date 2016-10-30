@@ -2,7 +2,6 @@
  * Created by amel on 04/10/16.
  */
 
-
 import * as $ from 'jquery';
 import {Episode} from "../../../../app/angular/app/common/episode/episode";
 import {episodeListModule} from "../../../../app/angular/app/episode-list/episode-list.module";
@@ -12,13 +11,11 @@ fdescribe ('EpisodeListModule', ()=>{
     beforeEach(angular.mock.module(episodeListModule.name));
     beforeEach(angular.mock.module('wishtack.templates'));
 
-
     beforeEach(inject((episodeStore,
                        $compile,
                        $q,
                        $rootScope,
                        $templateCache
-
     ) => {
 
         this.$compile = $compile;
@@ -27,7 +24,6 @@ fdescribe ('EpisodeListModule', ()=>{
         this.$templateCache = $templateCache;
         this.scope = this.$rootScope.$new();
         this.scope.episodeStore = episodeStore;
-
 
         this.$templateCache.put(
             require('../../../../app/angular/app/episode-list/episode-list.component.html'),
@@ -47,7 +43,6 @@ fdescribe ('EpisodeListModule', ()=>{
     }));
 
 
-
     it('should display episode-list', () => {
 
         let rawElement;
@@ -56,11 +51,12 @@ fdescribe ('EpisodeListModule', ()=>{
         this.scope.podcastIdInjected = "123456";
 
         rawElement = this.$compile(`<mh-episode-list mh-podcast-id="podcastIdInjected"></mh-episode-list>`)(this.scope);
-        this.scope.$apply();
-
         element = $(rawElement);
+        this.scope.$apply();
 
         //expect(element.html()).toEqual("labore eiusmod aliquip consectetur");
         expect(this.scope.episodeStore.episodeList.calls.count()).toBe(1);
         expect(this.scope.episodeStore.episodeList).toHaveBeenCalledWith(this.scope.podcastIdInjected);
-    })})
+    });
+})
+
