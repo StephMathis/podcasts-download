@@ -59,7 +59,7 @@ fdescribe ('PodcastPreview', ()=>{
 
         podcastToInject = new Podcast({
             content: content,
-            podcast_url: "podcast ur",
+            podcast_url: "podcast url",
             podcast_id: "id"
         });
 
@@ -69,8 +69,8 @@ fdescribe ('PodcastPreview', ()=>{
         this.scope.podcast = podcastToInject;
 
         rawElement = this.$compile(`<mh-podcast-preview mh-podcast="podcast">`)(this.scope);
-
         element = $(rawElement);
+
         this.scope.$apply();
 
         expect(element.find('.md-title').text()).toEqual('Chroniques du ciel');
