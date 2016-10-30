@@ -8,7 +8,7 @@ import {EpisodeStore} from "../../../../app/angular/app/common/episode/episode-s
 import {RestangularResources} from "../../../../app/angular/app/common/restangular/resources/restangular.resources";
 import {episodeListModule} from "../../../../app/angular/app/episode-list/episode-list.module";
 
-fdescribe ('EpisodeListModule', ()=>{
+describe ('EpisodeListModule', ()=>{
 
     beforeEach(angular.mock.module(episodeListModule.name));
     beforeEach(angular.mock.module('wishtack.templates'));
