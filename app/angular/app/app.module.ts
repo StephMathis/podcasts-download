@@ -7,13 +7,13 @@
 
 
 import * as angular from 'angular';
-import {channelListModule} from "./channel-list/channel-list.module";
+import {userListModule} from './user-list/user-list.module';
 import {podcastListModule} from "./podcast-list/podcast-list.module";
 import {episodeListModule} from "./episode-list/episode-list.module";
 
 
 export const appModule = angular.module('app', [
-    channelListModule.name,
+    userListModule.name,
     podcastListModule.name,
     episodeListModule.name,
     'ui.router'
@@ -25,17 +25,11 @@ appModule.config($stateProvider => {
         url: '/podcasts',
         template: '<mh-podcast-list></mh-podcast-list>'
     }
-    var channelsState = {
-        name: 'channels',
-        url: '/channels',
-        template: '<mh-channel-list></mh-channel-list>'
-    }
 
-    $stateProvider.state(podcastsState)
-                  .state(channelsState);
+    $stateProvider.state(podcastsState);
 });
 
 appModule.config($urlRouterProvider => {
-    $urlRouterProvider.when('', '/channels');
+    $urlRouterProvider.when('', '/podcasts');
 });
 

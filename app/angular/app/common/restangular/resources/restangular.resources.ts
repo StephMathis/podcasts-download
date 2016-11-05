@@ -11,11 +11,14 @@ export class RestangularResources {
 
     podcastListResource() {
 
-        return this.RestangularApp.service('podcasts').getList();
+        return this.RestangularApp.service('podcasts/');
+
     }
 
     podcastResource(podcastId : string) {
+
         return this.RestangularApp.service('podcasts').one(podcastId);
+
     }
 
     episodeResource(podcastId : string) {
@@ -40,17 +43,15 @@ export class RestangularResources {
                    .getRestangularUrl();
     }
 
+    trackerResource(trackerId) {
+        //return this.RestangularApp.service('trackers').one(trackerId).get();
+        return this.RestangularApp.oneUrl('trackers', 'http://steph-linux/podcast-api/v1/trackers/' + trackerId).get();
+    }
+
     trackerGroupResource(trackerGroupId) {
         return this.RestangularApp.service('trackergroups').one(trackerGroupId).get();
         //return this.RestangularApp.oneUrl('trackers', 'http://steph-linux/podcast-api/v1/trackers/' + trackerId).get();
     }
 
-    channelListResource() {
-        return this.RestangularApp.service('channels').getList();
-    }
-
-    channelResource(channelId : string) {
-        return this.RestangularApp.serivce('channels').one(channelId).get();
-    }
 }
 
