@@ -2,6 +2,7 @@
  * Created by metaheuristic on 02/10/16.
  */
 import {Channel} from "./channel/channel";
+import {ChannelStore} from "./channel/channel-store";
 import {channelModule} from "./channel/channel.module";
 
 export class ChannelListComponent {
@@ -13,7 +14,7 @@ export class ChannelListComponent {
 
     channelList: Channel[];
 
-    constructor(private channelStore) {
+    constructor(private $mdDialog, private $scope, private channelStore: ChannelStore) {
         'ngInject';
 
         this.loadChannelList();
@@ -25,4 +26,29 @@ export class ChannelListComponent {
             .then(list => this.channelList = list);
     }
 
+    showAddChannelPrompt(event) {
+        let options = {
+            scope: this.$scope.$new(),
+            title: 'Une nouvelle chaine ? génial, je me réjouis !',
+            textContent: 'Quel nom lui donnez-vous ?',
+            placeholder: 'Histoire ? Géopoltique ?',
+            targetEvent: event,
+            ok: 'Okay!',
+            cancel: 'arf, j\'hésite, une autre fois ...'
+        }
+        let prompt = this.$mdDialog.prompt(options);
+
+        let validateNewChannel = (title) => {
+            if (title !== undefined) {
+                this.channelStore.createChannel(title).then(() => {
+                    this.loadChannelList();
+                });
+            }
+        }
+
+        let cancelNewChannel = () => {
+        }
+
+        this.$mdDialog.show(prompt).then(validateNewChannel, cancelNewChannel);
+    }
 }

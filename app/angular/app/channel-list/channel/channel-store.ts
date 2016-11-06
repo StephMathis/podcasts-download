@@ -21,12 +21,25 @@ export class ChannelStore {
                     return channelList.map(channel => new Channel(channel));
                 });
     }
-
+    
     loadChannel(channelId: string): Promise<Channel> {
         return this.restangularResources
                         .channelResource(channelId)
                         .then((channel) => {
                             return new Channel(channel);
                         });
+    }
+
+    createChannel(title: string) : any {
+        let res = this.restangularResources.createChannel(title);
+        console.log("ChannelStore",res);
+        return res;
+    }
+
+    addPodcast(channelId: string, podcastUrl : string) : any {
+        console.log("ChannelStore/addPodcast","podcastId", podcastUrl);
+        let res = this.restangularResources.addPodcastToChannel(channelId, podcastUrl);
+        console.log("ChannelStore/addPodcast",res);
+        return res;        
     }
 }

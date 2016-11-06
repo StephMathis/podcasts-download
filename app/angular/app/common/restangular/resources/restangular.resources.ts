@@ -54,5 +54,17 @@ export class RestangularResources {
     channelResource(channelId : string) {
         return this.RestangularApp.one('channels',channelId).get();
     }
+
+    createChannel(title : string) {
+        let data = {};
+        data['title'] = title;
+        return this.RestangularApp.all('channels').post(data);
+    }
+
+    addPodcastToChannel(channelId: string, podcastUrl: string) {
+        let data = {};
+        data['podcast_url'] = podcastUrl;
+        return this.RestangularApp.one('channels',channelId).all('podcasts').post(data);
+    }
 }
 
