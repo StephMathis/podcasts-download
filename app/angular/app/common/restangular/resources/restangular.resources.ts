@@ -4,9 +4,7 @@
 export class RestangularResources {
 
     constructor(private RestangularApp) {
-
         'ngInject';
-
     }
 
     podcastListResource() {
@@ -14,8 +12,12 @@ export class RestangularResources {
         return this.RestangularApp.service('podcasts').getList();
     }
 
-    podcastResource(podcastId : string) {
+    podcastPointer(podcastId : string) {
         return this.RestangularApp.service('podcasts').one(podcastId);
+    }
+
+    podcastResource(podcastId : string) {
+        return this.podcastPointer(podcastId).get();
     }
 
     episodeResource(podcastId : string) {
@@ -24,7 +26,7 @@ export class RestangularResources {
     }
 
     episodeUrl(podcastId : string, episodeId : string) {
-        return this.podcastResource(podcastId)
+        return this.podcastPointer(podcastId)
                    .one('episodes',episodeId)
                    .getRestangularUrl();
     }
@@ -34,7 +36,7 @@ export class RestangularResources {
     }
 
     episodeContentUrlWithTracker(podcastId : string, episodeId : string, trackerId : string) {
-        return this.podcastResource(podcastId)
+        return this.podcastPointer(podcastId)
                    .one('episodes', episodeId)
                    .one('contentwithtracker', trackerId)
                    .getRestangularUrl();
@@ -50,7 +52,7 @@ export class RestangularResources {
     }
 
     channelResource(channelId : string) {
-        return this.RestangularApp.serivce('channels').one(channelId).get();
+        return this.RestangularApp.one('channels',channelId).get();
     }
 }
 

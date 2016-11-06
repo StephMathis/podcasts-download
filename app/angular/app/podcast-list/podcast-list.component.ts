@@ -7,22 +7,44 @@ import {Podcast} from "../common/podcast/podcast.component";
 export class PodcastListComponent {
 
     static config = {
+        bindings: <any>{
+            podcastIdList: '<mhPodcastIdList',
+            podcastFilter: '<mhPodcastFilter'
+        },
         controller: PodcastListComponent,
         templateUrl: require('./podcast-list.component.html')
     };
 
     _podcastList: Podcast[];
+    podcastIdList : string[];
+    podcastFilter : string;
 
     constructor(private podcastStore, private downloadTrackerStore) {
         'ngInject';
-
-        this.podcastList();
     }
 
+    $onChanges(changes) {
+        console.log("PodcastListComponent", "changes", changes);
+        if (changes.podcastIdList != null && this.podcastIdList !== undefined) {
+            this.loadPodcastListByIds(this.podcastIdList);
+        }
+        if (this.podcastIdList === undefined) {
+            // no podcasts id list is set.
+            if (changes.podcastFilter != null && this.podcastFilter === "examples") {
+                this.loadDefaultPodcastList();
+            }
+        }
+    }
 
-    podcastList() {
-        this.podcastStore.podcastList()
+    loadDefaultPodcastList() {
+        this.podcastStore.loadDefaultPodcastList()
             .then(list => this._podcastList = list);
     }
 
+    loadPodcastListByIds(podcastIds : string[]) {
+        this.podcastStore.loadPodcastListByIds(podcastIds)
+            .then((list) => {
+                this._podcastList = list;
+            });
+    }
 }

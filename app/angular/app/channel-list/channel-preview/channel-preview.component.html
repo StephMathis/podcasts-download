@@ -5,7 +5,7 @@
 </md-card-title>
 
 <md-card-content>
-    <p>
+    <a ui-sref='channel({channelId: $ctrl.channel.channelId})'>
         {{ $ctrl.channel.getPodcastsId().length }} podcasts
-    </p>
+    </a>
 </md-card-content>

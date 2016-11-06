@@ -7,20 +7,31 @@ import {Podcast, PodcastContent} from "./podcast.component";
 
 export class PodcastStore {
 
-    _podcastList: Promise<Podcast[]>;
+    _defaultPodcastList: Promise<Podcast[]>;
 
     constructor(private $q, private restangularResources){
         'ngInject'
 
     }
 
-    podcastList(): Promise<Podcast[]> {
-        if (this._podcastList == null) {
-            this._podcastList = this.restangularResources.podcastListResource()
+    loadDefaultPodcastList(): Promise<Podcast[]> {
+        if (this._defaultPodcastList == null) {
+            this._defaultPodcastList = this.restangularResources.podcastListResource()
                 .then((podcastList) => {
                     return podcastList.map(podcast => new Podcast(podcast));
                 });
         }
-        return this._podcastList;
+        return this._defaultPodcastList;
+    }
+    
+    loadPodcastListByIds(podcastIdList : string[]) /* : Promise<Podcast[]> */ {
+        let podcastPromises : Promise<Podcast>[] = new Array<Promise<Podcast>>();
+        podcastIdList.forEach( podcastId => {
+            let aPodcastPromise : Promise<Podcast>;
+            aPodcastPromise = this.restangularResources.podcastResource(podcastId).then( podcast => new Podcast(podcast));
+            podcastPromises.push(aPodcastPromise);
+        });
+        
+        return Promise.all(podcastPromises);
     }
 }

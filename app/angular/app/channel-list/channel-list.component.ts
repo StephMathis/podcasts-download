@@ -1,5 +1,5 @@
 /**
- * Created by amel on 02/10/16.
+ * Created by metaheuristic on 02/10/16.
  */
 import {Channel} from "./channel/channel";
 import {channelModule} from "./channel/channel.module";

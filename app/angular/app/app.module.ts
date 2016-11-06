@@ -23,16 +23,22 @@ appModule.config($stateProvider => {
     var podcastsState = {
         name: 'podcasts',
         url: '/podcasts',
-        template: '<mh-podcast-list></mh-podcast-list>'
+        template: '<mh-podcast-list mh-podcast-filter="\'examples\'"></mh-podcast-list>'
     }
     var channelsState = {
         name: 'channels',
         url: '/channels',
         template: '<mh-channel-list></mh-channel-list>'
     }
+    var channelState = {
+        name: 'channel',
+        url: '/channel/:channelId',
+        template: '<mh-channel-view></mh-channel-view>'        
+    }
 
     $stateProvider.state(podcastsState)
-                  .state(channelsState);
+                  .state(channelsState)
+                  .state(channelState);
 });
 
 appModule.config($urlRouterProvider => {
