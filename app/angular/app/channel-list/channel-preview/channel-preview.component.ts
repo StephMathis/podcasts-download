@@ -8,7 +8,8 @@ export class ChannelPreviewComponent {
 
     static config = {
         bindings: <any>{
-            channel: '<mhChannel'
+            channel: '<mhChannel',
+            onChannelRemove: '&mhOnChannelRemove'
         },
         controller: ChannelPreviewComponent,
         templateUrl: require('./channel-preview.component.html')
@@ -19,4 +20,5 @@ export class ChannelPreviewComponent {
     constructor(private $state) {
         'ngInject';
     }
+
 }

@@ -3,7 +3,6 @@
  */
 import {Channel} from "./channel/channel";
 import {ChannelStore} from "./channel/channel-store";
-import {channelModule} from "./channel/channel.module";
 
 export class ChannelListComponent {
 
@@ -50,5 +49,10 @@ export class ChannelListComponent {
         }
 
         this.$mdDialog.show(prompt).then(validateNewChannel, cancelNewChannel);
+    }
+
+    removeChannel(channel: Channel) {
+        console.log(channel);
+        alert('Implement Me: call store to remove channel: ' + channel.channelId);
     }
 }

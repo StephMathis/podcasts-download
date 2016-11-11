@@ -1,11 +1,34 @@
 <md-card-title>
     <md-card-title-text>
-        <span class="md-title" >{{ $ctrl.channel.title }}</span>
-    </md-card-title-text>
-</md-card-title>
-
-<md-card-content>
-    <a ui-sref='channel({channelId: $ctrl.channel.channelId})'>
+        <span class="md-headline">{{ $ctrl.channel.title }}</span>
+        <span class="md-subhead"><a ui-sref='channel({channelId: $ctrl.channel.channelId})'>
         {{ $ctrl.channel.getPodcastsId().length }} podcasts
-    </a>
+    </a></span>
+    </md-card-title-text>
+    <md-card-title-media>
+        <div class="md-media-md card-media">
+            <!-- to replace by uploaded channel image -->
+            <img ng-src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/13615480_10154311922774500_8779146218508765240_n.jpg?oh=9be80b2b23fb1562041aff0fb8bdcdc8&oe=58CD54BB"
+                 class="md-card-image" alt="image caption"
+                 style="height: 112px;">
+
+            <!-- <img ng-src="{{ $ctrl.channel.cover }}"
+                 class="md-card-image" alt="channel image"
+                 style="height: 112px;">
+                 -->
+        </div>
+    </md-card-title-media>
+</md-card-title>
+<md-card-content>
+    <p>
+        Quoi de beau dans cette chaîne?...
+    </p>
 </md-card-content>
+<md-card-actions layout="row" layout-align="end center">
+    <md-button class="md-icon-button" aria-label="Delete" ng-click="$ctrl.onChannelRemove()">
+        <md-tooltip md-direction="left">
+            Supprimer
+        </md-tooltip>
+        <i class="material-icons">delete_forever</i>
+    </md-button>
+</md-card-actions>

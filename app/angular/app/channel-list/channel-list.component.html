@@ -9,15 +9,14 @@
         </md-button>
     </div>
 </md-toolbar>
-<div ng-cloak >
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div class='md-padding' layout="row" layout-wrap>
             <md-card flex="30" flex-sm="80" ng-repeat="channel in $ctrl.channelList">
                 <mh-channel-preview
-                        mh-channel="channel">
+                        mh-channel="channel"
+                        mh-on-channel-remove="$ctrl.removeChannel(channel)">
                 </mh-channel-preview>
             </md-card>
-        </div>
         </div>
     </md-content>
 </div>
