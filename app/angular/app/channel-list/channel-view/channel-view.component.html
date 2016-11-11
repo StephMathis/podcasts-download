@@ -16,4 +16,6 @@
 </md-toolbar>
 
 <mh-podcast-list mh-podcast-id-list="$ctrl.channel.getPodcastsId()"
-                 mh-on-podcast-add="$ctrl.showAddPocastPrompt($event)"></mh-podcast-list>
+                 mh-on-podcast-add="$ctrl.showAddPocastPrompt($event)"
+                 mh-on-podcast-remove="$ctrl.removePodcast()"
+></mh-podcast-list>

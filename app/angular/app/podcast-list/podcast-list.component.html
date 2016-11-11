@@ -15,7 +15,8 @@
         <div class='md-padding' layout="row" layout-wrap>
             <md-card flex="30" flex-sm="80" ng-repeat="podcast in $ctrl._podcastList">
                 <mh-podcast-preview
-                        mh-podcast="podcast">
+                        mh-podcast="podcast"
+                        mh-on-podcast-remove="$ctrl.removePodcast(podcast)">
                 </mh-podcast-preview>
             </md-card>
         </div>

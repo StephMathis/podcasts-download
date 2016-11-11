@@ -59,4 +59,8 @@ export class ChannelViewComponent {
 
         this.$mdDialog.show(prompt).then(validateAddPodcast, cancelAddPodcast);
     }
+
+    removePodcast() {
+        //@todo: implement me
+    }
 }

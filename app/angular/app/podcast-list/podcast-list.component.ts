@@ -10,7 +10,8 @@ export class PodcastListComponent {
         bindings: <any>{
             podcastIdList: '<mhPodcastIdList',
             podcastFilter: '<mhPodcastFilter',
-            onPodcastAdd: '&mhOnPodcastAdd'
+            onPodcastAdd: '&mhOnPodcastAdd',
+            onPodcastRemove: '&mhOnPodcastRemove'
         },
         controller: PodcastListComponent,
         templateUrl: require('./podcast-list.component.html')
@@ -20,6 +21,7 @@ export class PodcastListComponent {
     podcastIdList : string[];
     podcastFilter : string;
     onPodcastAdd;
+    onPodcastRemove;
 
     constructor(private podcastStore, private downloadTrackerStore) {
         'ngInject';
@@ -50,7 +52,11 @@ export class PodcastListComponent {
             });
     }
 
-   addPodcast({podcast}: {podcast: Podcast}) {
+    addPodcast({podcast}: {podcast: Podcast}) {
         this.onPodcastAdd({podcast: podcast});
+    }
+
+    removePodcast(podcast: Podcast) {
+        alert('Implement Me : ' + podcast.podcastId);
     }
 }
