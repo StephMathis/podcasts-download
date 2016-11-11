@@ -12,11 +12,10 @@
 <div ng-cloak >
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div class='md-padding' layout="row" layout-wrap>
-            <md-card flex="30" flex-sm="80" ng-repeat="channel in $ctrl.channelList">
-                <mh-channel-preview
-                        mh-channel="channel">
-                </mh-channel-preview>
-            </md-card>
+            <mh-channel-preview 
+                    mh-channel="channel"                    
+                    ng-repeat="channel in $ctrl.channelList">
+            </mh-channel-preview>
         </div>
         </div>
     </md-content>

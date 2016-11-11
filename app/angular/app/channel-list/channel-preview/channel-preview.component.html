@@ -1,11 +1,15 @@
-<md-card-title>
-    <md-card-title-text>
-        <span class="md-title" >{{ $ctrl.channel.title }}</span>
-    </md-card-title-text>
-</md-card-title>
+<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-title" >{{ $ctrl.channel.title }}</span>
+        </md-card-title-text>
+    </md-card-title>
 
-<md-card-content>
-    <a ui-sref='channel({channelId: $ctrl.channel.channelId})'>
-        {{ $ctrl.channel.getPodcastsId().length }} podcasts
-    </a>
-</md-card-content>
+    <md-card-content>
+        <a class="record" 
+           ng-animate-ref="{{ $ctrl.channel.channelId }}"
+           ui-sref='channel({channelId: $ctrl.channel.channelId})'>
+            {{ $ctrl.channel.getPodcastsId().length }} podcasts
+        </a>
+    </md-card-content>
+</md-card>

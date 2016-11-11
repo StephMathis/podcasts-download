@@ -1,39 +1,12 @@
 <html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+  </head>
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-
-
-<head>
-
-
-
-</head>
-
-<body>
-
-<!--
-<a ui-sref="podcasts" ui-sref-active="active">Podcasts</a>
-<a ui-sref="episodes" ui-sref-active="active">Episodes</a>
--->
-<ui-view></ui-view>
-
-<!--
-
-<br/>
-Podcasts
-<br/>
-<mh-podcast-list></mh-podcast-list>
-<br/>
-Episodes
-<br/>
-<mh-episode-list></mh-episode-list>
-
-    <wt-user-list></wt-user-list>
-    et voila le mh-episode<br/>
-     <mh-episode></mh-episode> 
-    et voila le mh-episode-list<br/>
-     <mh-episode-list></mh-episode-list> -->
-</body>
-
+  <body>
+    <div class="view-container">
+      <ui-view class="view"></ui-view>
+    </div>
+  </body>
 </html>
