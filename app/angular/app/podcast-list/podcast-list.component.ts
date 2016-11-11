@@ -1,7 +1,7 @@
 /**
  * Created by amel on 02/10/16.
  */
-//require('!!style!css!./podcast-list.style.css');
+
 import {Podcast} from "../common/podcast/podcast.component";
 
 export class PodcastListComponent {
@@ -9,7 +9,8 @@ export class PodcastListComponent {
     static config = {
         bindings: <any>{
             podcastIdList: '<mhPodcastIdList',
-            podcastFilter: '<mhPodcastFilter'
+            podcastFilter: '<mhPodcastFilter',
+            onPodcastAdd: '&mhOnPodcastAdd'
         },
         controller: PodcastListComponent,
         templateUrl: require('./podcast-list.component.html')
@@ -18,6 +19,7 @@ export class PodcastListComponent {
     _podcastList: Podcast[];
     podcastIdList : string[];
     podcastFilter : string;
+    onPodcastAdd;
 
     constructor(private podcastStore, private downloadTrackerStore) {
         'ngInject';
@@ -46,5 +48,9 @@ export class PodcastListComponent {
             .then((list) => {
                 this._podcastList = list;
             });
+    }
+
+   addPodcast({podcast}: {podcast: Podcast}) {
+        this.onPodcastAdd({podcast: podcast});
     }
 }

@@ -15,7 +15,10 @@ export class ChannelViewComponent {
     channelId : string;
     channel : Channel;
 
-    constructor(private $mdDialog, private $scope, private $stateParams, private channelStore : ChannelStore) {
+    constructor(private $mdDialog,
+                private $scope,
+                private $stateParams,
+                private channelStore : ChannelStore) {
         'ngInject';
 
         this.channelId = this.$stateParams.channelId;
