@@ -12,7 +12,7 @@
     </md-card-title-media>
 </md-card-title>
 <md-card-actions layout="row" layout-align="end center">
-    <md-button class="md-icon-button" aria-label="Delete podcast" ng-click="$ctrl.onPodcastRemove()">
+    <md-button class="md-icon-button" aria-label="Delete podcast" ng-click="$ctrl.onPodcastRemove({podcast: $ctrl.podcast})">
         <md-tooltip md-direction="left">
             Supprimer ce podcast
         </md-tooltip>

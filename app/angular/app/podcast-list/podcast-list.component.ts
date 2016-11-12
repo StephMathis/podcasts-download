@@ -56,7 +56,8 @@ export class PodcastListComponent {
         this.onPodcastAdd({podcast: podcast});
     }
 
-    removePodcast(podcast: Podcast) {
-        alert('Implement Me : ' + podcast.podcastId);
+    removePodcast({podcast}: {podcast: Podcast}) {
+        this.onPodcastRemove({podcast: podcast});
     }
+
 }

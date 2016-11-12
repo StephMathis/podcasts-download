@@ -4,6 +4,7 @@
 
 import {Channel} from "../channel/channel";
 import {ChannelStore} from "../channel/channel-store";
+import {Podcast} from "../../common/podcast/podcast.component";
 
 export class ChannelViewComponent {
 
@@ -60,7 +61,8 @@ export class ChannelViewComponent {
         this.$mdDialog.show(prompt).then(validateAddPodcast, cancelAddPodcast);
     }
 
-    removePodcast() {
-        //@todo: implement me
+    removePodcast({podcast} : {podcast: Podcast}) {
+        //@todo: call channelStore.removePodcast(this.channelId, podcast)
+        console.log(podcast.podcastId);
     }
 }
