@@ -66,5 +66,10 @@ export class RestangularResources {
         data['podcast_url'] = podcastUrl;
         return this.RestangularApp.one('channels',channelId).all('podcasts').post(data);
     }
+
+    removePodcastFromChannel(channelId: string, podcastId: string) {
+        /* DELETE /channels/channelId/podcasts/podcastId */
+        return this.RestangularApp.one('channels',channelId).one('podcasts',podcastId).remove();
+    }
 }
 

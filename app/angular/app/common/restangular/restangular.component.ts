@@ -9,7 +9,6 @@ export class RestangularApp {
         'ngInject';
         return Restangular.withConfig((RestangularConfigurer) => {
             RestangularConfigurer.setBaseUrl('https://metaheuristic.fr/podcast-api/v1/');
-            //RestangularConfigurer.setBaseUrl('http://localhost:8000/podcast-api/v1/');
 
             RestangularConfigurer.configuration.requestSuffix = '/';
 

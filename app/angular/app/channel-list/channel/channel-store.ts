@@ -42,4 +42,10 @@ export class ChannelStore {
         console.log("ChannelStore/addPodcast",res);
         return res;        
     }
+
+    removePodcast(channelId: string, podcastId : string) : any {
+        let res = this.restangularResources.removePodcastFromChannel(channelId, podcastId);
+        return res;
+    }
+
 }
