@@ -48,7 +48,7 @@ export class ChannelViewComponent {
         let validateAddPodcast = (podcastUrl) => {
             console.log("ChannelViewComponent", "validateAddPodcast", podcastUrl);
             if (podcastUrl !== undefined) {
-                this.channelStore.addPodcast(this.channelId, podcastUrl).then(() => {
+                this.channelStore.addPodcast(this.channel, podcastUrl).then(() => {
                     this.loadChannel();
                 });
             }

@@ -62,9 +62,15 @@ export class RestangularResources {
     }
 
     addPodcastToChannel(channelId: string, podcastUrl: string) {
+        // TO BE REMOVED
         let data = {};
         data['podcast_url'] = podcastUrl;
         return this.RestangularApp.one('channels', channelId).all('podcasts').post(data);
+    }
+
+    updateChannel(channelId : string, data : {}) {
+        // simple put performs a request with query_string
+        return this.RestangularApp.one('channels', channelId).customPUT(data);
     }
 
     removePodcastFromChannel(channelId: string, podcastId: string) {
