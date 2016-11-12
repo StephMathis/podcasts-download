@@ -44,8 +44,11 @@ export class ChannelStore {
     }
 
     removePodcast(channelId: string, podcastId : string) : any {
-        let res = this.restangularResources.removePodcastFromChannel(channelId, podcastId);
-        return res;
+        return this.restangularResources.removePodcastFromChannel(channelId, podcastId);
+    }
+
+    removeChannel(channelId: string) : any {
+        return this.restangularResources.removeChannel(channelId);
     }
 
 }

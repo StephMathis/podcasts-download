@@ -52,7 +52,9 @@ export class ChannelListComponent {
     }
 
     removeChannel(channel: Channel) {
-        console.log(channel);
-        alert('Implement Me: call store to remove channel: ' + channel.channelId);
+        this.channelStore.removeChannel(channel.channelId).then(() => {
+            this.loadChannelList();
+        })
     }
+
 }
