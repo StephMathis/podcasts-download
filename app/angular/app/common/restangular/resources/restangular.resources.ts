@@ -1,3 +1,4 @@
+import {Channel} from "../../../channel-list/channel/channel";
 /**
  * Created by amel on 03/10/16.
  */
@@ -55,9 +56,7 @@ export class RestangularResources {
         return this.RestangularApp.one('channels', channelId).get();
     }
 
-    createChannel(title: string) {
-        let data = {};
-        data['title'] = title;
+    createChannel(data : {}) {
         return this.RestangularApp.all('channels').post(data);
     }
 

@@ -8,7 +8,7 @@ export class PodcastFormComponent {
 
     static config = {
         bindings: <any>{
-            onPodcastAdd: '&mhOnPodcastAdd',
+            onPodcastAdd: '&mhOnPodcastAdd'
         },
         controller: PodcastFormComponent,
         templateUrl: require('./podcast-form.component.html')

@@ -1,0 +1,29 @@
+<md-dialog-content>
+    <div layout-gt-sm="row">
+        <md-input-container class="md-block">
+            <label>Titre</label>
+            <input name="name" ng-model="$ctrl.title" />
+            <div class="hint">Histoire ? Géopoltique ?</div>
+        </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+        <md-input-container>
+            <label>Description</label>
+            <input ng-model="$ctrl.comment" />
+        </md-input-container>
+    </div>
+
+</md-dialog-content>
+
+<md-dialog-actions layout="row">
+    <md-button class="md-raised"
+               aria-label="Ajouter une chaîne"
+               ng-click="$ctrl.addChannel({channel: $ctrl.channel})">
+        Ajouter une chaîne</md-button>
+</md-dialog-actions>
+
+
+
+
+
+
