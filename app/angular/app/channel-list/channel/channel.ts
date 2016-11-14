@@ -11,6 +11,9 @@ export class Channel {
         this.comment = args.comment;
         this.title = args.title;
         this.thumbnail_url = args.thumbnail_url;
+        if (this.thumbnail_url === "") {
+            this.thumbnail_url = "https://material.angularjs.org/latest/img/washedout.png";
+        }
         this.podcastIdList = args.podcasts; //.slice();
     }
 
