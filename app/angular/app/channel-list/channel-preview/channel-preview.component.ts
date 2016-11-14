@@ -16,9 +16,32 @@ export class ChannelPreviewComponent {
     };
 
     channel : Channel;
+    onChannelRemove;
 
-    constructor(private $state) {
+    constructor(private $scope, private $mdDialog) {
         'ngInject';
     }
+
+     showRemoveChannelConfirmModal(event) {
+         let options = {
+         scope: this.$scope.$new(),
+         title: 'Etes vous sûr de vouloir supprimer cette chaîne?',
+         targetEvent: event,
+         ok: 'Confirmer',
+         cancel: 'En fin de compte, j\'ai changé d\'avis, je la garde!'
+         }
+         let confirm = this.$mdDialog.confirm(options);
+
+         let validateRemoveChannel = () => {
+             this.onChannelRemove({channel: this.channel});
+         }
+
+
+         let cancelRemoveChannel = () => {
+             this.$mdDialog.cancel();
+         }
+
+     this.$mdDialog.show(confirm).then(validateRemoveChannel, cancelRemoveChannel);
+     }
 
 }

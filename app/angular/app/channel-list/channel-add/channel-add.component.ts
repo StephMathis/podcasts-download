@@ -8,7 +8,8 @@ export class ChannelAddComponent {
 
     static config = {
         bindings: <any>{
-            onChannelAdd: '&mhOnChannelAdd'
+            onChannelAdd: '&mhOnChannelAdd',
+            onCancel: '&mhOnCancel'
 
         },
         controller: ChannelAddComponent,
@@ -19,6 +20,7 @@ export class ChannelAddComponent {
     comment;
     title;
     onChannelAdd;
+    onCancel;
 
     constructor() {
         'ngInject';
@@ -30,12 +32,16 @@ export class ChannelAddComponent {
     }
 
 
-    addChannel({channel}: {channel: Channel}) {
+    addChannel() {
         this.channel = new Channel({
             title: this.title,
             comment: this.comment
         });
         this.onChannelAdd({channel: this.channel});
+    }
+
+    cancel() {
+        this.onCancel();
     }
 
 }

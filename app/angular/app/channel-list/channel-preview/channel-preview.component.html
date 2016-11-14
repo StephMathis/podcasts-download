@@ -19,7 +19,9 @@
     </md-card-content>
 
     <md-card-actions layout="row" layout-align="end center">
-        <md-button class="md-icon-button" aria-label="Delete" ng-click="$ctrl.onChannelRemove()">
+        <md-button class="md-icon-button" aria-label="Delete" ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
+
+         <!-- $ctrl.onChannelRemove()"> -->
             <md-tooltip md-direction="left">
                 Supprimer
             </md-tooltip>
