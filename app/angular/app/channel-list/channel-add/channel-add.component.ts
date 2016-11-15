@@ -19,6 +19,7 @@ export class ChannelAddComponent {
     channel: Channel;
     comment;
     title;
+    thumbnail_url;
     onChannelAdd;
     onCancel;
 
@@ -31,11 +32,11 @@ export class ChannelAddComponent {
 
     }
 
-
     addChannel() {
         this.channel = new Channel({
             title: this.title,
-            comment: this.comment
+            comment: this.comment,
+            thumbnail_url: this.thumbnail_url
         });
         this.onChannelAdd({channel: this.channel});
     }

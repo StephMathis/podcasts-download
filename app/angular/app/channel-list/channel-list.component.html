@@ -11,15 +11,13 @@
 </md-toolbar>
 
 
-<div ng-cloak >
+<div ng-cloak flex>
     <md-content class="md-padding" layout-xs="column" layout="row">
-        <div class='md-padding' layout="row" layout-wrap>
-            <md-card flex="30" flex-sm="80" ng-repeat="channel in $ctrl.channelList">
-                <mh-channel-preview
+        <div flex class='md-padding' layout="row" layout-wrap>
+                <mh-channel-preview flex="30" ng-repeat="channel in $ctrl.channelList"
                                     mh-channel="channel"
                                     mh-on-channel-remove="$ctrl.removeChannel(channel)">
                 </mh-channel-preview>
-            </md-card>
         </div>
     </md-content>
 </div>

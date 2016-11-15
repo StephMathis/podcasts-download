@@ -1,9 +1,7 @@
-
-    <img ng-src="{{$ctrl.channel.thumbnail_url}}"
-         class="md-card-image" alt="Washed Out">
-   <!-- <img ng-src="{{ $ctrl.channel.thumbnail_url }}"
+<md-card>
+  <img ng-src="{{ $ctrl.channel.thumbnail_url }}"
          class="md-card-image" alt="channel image">
-         -->
+    <div>
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline">{{ $ctrl.channel.title }}</span>
@@ -11,13 +9,15 @@
         {{ $ctrl.channel.getPodcastsId().length }} podcasts </a></span>
         </md-card-title-text>
     </md-card-title>
-
+    </div>
+    <div>
     <md-card-content>
-        <p>
-            {{ $ctrl.channel.comment }}
-        </p>
-    </md-card-content>
 
+            {{ $ctrl.channel.comment }}
+
+    </md-card-content>
+    </div>
+    <div>
     <md-card-actions layout="row" layout-align="end center">
         <md-button class="md-icon-button" aria-label="Delete" ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
 
@@ -28,3 +28,5 @@
             <i class="material-icons">delete</i>
         </md-button>
     </md-card-actions>
+    </div>
+</md-card>

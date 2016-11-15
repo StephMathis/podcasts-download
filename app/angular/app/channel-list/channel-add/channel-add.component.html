@@ -1,28 +1,38 @@
-<form ng-cloak>
+<form>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Une nouvelle chaine ? génial, je me réjouis !</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+                <i class="material-icons">close</i>
+            </md-button>
+        </div>
+    </md-toolbar>
 
-<md-toolbar>
-    <div class="md-toolbar-tools">
-        <h2>Une nouvelle chaine ? génial, je me réjouis !</h2>
-        <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
-            <i class="material-icons">close</i>
-        </md-button>
-    </div>
-</md-toolbar>
+<md-dialog-content style="max-width:800px;max-height:1000px;">
+    <md-content class="md-no-momentum">
+    <div class="md-dialog-content" layout="column" layout-padding ng-cloak>
+        <div>
+            <md-input-container class="md-block" flex>
+                <label>Donner un titre à votre chaîne</label>
+                <input name="title" ng-model="$ctrl.title" />
+                <div class="hint">Histoire ? Géopoltique ?</div>
+            </md-input-container>
 
-<md-dialog-content>
-    <div layout-gt-sm="row">
-        <md-input-container class="md-block">
-            <label>Titre</label>
-            <input name="name" ng-model="$ctrl.title" />
-            <div class="hint">Histoire ? Géopoltique ?</div>
-        </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>Décrire votre chaîne en quelques mots</label>
+                <textarea ng-model="$ctrl.comment" rows="4" md-select-on-focus></textarea>
+            </md-input-container>
+        </div>
+        <div class="md-dialog-content">
+            <md-input-container class="md-block" flex>
+                <label>Url de l'image qui représentera votre chaîne</label>
+                <input name="image" ng-model="$ctrl.thumbnail_url" />
+            </md-input-container>
     </div>
-    <div layout-gt-sm="row">
-        <md-input-container>
-            <label>Description</label>
-            <input ng-model="$ctrl.comment" />
-        </md-input-container>
     </div>
+    </md-content>
 
 </md-dialog-content>
 

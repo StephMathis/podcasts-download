@@ -13,7 +13,7 @@ export const channelListModule = angular.module('app.channelList', [
 ]);
 
 channelListModule.component('mhChannelList', ChannelListComponent.config);
-channelListModule.component('mhChannelPreview', ChannelPreviewComponent.config);
 channelListModule.component('mhChannelView', ChannelViewComponent.config);
 channelListModule.component('mhChannelAdd', ChannelAddComponent.config);
+channelListModule.component('mhChannelPreview', ChannelPreviewComponent.config);
 
