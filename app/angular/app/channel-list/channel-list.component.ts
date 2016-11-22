@@ -31,7 +31,7 @@ export class ChannelListComponent {
             clickOutsideToClose: true,
             scope: this.$scope.$new(),
             template: `<mh-channel-add mh-on-channel-add="$ctrl.validateNewChannel(channel)" 
-                                            mh-on-cancel="$ctrl.cancel()"><mh-channel-add>`
+                                            mh-on-cancel="$ctrl.cancel()"></mh-channel-add>`
         }
 
         this.$mdDialog.show(options);

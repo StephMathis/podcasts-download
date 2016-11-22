@@ -18,15 +18,25 @@
     </md-card-content>
     </div>
     <div>
-    <md-card-actions layout="row" layout-align="end center">
-        <md-button class="md-icon-button" aria-label="Delete" ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
-
-         <!-- $ctrl.onChannelRemove()"> -->
-            <md-tooltip md-direction="left">
-                Supprimer
-            </md-tooltip>
-            <i class="material-icons">delete</i>
-        </md-button>
-    </md-card-actions>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-icon-button" 
+                    aria-label="Edit" 
+                    ng-click="$ctrl.showEditChannelPrompt($event)">
+                <md-tooltip md-direction="left">
+                    Editer
+                </md-tooltip>
+                <i class="material-icons">edit</i>
+            </md-button>
+        </md-card-actions>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-icon-button" 
+                    aria-label="Delete" 
+                    ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
+                <md-tooltip md-direction="left">
+                    Supprimer
+                </md-tooltip>
+                <i class="material-icons">delete</i>
+            </md-button>
+        </md-card-actions>
     </div>
 </md-card>

@@ -3,6 +3,7 @@
  */
 
 import {Channel} from "../channel/channel";
+import {ChannelStore} from "../channel/channel-store";
 
 export class ChannelPreviewComponent {
 
@@ -18,17 +19,17 @@ export class ChannelPreviewComponent {
     channel : Channel;
     onChannelRemove;
 
-    constructor(private $scope, private $mdDialog) {
+    constructor(private $scope, private $mdDialog, private channelStore: ChannelStore) {
         'ngInject';
     }
 
      showRemoveChannelConfirmModal(event) {
          let options = {
-         scope: this.$scope.$new(),
-         title: 'Etes vous sûr de vouloir supprimer cette chaîne?',
-         targetEvent: event,
-         ok: 'Confirmer',
-         cancel: 'En fin de compte, j\'ai changé d\'avis, je la garde!'
+            scope: this.$scope.$new(),
+            title: 'Etes vous sûr de vouloir supprimer cette chaîne?',
+            targetEvent: event,
+            ok: 'Confirmer',
+            cancel: 'En fin de compte, j\'ai changé d\'avis, je la garde!'
          }
          let confirm = this.$mdDialog.confirm(options);
 
@@ -43,5 +44,36 @@ export class ChannelPreviewComponent {
 
      this.$mdDialog.show(confirm).then(validateRemoveChannel, cancelRemoveChannel);
      }
+
+    showEditChannelPrompt(event) {
+        let options = {
+            clickOutsideToClose: true,
+            scope: this.$scope.$new(),
+            template: `<mh-channel-edit 
+                            mh-channel="$ctrl.channel"
+                            mh-on-validate="$ctrl.validateEditChannel({channel: channel})"
+                            mh-on-cancel="$ctrl.cancelEditChannel()">
+                       </mh-channel-edit>`
+        }
+
+        this.$mdDialog.show(options);
+    }
+
+    validateEditChannel({channel} : {channel: Channel}) {
+        this.$mdDialog.cancel();
+        console.log("ChannelPreviewComponent validateEditChannel", channel);
+        if (channel !== undefined) {
+            this.channelStore.updateChannel(channel).then(() => {
+                console.log("now i have to refresh preview");
+                this.channelStore.loadChannel(channel.channelId).then((channel) => {
+                    this.channel = channel;
+                });
+            });
+        }        
+    }
+
+    cancelEditChannel() {
+        this.$mdDialog.cancel();        
+    }
 
 }

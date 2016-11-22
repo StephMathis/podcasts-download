@@ -16,7 +16,8 @@
         <div flex class='md-padding' layout="row" layout-wrap>
                 <mh-channel-preview flex="30" ng-repeat="channel in $ctrl.channelList"
                                     mh-channel="channel"
-                                    mh-on-channel-remove="$ctrl.removeChannel(channel)">
+                                    mh-on-channel-remove="$ctrl.removeChannel(channel)"
+                                    mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)">
                 </mh-channel-preview>
         </div>
     </md-content>

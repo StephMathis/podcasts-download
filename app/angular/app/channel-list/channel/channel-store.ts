@@ -40,6 +40,18 @@ export class ChannelStore {
         return res;
     }
 
+    updateChannel(channel: Channel) : any {
+        let data = {}
+        data['comment'] = channel.comment;
+        data['thumbnail_url'] = channel.thumbnail_url;
+        data['title'] = channel.title;
+        data['podcasts'] = channel.podcastIdList;
+
+        let res = this.restangularResources.updateChannel(channel.channelId, data).then();
+        console.log("ChannelStore/addPodcast",res);
+        return res;        
+    }
+
     addPodcast(channel: Channel, podcastUrl : string) : any {
         console.log("ChannelStore/addPodcast","podcastId", podcastUrl);
         let data = {}
