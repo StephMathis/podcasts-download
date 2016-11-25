@@ -1,6 +1,8 @@
 <md-card>
-  <img ng-src="{{ $ctrl.channel.thumbnail_url }}"
-         class="md-card-image" alt="channel image">
+   <a ui-sref='channel({channelId: $ctrl.channel.channelId})'>
+        <img ng-src="{{ $ctrl.channel.thumbnail_url }}"
+                class="md-card-image" alt="channel image">
+    </a>
     <div>
     <md-card-title>
         <md-card-title-text>
@@ -27,8 +29,6 @@
                 </md-tooltip>
                 <i class="material-icons">edit</i>
             </md-button>
-        </md-card-actions>
-        <md-card-actions layout="row" layout-align="end center">
             <md-button class="md-icon-button" 
                     aria-label="Delete" 
                     ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
