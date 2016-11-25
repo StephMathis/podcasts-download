@@ -1,7 +1,12 @@
-<md-toolbar class="demo-toolbar _md _md-toolbar-transitions">
+<md-toolbar class="demo-toolbar _md _md-toolbar-transitions" style="background-color: #2196F3;">
     <div class="md-toolbar-tools">
         <h3>Podcasts</h3>
-        &nbsp;<span>{{ $ctrl.downloadTrackerStore.length }} downloading ...</span>
+        &nbsp;<span ng-if="$ctrl.downloadTrackerStore.length > 0"> : {{ $ctrl.downloadTrackerStore.length }} téléchargements en cours ...</span>
+        <span flex></span>
+
+        <mh-podcast-form
+                mh-on-podcast-add="$ctrl.addPodcast({podcast: $ctrl.podcast})">
+        </mh-podcast-form>
     </div>
 </md-toolbar>
 
@@ -10,7 +15,8 @@
         <div layout="column">
             <md-card ng-repeat="podcast in $ctrl._podcastList">
                 <mh-podcast-preview
-                        mh-podcast="podcast">
+                        mh-podcast="podcast"
+                        mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})">
                 </mh-podcast-preview>
             </md-card>
         </div>

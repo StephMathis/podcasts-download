@@ -4,6 +4,7 @@
 
 import {Channel} from "../channel/channel";
 import {ChannelStore} from "../channel/channel-store";
+import {Podcast} from "../../common/podcast/podcast.component";
 
 export class ChannelViewComponent {
 
@@ -15,7 +16,10 @@ export class ChannelViewComponent {
     channelId : string;
     channel : Channel;
 
-    constructor(private $mdDialog, private $scope, private $stateParams, private channelStore : ChannelStore) {
+    constructor(private $mdDialog,
+                private $scope,
+                private $stateParams,
+                private channelStore : ChannelStore) {
         'ngInject';
 
         this.channelId = this.$stateParams.channelId;
@@ -44,7 +48,7 @@ export class ChannelViewComponent {
         let validateAddPodcast = (podcastUrl) => {
             console.log("ChannelViewComponent", "validateAddPodcast", podcastUrl);
             if (podcastUrl !== undefined) {
-                this.channelStore.addPodcast(this.channelId, podcastUrl).then(() => {
+                this.channelStore.addPodcast(this.channel, podcastUrl).then(() => {
                     this.loadChannel();
                 });
             }
@@ -55,5 +59,11 @@ export class ChannelViewComponent {
         }
 
         this.$mdDialog.show(prompt).then(validateAddPodcast, cancelAddPodcast);
+    }
+
+    removePodcast({podcast} : {podcast: Podcast}) {
+        this.channelStore.removePodcast(this.channelId, podcast.podcastId).then(() => {
+            this.loadChannel();
+        })
     }
 }

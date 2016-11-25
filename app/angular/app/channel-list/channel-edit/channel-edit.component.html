@@ -1,7 +1,7 @@
 <form>
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <h2>Une nouvelle chaine ? génial, je me réjouis !</h2>
+            <h2>Mon sang se coagule à l'idée qu'on y change une virgule !</h2>
             <span flex></span>
             <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
                 <i class="material-icons">close</i>
@@ -24,13 +24,17 @@
                 <label>Décrire votre chaîne en quelques mots</label>
                 <textarea ng-model="$ctrl.comment" rows="4" md-select-on-focus></textarea>
             </md-input-container>
+            <!--
         </div>
         <div class="md-dialog-content">
+            -->
             <md-input-container class="md-block" flex>
                 <label>Url de l'image qui représentera votre chaîne</label>
                 <input name="image" ng-model="$ctrl.thumbnail_url" />
             </md-input-container>
-    </div>
+
+            <img ng-src="{{$ctrl.thumbnail_url}}"></img>
+        </div>
     </div>
     </md-content>
 
@@ -38,9 +42,9 @@
 
 <md-dialog-actions layout="row">
     <md-button class="md-raised"
-               aria-label="Ajouter une chaîne"
-               ng-click="$ctrl.addChannel({channel: $ctrl.channel})">
-        Ajouter une chaîne</md-button>
+               aria-label="Valider"
+               ng-click="$ctrl.validate()">
+        Voilà, c'est mieux</md-button>
 </md-dialog-actions>
 </form>
 

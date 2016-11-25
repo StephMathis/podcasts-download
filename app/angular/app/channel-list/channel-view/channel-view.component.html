@@ -1,16 +1,20 @@
-<div class="profile record" ng-animate-ref="{{ $ctrl.channel.channelId }}">
-    <md-toolbar>
-        <div class="md-toolbar-tools">
-            <a ui-sref="channels"><md-button>Retour vers les chaines</md-button></a>
-            <h2>
-                <span>{{ $ctrl.channel.title }}</span>
-            </h2>
-            <span flex></span>
-            <md-button class="md-raised" aria-label="Ajouter une chaine" ng-click="$ctrl.showAddPocastPrompt($event)" >
-                Ajouter un podcast
+<md-toolbar>
+    <div class="md-toolbar-tools">
+            <md-button ui-sref="channels" class="md-icon-button" aria-label="toChannels">
+                <md-tooltip md-direction="left">
+                    Retour vers les chaines
+                </md-tooltip>
+                <i class="material-icons" ng-style="{color: '#BBDEFB', 'font-size':'36px', height:'36px'}">first_page</i>
             </md-button>
-        </div>
-    </md-toolbar>
+        <h2>
+            <span>{{ $ctrl.channel.title }}</span>
+        </h2>
+        <span flex></span>
+    </div>
+</md-toolbar>
 
-    <mh-podcast-list mh-podcast-id-list="$ctrl.channel.getPodcastsId()"></mh-podcast-list>
-</div>
+<mh-podcast-list mh-podcast-id-list="$ctrl.channel.getPodcastsId()"
+                mh-on-podcast-add="$ctrl.showAddPocastPrompt($event)"
+                mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})"
+></mh-podcast-list>
+

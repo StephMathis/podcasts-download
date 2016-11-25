@@ -3,7 +3,6 @@
  */
 import {Channel} from "./channel/channel";
 import {ChannelStore} from "./channel/channel-store";
-import {channelModule} from "./channel/channel.module";
 
 export class ChannelListComponent {
 
@@ -13,6 +12,7 @@ export class ChannelListComponent {
     };
 
     channelList: Channel[];
+    channel: Channel;
 
     constructor(private $mdDialog, private $scope, private channelStore: ChannelStore) {
         'ngInject';
@@ -28,27 +28,33 @@ export class ChannelListComponent {
 
     showAddChannelPrompt(event) {
         let options = {
+            clickOutsideToClose: true,
             scope: this.$scope.$new(),
-            title: 'Une nouvelle chaine ? génial, je me réjouis !',
-            textContent: 'Quel nom lui donnez-vous ?',
-            placeholder: 'Histoire ? Géopoltique ?',
-            targetEvent: event,
-            ok: 'Okay!',
-            cancel: 'arf, j\'hésite, une autre fois ...'
-        }
-        let prompt = this.$mdDialog.prompt(options);
-
-        let validateNewChannel = (title) => {
-            if (title !== undefined) {
-                this.channelStore.createChannel(title).then(() => {
-                    this.loadChannelList();
-                });
-            }
+            template: `<mh-channel-add mh-on-channel-add="$ctrl.validateNewChannel(channel)" 
+                                            mh-on-cancel="$ctrl.cancel()"></mh-channel-add>`
         }
 
-        let cancelNewChannel = () => {
-        }
-
-        this.$mdDialog.show(prompt).then(validateNewChannel, cancelNewChannel);
+        this.$mdDialog.show(options);
     }
+
+    validateNewChannel(channel: Channel) {
+        this.$mdDialog.cancel();
+
+        if (channel !== undefined) {
+            this.channelStore.createChannel(channel).then(() => {
+                this.loadChannelList();
+            });
+        }
+    }
+
+    removeChannel(channel: Channel) {
+        this.channelStore.removeChannel(channel.channelId).then(() => {
+            this.loadChannelList();
+        })
+    }
+
+    cancel() {
+        this.$mdDialog.cancel();
+    }
+
 }

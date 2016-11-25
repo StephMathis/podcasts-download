@@ -1,3 +1,4 @@
+import {Channel} from "../../../channel-list/channel/channel";
 /**
  * Created by amel on 03/10/16.
  */
@@ -12,34 +13,34 @@ export class RestangularResources {
         return this.RestangularApp.service('podcasts').getList();
     }
 
-    podcastPointer(podcastId : string) {
+    podcastPointer(podcastId: string) {
         return this.RestangularApp.service('podcasts').one(podcastId);
     }
 
-    podcastResource(podcastId : string) {
+    podcastResource(podcastId: string) {
         return this.podcastPointer(podcastId).get();
     }
 
-    episodeResource(podcastId : string) {
+    episodeResource(podcastId: string) {
         return this.RestangularApp.one('podcasts', podcastId).getList('episodes');
 
     }
 
-    episodeUrl(podcastId : string, episodeId : string) {
+    episodeUrl(podcastId: string, episodeId: string) {
         return this.podcastPointer(podcastId)
-                   .one('episodes',episodeId)
-                   .getRestangularUrl();
+            .one('episodes', episodeId)
+            .getRestangularUrl();
     }
 
-    episodeContentUrl(podcastId : string, episodeId : string) {
+    episodeContentUrl(podcastId: string, episodeId: string) {
         return this.episodeUrl(podcastId, episodeId) + '/content/';
     }
 
-    episodeContentUrlWithTracker(podcastId : string, episodeId : string, trackerId : string) {
+    episodeContentUrlWithTracker(podcastId: string, episodeId: string, trackerId: string) {
         return this.podcastPointer(podcastId)
-                   .one('episodes', episodeId)
-                   .one('contentwithtracker', trackerId)
-                   .getRestangularUrl();
+            .one('episodes', episodeId)
+            .one('contentwithtracker', trackerId)
+            .getRestangularUrl();
     }
 
     trackerGroupResource(trackerGroupId) {
@@ -51,20 +52,33 @@ export class RestangularResources {
         return this.RestangularApp.service('channels').getList();
     }
 
-    channelResource(channelId : string) {
-        return this.RestangularApp.one('channels',channelId).get();
+    channelResource(channelId: string) {
+        return this.RestangularApp.one('channels', channelId).get();
     }
 
-    createChannel(title : string) {
-        let data = {};
-        data['title'] = title;
+    createChannel(data : {}) {
         return this.RestangularApp.all('channels').post(data);
     }
 
     addPodcastToChannel(channelId: string, podcastUrl: string) {
+        // TO BE REMOVED
         let data = {};
         data['podcast_url'] = podcastUrl;
-        return this.RestangularApp.one('channels',channelId).all('podcasts').post(data);
+        return this.RestangularApp.one('channels', channelId).all('podcasts').post(data);
+    }
+
+    updateChannel(channelId : string, data : {}) {
+        // simple put performs a request with query_string
+        return this.RestangularApp.one('channels', channelId).customPUT(data);
+    }
+
+    removePodcastFromChannel(channelId: string, podcastId: string) {
+        /* DELETE /channels/channelId/podcasts/podcastId */
+        return this.RestangularApp.one('channels', channelId).one('podcasts', podcastId).remove();
+    }
+
+    removeChannel(channelId: string) {
+        /* DELETE /channels/channelId */
+        return this.RestangularApp.one('channels',channelId).remove();
     }
 }
-

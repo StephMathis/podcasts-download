@@ -7,7 +7,8 @@ export class PodcastPreviewComponent {
 
     static config = {
         bindings: <any>{
-            podcast: '<mhPodcast'
+            podcast: '<mhPodcast',
+            onPodcastRemove: '&mhOnPodcastRemove'
         },
         controller: PodcastPreviewComponent,
         templateUrl: require('./podcast-preview.component.html')

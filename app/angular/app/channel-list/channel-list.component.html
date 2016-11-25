@@ -9,14 +9,17 @@
         </md-button>
     </div>
 </md-toolbar>
-<div ng-cloak >
+
+
+<div ng-cloak flex>
     <md-content class="md-padding" layout-xs="column" layout="row">
-        <div class='md-padding' layout="row" layout-wrap>
-            <mh-channel-preview 
-                    mh-channel="channel"                    
-                    ng-repeat="channel in $ctrl.channelList">
-            </mh-channel-preview>
-        </div>
+        <div flex class='md-padding' layout="row" layout-wrap>
+                <mh-channel-preview flex="30" ng-repeat="channel in $ctrl.channelList"
+                                    mh-channel="channel"
+                                    mh-on-channel-remove="$ctrl.removeChannel(channel)"
+                                    mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
+                                    ng-animate-ref="{{ channel.channelId }}">
+                </mh-channel-preview>
         </div>
     </md-content>
 </div>
