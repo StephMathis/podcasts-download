@@ -22,6 +22,7 @@ export class PodcastListComponent {
     podcastFilter : string;
     onPodcastAdd;
     onPodcastRemove;
+    _podcastSelectedForEpisodes : Podcast = null;
 
     constructor(private podcastStore, private downloadTrackerStore) {
         'ngInject';
@@ -58,6 +59,15 @@ export class PodcastListComponent {
 
     removePodcast({podcast}: {podcast: Podcast}) {
         this.onPodcastRemove({podcast: podcast});
+    }
+
+    onShowEpisodes({podcast}: {podcast: Podcast}) {
+        console.log("PodcastListComponent", podcast);
+        this._podcastSelectedForEpisodes = podcast;
+    }
+    episodesToShow({podcast}: {podcast: Podcast}) {
+        console.log("PodcastListComponent", podcast);
+        return this._podcastSelectedForEpisodes == podcast;
     }
 
 }

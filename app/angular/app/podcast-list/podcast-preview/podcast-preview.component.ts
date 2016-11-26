@@ -2,19 +2,25 @@
  * Created by amel on 25/09/16.
  */
 
+import {Podcast} from "../../common/podcast/podcast.component";
 
 export class PodcastPreviewComponent {
 
     static config = {
         bindings: <any>{
             podcast: '<mhPodcast',
-            onPodcastRemove: '&mhOnPodcastRemove'
+            onPodcastRemove: '&mhOnPodcastRemove',
+            onShowEpisodes: '&mhOnShowEpisodes'
         },
         controller: PodcastPreviewComponent,
         templateUrl: require('./podcast-preview.component.html')
     };
 
-    podcast;
+
+    podcast : Podcast;
+    onPodcastRemove;
+    onShowEpisodes;
+
     hideEpisodes = true;
 
     constructor(private $mdDialog, private $scope) {
@@ -28,6 +34,8 @@ export class PodcastPreviewComponent {
 
     showEpisodes() {
         console.log("showEpisodes");
+        this.onShowEpisodes({podcast: this.podcast});
+        /*
         let options = {
             clickOutsideToClose: true,
             scope: this.$scope.$new(),
@@ -47,6 +55,8 @@ export class PodcastPreviewComponent {
         }
 
         this.$mdDialog.show(options);
+        */
+
     }
 
     cancel() {
