@@ -32,7 +32,7 @@ export class PodcastPreviewComponent {
             clickOutsideToClose: true,
             scope: this.$scope.$new(),
             template: `<form ng-cloak>
-                            <md-toolbar>
+                            <md-toolbar scroll>
                                 <div class="md-toolbar-tools">
                                     <h2>Episodes</h2>
                                     <span flex></span>
