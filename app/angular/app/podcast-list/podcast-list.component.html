@@ -13,7 +13,7 @@
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div layout="column" >
 
-                <md-card class="podcast-card podcast-card-item-{{$index}}"
+                <md-card class="podcast-card podcast-card-item-1"
                          layout="row"  
                          ng-repeat="podcast in $ctrl._podcastList" 
                          ng-class="{'podcast-selected-box md-whiteframe-22dp': $ctrl.episodesToShow({podcast : podcast})}">
@@ -33,7 +33,7 @@
         </div>
         <div layout="column" style="flex-grow: 2">
             <div ng-repeat="podcast in $ctrl._podcastList" 
-                 class="episodes-box episodes-box-item-{{$index}}"
+                 class="episodes-box episodes-box-item-1"
                  ng-show="$ctrl.episodesToShow({podcast : podcast})">
 
                 <mh-episode-list mh-podcast-id="podcast.podcastId"></mh-episode-list>

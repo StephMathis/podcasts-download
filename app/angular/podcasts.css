@@ -76,7 +76,7 @@
   -webkit-justify-content: space-between; /* Safari */
   justify-content:         space-between;
   min-width:500px;
-  border-top: 5px solid;
+
 }
 
 
@@ -88,6 +88,7 @@
   /*background: red;*/
   transition: 1s;
   /*width:70vw;*/
+  border-right: 5px solid;
 }
 .episodes-box {
   background: white;
