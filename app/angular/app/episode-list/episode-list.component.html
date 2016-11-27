@@ -10,21 +10,17 @@
 
 
 
-<md-dialog-content>
-    <div class="md-dialog-content">
-        <md-content>
-            <md-list>
-                <md-list-item
-                        class="md-2-line contact-item"
-                        ng-repeat="episode in $ctrl.episodeList">
-                    <mh-episode-preview flex
-                                        mh-episode="episode"
-                                        mh-download-notifier="$ctrl.episodeStore.setAlreadyDownloaded(episode)">
-                    </mh-episode-preview>
-                </md-list-item>
-            </md-list>
-        </md-content>
 
-    </div>
-</md-dialog-content>
+<div>
+    <md-list>
+        <md-list-item
+                class="md-2-line contact-item"
+                ng-repeat="episode in $ctrl.episodeList">
+            <mh-episode-preview flex
+                                mh-episode="episode"
+                                mh-download-notifier="$ctrl.episodeStore.setAlreadyDownloaded(episode)">
+            </mh-episode-preview>
+        </md-list-item>
+    </md-list>
+</div>
 

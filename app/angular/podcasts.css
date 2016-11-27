@@ -73,3 +73,22 @@
     top:0;
 }
 
+.podcast-card {
+  -webkit-justify-content: space-between; /* Safari */
+  justify-content:         space-between;
+  min-width:500px;
+}
+
+
+.podcast-unselected-box {
+  background: lightgrey;
+}
+
+.podcast-selected-box {
+  background: white;
+  /*width:70vw;*/
+}
+.episodes-box {
+  background: white;
+}
+

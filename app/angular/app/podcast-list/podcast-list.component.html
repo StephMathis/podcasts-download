@@ -4,32 +4,41 @@
         &nbsp;<span ng-if="$ctrl.downloadTrackerStore.length > 0"> : {{ $ctrl.downloadTrackerStore.length }} téléchargements en cours ...</span>
         <span flex></span>
 
-        <mh-podcast-form
-                mh-on-podcast-add="$ctrl.addPodcast({podcast: $ctrl.podcast})">
+        <mh-podcast-form mh-on-podcast-add="$ctrl.addPodcast({podcast: $ctrl.podcast})">
         </mh-podcast-form>
     </div>
 </md-toolbar>
 
-<div ng-cloak >
+<div ng-cloak>
     <md-content class="md-padding" layout-xs="column" layout="row">
-        <div layout="column">
-            <md-card ng-repeat="podcast in $ctrl._podcastList">
-                <mh-podcast-preview
-                        mh-podcast="podcast"
-                        mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})"
-                        mh-on-show-episodes="$ctrl.onShowEpisodes({podcast : podcast})">
-                </mh-podcast-preview>
-            </md-card>
+        <div layout="column" >
+
+                <md-card class="podcast-card"
+                         layout="row"  
+                         ng-repeat="podcast in $ctrl._podcastList" 
+                         ng-class="{'podcast-unselected-box':$ctrl.anotherPodcastIsSelected({podcast : podcast}) }">
+                         <!--ng-class="{'podcast-selected-box md-whiteframe-10dp': $ctrl.episodesToShow({podcast : podcast})}"-->
+                    <mh-podcast-preview mh-podcast="podcast" 
+                                        mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})" 
+                                        mh-on-show-episodes="$ctrl.onShowEpisodes({podcast : podcast})">
+                    </mh-podcast-preview>
+                    <!--
+                    <md-card-content 
+                                     layout-align="space-between"
+                                     ng-class="{'podcast-selected-box2': $ctrl.episodesToShow({podcast : podcast})}">
+                    ABC
+                    </md-card-content>
+                    -->
+                </md-card>
+
         </div>
-        <div layout="column">
-                <div ng-repeat="podcast in $ctrl._podcastList" 
-                     class="epidodes-box"
-                     ng-show="$ctrl.episodesToShow({podcast : podcast})">
-                     
-                 {{podcast.content.title}}
-                 <mh-episode-list mh-podcast-id="podcast.podcastId"></mh-episode-list>
+        <div layout="column" style="flex-grow: 2">
+            <div ng-repeat="podcast in $ctrl._podcastList" 
+                 class="episodes-box md-whiteframe-10dp"
+                 ng-show="$ctrl.episodesToShow({podcast : podcast})">
+
+                <mh-episode-list mh-podcast-id="podcast.podcastId"></mh-episode-list>
             </div>
         </div>
     </md-content>
 </div>
-

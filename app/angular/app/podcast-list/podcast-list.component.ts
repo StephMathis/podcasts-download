@@ -62,12 +62,12 @@ export class PodcastListComponent {
     }
 
     onShowEpisodes({podcast}: {podcast: Podcast}) {
-        console.log("PodcastListComponent", podcast);
         this._podcastSelectedForEpisodes = podcast;
     }
     episodesToShow({podcast}: {podcast: Podcast}) {
-        console.log("PodcastListComponent", podcast);
         return this._podcastSelectedForEpisodes == podcast;
     }
-
+    anotherPodcastIsSelected({podcast}: {podcast: Podcast}) {
+        return this._podcastSelectedForEpisodes != null && this._podcastSelectedForEpisodes != podcast;
+    }
 }
