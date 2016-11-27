@@ -1,5 +1,4 @@
 
-
 .record {
   display:block;
   font-size:20px;
@@ -77,6 +76,7 @@
   -webkit-justify-content: space-between; /* Safari */
   justify-content:         space-between;
   min-width:500px;
+  border-top: 5px solid;
 }
 
 
@@ -85,10 +85,25 @@
 }
 
 .podcast-selected-box {
-  background: white;
+  /*background: red;*/
+  transition: 1s;
   /*width:70vw;*/
 }
 .episodes-box {
   background: white;
+  border-left: 5px solid;
+}
+
+.podcast-card-item-0, .episodes-box-item-0 {
+  border-color: seagreen;
+}
+
+
+.podcast-card-item-1, .episodes-box-item-1 {
+  border-color: dodgerblue;
+}
+
+.podcast-card-item-2, .episodes-box-item-2 {
+  border-color: gold;
 }
 

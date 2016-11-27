@@ -13,11 +13,10 @@
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div layout="column" >
 
-                <md-card class="podcast-card"
+                <md-card class="podcast-card podcast-card-item-{{$index}}"
                          layout="row"  
                          ng-repeat="podcast in $ctrl._podcastList" 
-                         ng-class="{'podcast-unselected-box':$ctrl.anotherPodcastIsSelected({podcast : podcast}) }">
-                         <!--ng-class="{'podcast-selected-box md-whiteframe-10dp': $ctrl.episodesToShow({podcast : podcast})}"-->
+                         ng-class="{'podcast-selected-box md-whiteframe-22dp': $ctrl.episodesToShow({podcast : podcast})}">
                     <mh-podcast-preview mh-podcast="podcast" 
                                         mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})" 
                                         mh-on-show-episodes="$ctrl.onShowEpisodes({podcast : podcast})">
@@ -28,13 +27,13 @@
                                      ng-class="{'podcast-selected-box2': $ctrl.episodesToShow({podcast : podcast})}">
                     ABC
                     </md-card-content>
-                    -->
+                    -->                    
                 </md-card>
 
         </div>
         <div layout="column" style="flex-grow: 2">
             <div ng-repeat="podcast in $ctrl._podcastList" 
-                 class="episodes-box md-whiteframe-10dp"
+                 class="episodes-box episodes-box-item-{{$index}}"
                  ng-show="$ctrl.episodesToShow({podcast : podcast})">
 
                 <mh-episode-list mh-podcast-id="podcast.podcastId"></mh-episode-list>
