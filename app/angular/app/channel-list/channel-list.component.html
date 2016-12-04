@@ -1,3 +1,34 @@
+<div class="container" layout="raw" flex>
+    <md-sidenav md-is-locked-open="true" class="md-whiteframe-5dp">
+        <md-toolbar layout="row" layout-align="space-between center">
+            <span></span>
+            <h4>Les chaines</h4>
+            <md-button class="md-fab" aria-label="Ajouter une chaine" ng-click="$ctrl.showAddChannelPrompt($event)" >
+                <md-icon md-svg-src="img/icons/cake.svg"></md-icon>
+            </md-button>
+        </md-toolbar>
+
+        <md-list>
+            <md-list-item ng-repeat="channel in $ctrl.channelList | filter:searchText">
+                <mh-channel-preview mh-channel="channel"
+                                    mh-on-channel-remove="$ctrl.removeChannel(channel)"
+                                    mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
+                                    ng-animate-ref="{{ channel.channelId }}"
+                                    flex>
+                </mh-channel-preview>
+            </md-list-item>
+        </md-list>
+
+
+
+    </md-sidenav>
+    <md-content id="content" flex>
+        <md-toolbar><h2>Les podcasts</h2></md-toolbar>
+        
+       
+    </md-content>
+</div>
+<!--
 <md-toolbar scroll>
     <div class="md-toolbar-tools">
         <h2>
@@ -24,7 +55,7 @@
 <div ng-cloak flex>
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex class='md-padding' layout="row" layout-wrap>
-                <mh-channel-preview flex="30" ng-repeat="channel in $ctrl.channelList | filter:searchText"" class="fade"
+                <mh-channel-preview flex="30" ng-repeat="channel in $ctrl.channelList | filter:searchText" class="fade"
                                     mh-channel="channel"
                                     mh-on-channel-remove="$ctrl.removeChannel(channel)"
                                     mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
@@ -33,4 +64,4 @@
         </div>
     </md-content>
 </div>
-
+-->

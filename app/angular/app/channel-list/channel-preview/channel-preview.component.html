@@ -1,3 +1,39 @@
+
+<div class="mh-channel" layout="row" flex>
+    <md-button class="md-raised" flex>
+        <div layout="row" flex>
+
+            <img alt="channel image"
+                class="md-avatar" 
+                ng-src="{{ $ctrl.channel.thumbnail_url }}" >          
+            <div layout="column" layout-align="start end" flex>
+                <div><h4>{{ $ctrl.channel.title }}</h4></div>
+                <div>{{ $ctrl.channel.getPodcastsId().length }} podcasts</div>            
+                <!--<div>{{ $ctrl.channel.getPodcastsId().length }} podcasts</div>-->
+            </div>
+        </div>
+    </md-button>
+
+    <div layout="column">
+        <md-button class="md-icon-button" 
+                aria-label="Edit" 
+                ng-click="$ctrl.showEditChannelPrompt($event)">
+            <md-tooltip md-direction="left">
+                Editer
+            </md-tooltip>
+            <i class="material-icons">edit</i>
+        </md-button>
+        <md-button class="md-icon-button" 
+                aria-label="Delete" 
+                ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
+            <md-tooltip md-direction="left">
+                Supprimer
+            </md-tooltip>
+            <i class="material-icons">delete</i>
+        </md-button>
+    </div>
+</div>
+<!--
 <md-card>
    <a ui-sref='channel({channelId: $ctrl.channel.channelId})'
       ng-animate-ref="{{ $ctrl.channel.channelId }}">
@@ -43,4 +79,4 @@
         </md-card-actions>
     </div>
 </md-card>
-
+-->

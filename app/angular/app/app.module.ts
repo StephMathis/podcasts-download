@@ -28,7 +28,7 @@ appModule.config($stateProvider => {
     var channelsState = {
         name: 'channels',
         url: '/channels',
-        template: '<mh-channel-list></mh-channel-list>'
+        template: '<mh-channel-list layout="column" flex></mh-channel-list>'
     }
     var channelState = {
         name: 'channel',
@@ -45,3 +45,10 @@ appModule.config($urlRouterProvider => {
     $urlRouterProvider.when('', '/channels');
 });
 
+
+appModule.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+      .primaryPalette('blue-grey')
+      .accentPalette('red')
+      .dark();
+});

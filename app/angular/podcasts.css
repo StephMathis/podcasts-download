@@ -108,3 +108,11 @@
   border-color: gold;
 }
 
+.mh-channel-image {
+  width: 100px;
+}
+
+.mh-channel {
+  background-color: lightgray;
+  margin-bottom: 10px;
+}
