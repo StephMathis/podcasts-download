@@ -12,7 +12,7 @@ export class ChannelListComponent {
     };
 
     channelList: Channel[];
-    channel: Channel;
+    selectedChannel: Channel = null;
 
     constructor(private $mdDialog, private $scope, private channelStore: ChannelStore) {
         'ngInject';
@@ -55,6 +55,10 @@ export class ChannelListComponent {
 
     cancel() {
         this.$mdDialog.cancel();
+    }
+
+    selectChannel({channel} : {channel: Channel}) {
+        this.selectedChannel = channel;
     }
 
 }

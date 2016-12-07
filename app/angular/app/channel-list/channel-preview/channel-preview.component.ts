@@ -10,7 +10,8 @@ export class ChannelPreviewComponent {
     static config = {
         bindings: <any>{
             channel: '<mhChannel',
-            onChannelRemove: '&mhOnChannelRemove'
+            onChannelRemove: '&mhOnChannelRemove',
+            onChannelClick: '&mhOnChannelClick'
         },
         controller: ChannelPreviewComponent,
         templateUrl: require('./channel-preview.component.html')
@@ -18,6 +19,7 @@ export class ChannelPreviewComponent {
 
     channel : Channel;
     onChannelRemove;
+    onChannelClick;
 
     constructor(private $scope, private $mdDialog, private channelStore: ChannelStore) {
         'ngInject';

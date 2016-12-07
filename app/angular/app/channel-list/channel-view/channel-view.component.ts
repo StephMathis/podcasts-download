@@ -9,11 +9,13 @@ import {Podcast} from "../../common/podcast/podcast.component";
 export class ChannelViewComponent {
 
     static config = {
+        bindings: <any>{
+            channel: '<mhChannel'
+        },
         controller: ChannelViewComponent,
         templateUrl: require('./channel-view.component.html')
     };
 
-    channelId : string;
     channel : Channel;
 
     constructor(private $mdDialog,
@@ -21,17 +23,7 @@ export class ChannelViewComponent {
                 private $stateParams,
                 private channelStore : ChannelStore) {
         'ngInject';
-
-        this.channelId = this.$stateParams.channelId;
-        this.loadChannel();
     }
-
-    loadChannel() {
-        this.channelStore.loadChannel(this.channelId).then((channel) => {
-            this.channel = channel;
-        });
-    }
-
 
     showAddPocastPrompt(event) {
         let options = {
@@ -49,7 +41,7 @@ export class ChannelViewComponent {
             console.log("ChannelViewComponent", "validateAddPodcast", podcastUrl);
             if (podcastUrl !== undefined) {
                 this.channelStore.addPodcast(this.channel, podcastUrl).then(() => {
-                    this.loadChannel();
+                    //this.loadChannel();
                 });
             }
         }
@@ -62,8 +54,8 @@ export class ChannelViewComponent {
     }
 
     removePodcast({podcast} : {podcast: Podcast}) {
-        this.channelStore.removePodcast(this.channelId, podcast.podcastId).then(() => {
-            this.loadChannel();
+        this.channelStore.removePodcast(this.channel.channelId, podcast.podcastId).then(() => {
+            //this.loadChannel();
         })
     }
 }

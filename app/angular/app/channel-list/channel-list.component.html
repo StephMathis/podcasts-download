@@ -11,8 +11,9 @@
         <md-list>
             <md-list-item ng-repeat="channel in $ctrl.channelList | filter:searchText">
                 <mh-channel-preview mh-channel="channel"
-                                    mh-on-channel-remove="$ctrl.removeChannel(channel)"
+                                    mh-on-channel-click="$ctrl.selectChannel({channel: channel})"
                                     mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
+                                    mh-on-channel-remove="$ctrl.removeChannel(channel)"
                                     ng-animate-ref="{{ channel.channelId }}"
                                     flex>
                 </mh-channel-preview>
@@ -24,6 +25,7 @@
     </md-sidenav>
     <md-content id="content" flex>
         <md-toolbar><h2>Les podcasts</h2></md-toolbar>
+        <mh-channel-view mh-channel="$ctrl.selectedChannel" ng-show="$ctrl.selectedChannel != null"></mh-channel-view>
         
        
     </md-content>
