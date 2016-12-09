@@ -1,15 +1,22 @@
-<md-toolbar class="demo-toolbar _md _md-toolbar-transitions" style="background-color: #2196F3;" scroll>
-    <div class="md-toolbar-tools">
+<div>
         <h3>Podcasts</h3>
         &nbsp;<span ng-if="$ctrl.downloadTrackerStore.length > 0"> : {{ $ctrl.downloadTrackerStore.length }} téléchargements en cours ...</span>
         <span flex></span>
 
         <mh-podcast-form mh-on-podcast-add="$ctrl.addPodcast({podcast: $ctrl.podcast})">
         </mh-podcast-form>
-    </div>
-</md-toolbar>
+</div>
 
-<div ng-cloak>
+
+<div ng-cloak layout="column" flex>
+    <mh-podcast-view class="mh-podcast-view-in-list md-whiteframe-6dp"
+                     mh-podcast="podcast" 
+                     mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})" 
+                     mh-on-show-episodes="$ctrl.onShowEpisodes({podcast : podcast})"
+                     ng-repeat="podcast in $ctrl._podcastList" >
+    </mh-podcast-view>
+<div>
+<!--
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div layout="column" >
 
@@ -20,14 +27,7 @@
                     <mh-podcast-preview mh-podcast="podcast" 
                                         mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})" 
                                         mh-on-show-episodes="$ctrl.onShowEpisodes({podcast : podcast})">
-                    </mh-podcast-preview>
-                    <!--
-                    <md-card-content 
-                                     layout-align="space-between"
-                                     ng-class="{'podcast-selected-box2': $ctrl.episodesToShow({podcast : podcast})}">
-                    ABC
-                    </md-card-content>
-                    -->                    
+                    </mh-podcast-preview>                  
                 </md-card>
 
         </div>
@@ -41,3 +41,4 @@
         </div>
     </md-content>
 </div>
+-->

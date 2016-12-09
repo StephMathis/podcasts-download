@@ -1,20 +1,5 @@
-<md-toolbar>
-    <div class="md-toolbar-tools">
-            <md-button ui-sref="channels" class="md-icon-button" aria-label="toChannels">
-                <md-tooltip md-direction="left">
-                    Retour vers les chaines
-                </md-tooltip>
-                <i class="material-icons" ng-style="{color: '#BBDEFB', 'font-size':'36px', height:'36px'}">first_page</i>
-            </md-button>
-        <h2>
-            <span>{{ $ctrl.channel.title }}</span>
-        </h2>
-        <span flex></span>
-    </div>
-</md-toolbar>
-
 <mh-podcast-list mh-podcast-id-list="$ctrl.channel.getPodcastsId()"
                 mh-on-podcast-add="$ctrl.showAddPocastPrompt($event)"
-                mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})"
-></mh-podcast-list>
+                mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})">
+</mh-podcast-list>
 

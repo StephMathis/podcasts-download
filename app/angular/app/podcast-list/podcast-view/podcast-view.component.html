@@ -1,0 +1,13 @@
+<div layout="row" flex>
+    <div layout="column" class="mh-podcast-title-and-cover">
+        <span class="mh-podcast-title">{{ $ctrl.podcast.content.title }}</span>
+        <img ng-src="{{ $ctrl.podcast.content.cover_url }}" class="mh-podcast-image" />
+        <button ng-click="$ctrl.onPodcastRemove({podcast: $ctrl.podcast})">
+                <i class="material-icons">delete_forever</i>Supprimer ce podcast
+        </button>
+    </div>
+
+    <md-content flex>
+        <mh-episode-list mh-podcast-id="$ctrl.podcast.podcastId"></mh-episode-list>
+    </md-content>
+</div>
