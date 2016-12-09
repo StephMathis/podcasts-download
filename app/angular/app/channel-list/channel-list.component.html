@@ -24,8 +24,16 @@
 
     </md-sidenav>
     <md-content id="content" flex>
-        <md-toolbar><h2>Les podcasts</h2></md-toolbar>
-        <mh-channel-view mh-channel="$ctrl.selectedChannel" ng-show="$ctrl.selectedChannel != null"></mh-channel-view>
+        <md-toolbar>
+            <h2>Les podcasts</h2>
+            <span ng-if="$ctrl.downloadTrackerStore.length > 0"> : {{ $ctrl.downloadTrackerStore.length }} téléchargements en cours ...</span>
+        </md-toolbar>
+        
+        <img ng-show="$ctrl.selectedChannel != null" class="mh-channel-img-in-channel-view" ng-src="{{ $ctrl.selectedChannel.thumbnail_url }}"/>
+
+        <mh-channel-view mh-channel="$ctrl.selectedChannel" 
+                         ng-show="$ctrl.selectedChannel != null">
+        </mh-channel-view>
         
        
     </md-content>

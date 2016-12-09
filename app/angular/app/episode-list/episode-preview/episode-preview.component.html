@@ -1,16 +1,16 @@
  <div layout="row" layout-wrap>       
-        <div flex="66" class="">
-            <p class="md-title">{{ $ctrl.episode.title }}</p>
-            <p>{{ $ctrl.episode.size | mhfilesize }} - {{ $ctrl.episode.duration | mhseconds }}</p>            
+        <div flex>
+            <p class="mh-episode-title">{{ $ctrl.episode.title }}</p>
+            <p class="mh-episode-details">{{ $ctrl.episode.size | mhfilesize }} - {{ $ctrl.episode.duration | mhseconds }}</p>            
         </div>
-        <div flex="33" >
+        <div class="mh-episode-actions-column" >
 
-        <md-button href="{{ $ctrl.getContentUrlWithTracker() }}"
-            ng-class="{'md-primary': $ctrl.episode.downloaded === false, 'md-warn' : $ctrl.episode.downloaded === true}" 
-            aria-label="Download" 
-            ng-click="$ctrl.downloadRequested()">
-            <i class="material-icons">backup</i>
-        </md-button>
+            <md-button href="{{ $ctrl.getContentUrlWithTracker() }}"
+                ng-class="{'md-primary': $ctrl.episode.downloaded === false, 'md-warn' : $ctrl.episode.downloaded === true}" 
+                aria-label="Download" 
+                ng-click="$ctrl.downloadRequested()">
+                <i class="material-icons">backup</i>
+            </md-button>
       </div>
 </div>
 <md-divider ng-if="!$last"></md-divider>

@@ -139,3 +139,20 @@
 .mh-podcast-view-in-list {
   margin: 30px;
 }
+
+.mh-episode-actions-column {
+  flex: 0 0 50px;
+  margin: 2px;
+}
+
+.mh-episode-details {
+  color: gray;
+  font-size: 10px;
+}
+
+.mh-channel-img-in-channel-view {
+    position: fixed;
+    top: 100px;
+    right: 16px;
+}
+

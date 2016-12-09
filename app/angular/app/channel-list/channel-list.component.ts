@@ -3,6 +3,7 @@
  */
 import {Channel} from "./channel/channel";
 import {ChannelStore} from "./channel/channel-store";
+import {DownloadTrackerStore} from "../common/downloadtracker/downloadtracker-store";
 
 export class ChannelListComponent {
 
@@ -14,7 +15,7 @@ export class ChannelListComponent {
     channelList: Channel[];
     selectedChannel: Channel = null;
 
-    constructor(private $mdDialog, private $scope, private channelStore: ChannelStore) {
+    constructor(private $mdDialog, private $scope, private channelStore: ChannelStore,  private downloadTrackerStore: DownloadTrackerStore) {
         'ngInject';
 
         this.loadChannelList();
