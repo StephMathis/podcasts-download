@@ -1,26 +1,12 @@
-<!-- <md-progress-circular md-mode="indeterminate" ng-show="$ctrl.isLoading === true">
-</md-progress-circular>
--->
-
-
-
 <div layout="row" layout-sm="column" layout-align="space-around" ng-show="$ctrl.isLoading === true">
         <md-progress-circular ng-disabled="!vm.activated" md-diameter="96"></md-progress-circular>
 </div>
 
-
-
-
-<div>
-    <md-list>
-        <md-list-item
-                class="md-2-line contact-item"
-                ng-repeat="episode in $ctrl.episodeList">
-            <mh-episode-preview flex
-                                mh-episode="episode"
-                                mh-download-notifier="$ctrl.episodeStore.setAlreadyDownloaded(episode)">
-            </mh-episode-preview>
-        </md-list-item>
-    </md-list>
-</div>
-
+<md-list>
+<md-list-item ng-repeat="episode in $ctrl.episodeList" class="noright">
+    <mh-episode-preview flex
+                        mh-episode="episode"
+                        mh-download-notifier="$ctrl.episodeStore.setAlreadyDownloaded(episode)">
+    </mh-episode-preview>
+</md-list-item>
+</md-list>

@@ -1,6 +1,6 @@
-<md-toolbar class="demo-toolbar _md _md-toolbar-transitions" style="background-color: #2196F3;" scroll>
+<md-toolbar scroll class="demo-toolbar _md _md-toolbar-transitions" style="background-color: #2196F3;" >
     <div class="md-toolbar-tools">
-        <h3>Podcasts</h3>
+
         &nbsp;<span ng-if="$ctrl.downloadTrackerStore.length > 0"> : {{ $ctrl.downloadTrackerStore.length }} téléchargements en cours ...</span>
         <span flex></span>
 
@@ -8,36 +8,26 @@
         </mh-podcast-form>
     </div>
 </md-toolbar>
+<div flex layout="raw">
+    <div flex="50">
+        <md-list ng-cloak>
+            <md-subheader class="md-no-sticky">Podcasts</md-subheader>
+            <md-list-item class="noright" ng-repeat="podcast in $ctrl._podcastList" ng-click="noright">
+                <mh-podcast-preview
+                        mh-podcast="podcast"
+                        mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})"
+                        mh-on-show-episodes="$ctrl.onShowEpisodes({podcast : podcast})">
+                </mh-podcast-preview>
+            </md-list-item>
+        </md-list>
 
-<div ng-cloak>
-    <md-content class="md-padding" layout-xs="column" layout="row">
-        <div layout="column" >
-
-                <md-card class="podcast-card podcast-card-item-1"
-                         layout="row"  
-                         ng-repeat="podcast in $ctrl._podcastList" 
-                         ng-class="{'podcast-selected-box md-whiteframe-22dp': $ctrl.episodesToShow({podcast : podcast})}">
-                    <mh-podcast-preview mh-podcast="podcast" 
-                                        mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})" 
-                                        mh-on-show-episodes="$ctrl.onShowEpisodes({podcast : podcast})">
-                    </mh-podcast-preview>
-                    <!--
-                    <md-card-content 
-                                     layout-align="space-between"
-                                     ng-class="{'podcast-selected-box2': $ctrl.episodesToShow({podcast : podcast})}">
-                    ABC
-                    </md-card-content>
-                    -->                    
-                </md-card>
-
+    </div>
+        <div ng-repeat="podcast in $ctrl._podcastList"
+             ng-show="$ctrl.episodesToShow({podcast : podcast})" flex>
+            <mh-episode-list mh-podcast-id="podcast.podcastId"></mh-episode-list>
+            <md-divider ng-if="!$last"></md-divider>
         </div>
-        <div layout="column" style="flex-grow: 2">
-            <div ng-repeat="podcast in $ctrl._podcastList" 
-                 class="episodes-box episodes-box-item-1"
-                 ng-show="$ctrl.episodesToShow({podcast : podcast})">
-
-                <mh-episode-list mh-podcast-id="podcast.podcastId"></mh-episode-list>
-            </div>
-        </div>
-    </md-content>
 </div>
+
+
+

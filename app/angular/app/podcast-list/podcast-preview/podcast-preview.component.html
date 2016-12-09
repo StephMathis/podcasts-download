@@ -1,21 +1,14 @@
-<md-card-title>
-    <md-card-title-text style="width:300px">
-        <span class="md-title" ng-click="$ctrl.showEpisodes()">{{ $ctrl.podcast.content.title }}</span>
-        <!--  <span class="md-subhead">{{ $ctrl.podcast.content.description }}</span> -->
-    </md-card-title-text>
-    <md-card-title-media>
-        <div class="md-media-lg card-media">
-            <img ng-src="{{ $ctrl.podcast.content.cover_url }}"
-                 height="200px"
-                 ng-click="$ctrl.showEpisodes()"/>
-        </div>
-    </md-card-title-media>
-</md-card-title>
-<md-card-actions layout="row" layout-align="end center">
-    <md-button class="md-icon-button" aria-label="Delete podcast" ng-click="$ctrl.onPodcastRemove({podcast: $ctrl.podcast})">
-        <md-tooltip md-direction="left">
-            Supprimer ce podcast
-        </md-tooltip>
-        <i class="material-icons">delete_forever</i>
-    </md-button>
-</md-card-actions>
+<div layout="raw" flex>
+
+    <img ng-src="{{ $ctrl.podcast.content.cover_url }}" class="md-avatar" ng-click="$ctrl.showEpisodes()"/>
+    <div flex="80" ng-click="$ctrl.showEpisodes()">{{ $ctrl.podcast.content.title }}</div>
+
+<md-button flex class="md-secondary md-icon-button" aria-label="Delete podcast"
+           ng-click="$ctrl.onPodcastRemove({podcast: $ctrl.podcast})">
+    <md-tooltip md-direction="left">
+        Supprimer ce podcast
+    </md-tooltip>
+    <i class="material-icons">delete_forever</i>
+</md-button>
+
+</div>
