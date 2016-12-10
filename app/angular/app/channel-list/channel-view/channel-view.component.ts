@@ -66,7 +66,7 @@ export class ChannelViewComponent {
     }
 
     removePodcast({podcast} : {podcast: Podcast}) {
-        this.channelStore.removePodcast(this.channel.channelId, podcast.podcastId).then(() => {
+        this.channelStore.removePodcast(this.channel, podcast.podcastId).then(() => {
             this._reloadChannel();
         })
     }
