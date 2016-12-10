@@ -138,6 +138,7 @@
 
 .mh-podcast-view-in-list {
   margin: 30px;
+  background-color: rgba(red, green, blue, 0.5);
 }
 
 .mh-episode-actions-column {
@@ -156,3 +157,6 @@
     right: 16px;
 }
 
+.mh-podcast-episodes {
+  background-color: rgba(66,66,66,0.5);
+}
