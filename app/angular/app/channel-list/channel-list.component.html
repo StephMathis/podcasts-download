@@ -1,16 +1,24 @@
-<div class="container" layout="raw" flex>
-    <md-sidenav md-is-locked-open="true" class="md-whiteframe-5dp">
-        <md-toolbar layout="row" layout-align="space-between center">
+<header>
+        <md-toolbar md-scroll-shrink ng-if="true">
+            <div class="md-toolbar-tools">
             <span></span>
             <h4>Les chaines</h4>
-            <md-button class="md-fab" aria-label="Ajouter une chaine" ng-click="$ctrl.showAddChannelPrompt($event)" >
-                <i class="material-icons">add</i>
-            </md-button>
+            <span class="md-fab mh-channel-fab-button" aria-label="Ajouter une chaine"
+                       ng-click="$ctrl.showAddChannelPrompt($event)" >
+                <i class="material-icons mh-add">add</i>
+            </span>
+            </div>
         </md-toolbar>
 
-        <md-list>
+</header>
+
+<div class="container" layout="column" flex>
+
+    <md-content flex >
+        <p align="center">Faites connaître vos podcasts et partagez vos émissions préférées en les inscrivant sur ce site.</p>
+        <md-list layout="raw" flex>
             <md-list-item ng-repeat="channel in $ctrl.channelList | filter:searchText">
-                <mh-channel-preview mh-channel="channel"
+                <mh-channel-preview flex mh-channel="channel"
                                     mh-on-channel-click="$ctrl.selectChannel({channel: channel})"
                                     mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
                                     mh-on-channel-remove="$ctrl.removeChannel(channel)"
@@ -19,24 +27,26 @@
                 </mh-channel-preview>
             </md-list-item>
         </md-list>
-
-
-
-    </md-sidenav>
-    <md-content id="content" flex>
-        <md-toolbar>
-            <h2>Les podcasts</h2>
-            <span ng-if="$ctrl.downloadTrackerStore.length > 0"> : {{ $ctrl.downloadTrackerStore.length }} téléchargements en cours ...</span>
-        </md-toolbar>
-        
-        <img ng-show="$ctrl.selectedChannel != null" class="mh-channel-img-in-channel-view" ng-src="{{ $ctrl.selectedChannel.thumbnail_url }}"/>
-
-        <mh-channel-view mh-channel="$ctrl.selectedChannel" 
-                         ng-show="$ctrl.selectedChannel != null">
-        </mh-channel-view>
-        
-       
     </md-content>
+
+
+        <!--
+            </md-sidenav
+
+            <!-- <md-content id="content" flex>
+                <md-toolbar>
+                    <h2>Les podcasts</h2>
+                    <span ng-if="$ctrl.downloadTrackerStore.length > 0"> : {{ $ctrl.downloadTrackerStore.length }} téléchargements en cours ...</span>
+                </md-toolbar>
+
+                <img ng-show="$ctrl.selectedChannel != null" class="mh-channel-img-in-channel-view" ng-src="{{ $ctrl.selectedChannel.thumbnail_url }}"/>
+
+                <mh-channel-view mh-channel="$ctrl.selectedChannel"
+                                 ng-show="$ctrl.selectedChannel != null">
+                </mh-channel-view>
+
+
+            </md-content> -->
 </div>
 <!--
 <md-toolbar scroll>
