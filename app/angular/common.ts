@@ -13,5 +13,6 @@ import 'restangular';
 import 'angular-material';
 import 'angular-animate';
 import 'angular-local-storage';
+import 'ngclipboard';
 
 require('!!style!css!./podcasts.css');

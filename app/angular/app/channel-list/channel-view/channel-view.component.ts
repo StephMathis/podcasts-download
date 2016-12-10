@@ -10,13 +10,18 @@ export class ChannelViewComponent {
 
     static config = {
         bindings: <any>{
-            channel: '<mhChannel'
+            channel: '<mhChannel',
+            onChannelChanged: '&mhOnChannelChanged'
         },
         controller: ChannelViewComponent,
         templateUrl: require('./channel-view.component.html')
     };
 
+    /* inputs */
     channel : Channel;
+
+    /* bindings */
+    onChannelChanged;
 
     constructor(private $mdDialog,
                 private $scope,
@@ -41,7 +46,7 @@ export class ChannelViewComponent {
             console.log("ChannelViewComponent", "validateAddPodcast", podcastUrl);
             if (podcastUrl !== undefined) {
                 this.channelStore.addPodcast(this.channel, podcastUrl).then(() => {
-                    //this.loadChannel();
+                    this._reloadChannel();
                 });
             }
         }
@@ -53,9 +58,16 @@ export class ChannelViewComponent {
         this.$mdDialog.show(prompt).then(validateAddPodcast, cancelAddPodcast);
     }
 
+    _reloadChannel() {
+        this.channelStore.loadChannel(this.channel.channelId).then((channel: Channel) => {
+            this.channel = channel;
+            this.onChannelChanged({channel: channel});
+        });
+    }
+
     removePodcast({podcast} : {podcast: Podcast}) {
         this.channelStore.removePodcast(this.channel.channelId, podcast.podcastId).then(() => {
-            //this.loadChannel();
+            this._reloadChannel();
         })
     }
 }

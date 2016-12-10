@@ -78,4 +78,10 @@ export class ChannelPreviewComponent {
         this.$mdDialog.cancel();        
     }
 
+    _reloadChannel() {
+        this.channelStore.loadChannel(this.channel.channelId).then((channel: Channel) => {
+            this.channel = channel;
+        });
+    }
+
 }

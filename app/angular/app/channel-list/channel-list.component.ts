@@ -24,7 +24,10 @@ export class ChannelListComponent {
 
     loadChannelList() {
         this.channelStore.loadChannelList()
-            .then(list => this.channelList = list);
+            .then((list) => {
+                this.channelList = list;
+                console.log("ChannelListComponent loadChannelList", list, this.channelList);                
+            });
     }
 
     showAddChannelPrompt(event) {
@@ -48,7 +51,7 @@ export class ChannelListComponent {
         }
     }
 
-    removeChannel(channel: Channel) {
+    removeChannel({channel} : {channel: Channel}) {
         this.channelStore.removeChannel(channel.channelId).then(() => {
             this.loadChannelList();
         })
@@ -60,6 +63,10 @@ export class ChannelListComponent {
 
     selectChannel({channel} : {channel: Channel}) {
         this.selectedChannel = channel;
+    }
+
+    channelChanged({channel} : {channel: Channel}) {
+        this.loadChannelList();
     }
 
 }

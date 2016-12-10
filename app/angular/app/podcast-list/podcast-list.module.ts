@@ -5,6 +5,7 @@ import {PodcastFormComponent} from "./podcast-preview/podcast-form/podcast-form.
 import {PodcastViewComponent} from "./podcast-view/podcast-view.component";
 
 export const podcastListModule = angular.module('app.podcastList', [
+    'ngclipboard',
     podcastModule.name,
     downloadTrackerModule.name
 ]);
