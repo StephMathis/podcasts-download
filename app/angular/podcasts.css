@@ -121,10 +121,11 @@
   height: 200px; 
 }
 .mh-podcast-title {
-  background: cornflowerblue;
+  /*background: cornflowerblue;*/
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.005em;
+  padding: 2px;
 }
 
 .mh-podcast-title-and-cover {
@@ -138,7 +139,7 @@
 
 .mh-podcast-view-in-list {
   margin: 30px;
-  background-color: rgba(red, green, blue, 0.5);
+  /*background-color: rgba(red, green, blue, 0.5);*/
 }
 
 .mh-episode-actions-column {
