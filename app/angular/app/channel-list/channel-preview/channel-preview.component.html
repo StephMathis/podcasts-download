@@ -1,14 +1,14 @@
 
 <div layout="row" >
    <!-- <md-button class="md-raised" ng-click="$ctrl.onChannelClick({channel: $ctrl.channel})" flex>-->
-        <div layout="row" flex style="background-image: url('{{ $ctrl.channel.thumbnail_url }}');">
-            <a class="mh-content" layout="column" layout-align="start end" flex>
-                <div class="mh-bar">
+        <div layout="column" flex style="background-image: url('{{ $ctrl.channel.thumbnail_url }}');">
+            <!--<div class="mh-content" layout="column" layout-align="start end" flex>-->
                     <h4>{{ $ctrl.channel.title }}</h4>
                     <p>{{ $ctrl.channel.getPodcastsId().length }} podcasts</p>
-                </div>
-            </a>
+            <!--</div>-->
+            <div class="mh-bar" flex></div>
         </div>
+        
    <!-- </md-button>-->
     <div layout="column">
         <md-button class="md-icon-button"
