@@ -1,87 +1,27 @@
 <header>
-        <md-toolbar md-scroll-shrink ng-if="true">
-            <div class="md-toolbar-tools">
+    <md-toolbar md-scroll-shrink ng-if="true">
+        <div class="md-toolbar-tools">
             <span></span>
             <h4>Les chaines</h4>
             <span class="md-fab mh-channel-fab-button" aria-label="Ajouter une chaine"
-                       ng-click="$ctrl.showAddChannelPrompt($event)" >
+                  ng-click="$ctrl.showAddChannelPrompt($event)" >
                 <i class="material-icons mh-add">add</i>
             </span>
-            </div>
-        </md-toolbar>
+        </div>
+    </md-toolbar>
 
 </header>
 
-<div class="container" layout="column" flex>
-
-    <md-content flex >
+    <md-content class="md-padding" layout-xs="column" >
         <p align="center">Faites connaître vos podcasts et partagez vos émissions préférées en les inscrivant sur ce site.</p>
-        <md-list layout="raw" flex>
-            <md-list-item ng-repeat="channel in $ctrl.channelList | filter:searchText">
-                <mh-channel-preview flex mh-channel="channel"
-                                    mh-on-channel-click="$ctrl.selectChannel({channel: channel})"
-                                    mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
-                                    mh-on-channel-remove="$ctrl.removeChannel(channel)"
-                                    ng-animate-ref="{{ channel.channelId }}"
-                                    flex>
-                </mh-channel-preview>
-            </md-list-item>
-        </md-list>
+
+        <section layout="row" layout-sm="column" layout-wrap>
+            <mh-channel-preview flex ng-repeat="channel in $ctrl.channelList | filter:searchText" class="fade"
+                                mh-channel="channel"
+                                mh-on-channel-remove="$ctrl.removeChannel(channel)"
+                                mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
+                                ng-animate-ref="{{ channel.channelId }}">
+            </mh-channel-preview>
+
+        </section>
     </md-content>
-
-
-        <!--
-            </md-sidenav
-
-            <!-- <md-content id="content" flex>
-                <md-toolbar>
-                    <h2>Les podcasts</h2>
-                    <span ng-if="$ctrl.downloadTrackerStore.length > 0"> : {{ $ctrl.downloadTrackerStore.length }} téléchargements en cours ...</span>
-                </md-toolbar>
-
-                <img ng-show="$ctrl.selectedChannel != null" class="mh-channel-img-in-channel-view" ng-src="{{ $ctrl.selectedChannel.thumbnail_url }}"/>
-
-                <mh-channel-view mh-channel="$ctrl.selectedChannel"
-                                 ng-show="$ctrl.selectedChannel != null">
-                </mh-channel-view>
-
-
-            </md-content> -->
-</div>
-<!--
-<md-toolbar scroll>
-    <div class="md-toolbar-tools">
-        <h2>
-            <span>Les chaines</span>
-        </h2>
-        <span flex></span>
-
-            <md-input-container md-theme="input" flex ng-show="showSearch">
-                <label>&nbsp;</label>
-                <input ng-model="searchText" placeholder="Qui cherche trouve ... ou pas :)">
-            </md-input-container>
-            <md-button class="md-icon-button" aria-label="Search" ng-click="showSearch = !showSearch">
-                <i class="material-icons">search</i>
-            </md-button>
-
-
-        <md-button class="md-raised" aria-label="Ajouter une chaine" ng-click="$ctrl.showAddChannelPrompt($event)" >
-            Ajouter une chaine
-        </md-button>
-    </div>
-</md-toolbar>
-
-
-<div ng-cloak flex>
-    <md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex class='md-padding' layout="row" layout-wrap>
-                <mh-channel-preview flex="30" ng-repeat="channel in $ctrl.channelList | filter:searchText" class="fade"
-                                    mh-channel="channel"
-                                    mh-on-channel-remove="$ctrl.removeChannel(channel)"
-                                    mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
-                                    ng-animate-ref="{{ channel.channelId }}">
-                </mh-channel-preview>
-        </div>
-    </md-content>
-</div>
--->

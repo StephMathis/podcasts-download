@@ -1,82 +1,35 @@
 
-<div class="mh-channel" layout="row" flex>
-    <md-button class="md-raised" ng-click="$ctrl.onChannelClick({channel: $ctrl.channel})" flex>
-        <div layout="row" flex>
-
-            <img alt="channel image"
-                class="md-avatar" 
-                ng-src="{{ $ctrl.channel.thumbnail_url }}" >          
-            <div layout="column" layout-align="start end" flex>
-                <div><h4>{{ $ctrl.channel.title }}</h4></div>
-                <div>{{ $ctrl.channel.getPodcastsId().length }} podcasts</div>            
-                <!--<div>{{ $ctrl.channel.getPodcastsId().length }} podcasts</div>-->
-            </div>
+<div layout="row" >
+   <!-- <md-button class="md-raised" ng-click="$ctrl.onChannelClick({channel: $ctrl.channel})" flex>-->
+        <div layout="row" flex style="background-image: url('{{ $ctrl.channel.thumbnail_url }}');">
+            <a class="mh-content" layout="column" layout-align="start end" flex>
+                <div class="mh-bar">
+                    <h4>{{ $ctrl.channel.title }}</h4>
+                    <p>{{ $ctrl.channel.getPodcastsId().length }} podcasts</p>
+                </div>
+            </a>
         </div>
-    </md-button>
-
+   <!-- </md-button>-->
     <div layout="column">
-        <md-button class="md-icon-button" 
-                aria-label="Edit" 
-                ng-click="$ctrl.showEditChannelPrompt($event)">
-            <md-tooltip md-direction="left">
+        <md-button class="md-icon-button"
+                   aria-label="Edit"
+                   ng-click="$ctrl.showEditChannelPrompt($event)">
+            <md-tooltip md-direction="right">
                 Editer
             </md-tooltip>
             <i class="material-icons">edit</i>
         </md-button>
-        <md-button class="md-icon-button" 
-                aria-label="Delete" 
-                ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
-            <md-tooltip md-direction="left">
+        <md-button class="md-icon-button"
+                   aria-label="Delete"
+                   ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
+            <md-tooltip md-direction="right">
                 Supprimer
             </md-tooltip>
             <i class="material-icons">delete</i>
         </md-button>
     </div>
 </div>
-<!--
-<md-card>
-   <a ui-sref='channel({channelId: $ctrl.channel.channelId})'
-      ng-animate-ref="{{ $ctrl.channel.channelId }}">
-        <img ng-src="{{ $ctrl.channel.thumbnail_url }}"
-                class="md-card-image" alt="channel image">
-    </a>
-    <div>
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">{{ $ctrl.channel.title }}</span>
-                <span class="md-subhead">
-                    <a ui-sref='channel({channelId: $ctrl.channel.channelId})'
-                       ng-animate-ref="{{ $ctrl.channel.channelId }}">
-                        {{ $ctrl.channel.getPodcastsId().length }} podcasts 
-                    </a>
-                </span>
-            </md-card-title-text>
-        </md-card-title>
-    </div>
-    <div>
-        <md-card-content>
-                {{ $ctrl.channel.comment }}
-        </md-card-content>
-    </div>
-    <div>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button class="md-icon-button" 
-                    aria-label="Edit" 
-                    ng-click="$ctrl.showEditChannelPrompt($event)">
-                <md-tooltip md-direction="left">
-                    Editer
-                </md-tooltip>
-                <i class="material-icons">edit</i>
-            </md-button>
-            <md-button class="md-icon-button" 
-                    aria-label="Delete" 
-                    ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
-                <md-tooltip md-direction="left">
-                    Supprimer
-                </md-tooltip>
-                <i class="material-icons">delete</i>
-            </md-button>
-        </md-card-actions>
-    </div>
-</md-card>
--->
+
+
+
+

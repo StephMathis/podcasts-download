@@ -178,3 +178,19 @@
 
 }
 
+.mh-content {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+
+
+.mh-bar {
+    background-color: rgba(236,239,241,.8);
+    bottom: 0;
+    color: #fff;
+    height: 50px;
+    width: 100%;
+}
