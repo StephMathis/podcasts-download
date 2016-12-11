@@ -187,3 +187,14 @@
     padding: 50px;
 
 }
+
+.mh-bar > h4 {
+    margin-top : 2px;
+    margin-bottom: 2px;
+}
+
+.mh-bar > p {
+    margin-top : 2px;
+    margin-bottom: 2px;
+}
+
