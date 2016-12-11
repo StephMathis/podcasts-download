@@ -181,5 +181,8 @@
 
 .mh-bar {
     background-color: rgba(236,239,241,.8);
+}
+
+.mh-below-bar {
     padding: 50px;
 }
