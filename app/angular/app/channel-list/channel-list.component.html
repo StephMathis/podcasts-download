@@ -9,19 +9,17 @@
             </span>
         </div>
     </md-toolbar>
-
 </header>
 
-    <md-content class="md-padding" layout-xs="column" flex>
-        <p align="center">Faites connaître vos podcasts et partagez vos émissions préférées en les inscrivant sur ce site.</p>
+<md-content class="md-padding" layout-xs="column" flex>
+    <p align="center">Faites connaître vos podcasts et partagez vos émissions préférées en les inscrivant sur ce site.</p>
 
-        <section layout="row" layout-sm="column" layout-wrap>
-            <mh-channel-preview flex ng-repeat="channel in $ctrl.channelList | filter:searchText" class="fade"
-                                mh-channel="channel"
-                                mh-on-channel-remove="$ctrl.removeChannel(channel)"
-                                mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
-                                ng-animate-ref="{{ channel.channelId }}">
-            </mh-channel-preview>
-
-        </section>
-    </md-content>
+    <section layout="row" layout-sm="column" layout-wrap>
+        <mh-channel-preview flex ng-repeat="channel in $ctrl.channelList | filter:searchText" class="fade"
+                            mh-channel="channel"
+                            mh-on-channel-remove="$ctrl.removeChannel(channel)"
+                            mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
+                            ng-animate-ref="{{ channel.channelId }}">
+        </mh-channel-preview>
+    </section>
+</md-content>

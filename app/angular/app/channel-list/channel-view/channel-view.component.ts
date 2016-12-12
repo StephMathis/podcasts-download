@@ -9,13 +9,11 @@ import {Podcast} from "../../common/podcast/podcast.component";
 export class ChannelViewComponent {
 
     static config = {
-        bindings: <any>{
-            channel: '<mhChannel'
-        },
         controller: ChannelViewComponent,
         templateUrl: require('./channel-view.component.html')
     };
 
+    channelId : string;
     channel : Channel;
 
     constructor(private $mdDialog,
@@ -23,6 +21,15 @@ export class ChannelViewComponent {
                 private $stateParams,
                 private channelStore : ChannelStore) {
         'ngInject';
+
+        this.channelId = this.$stateParams.channelId;
+        this.loadChannel();
+    }
+
+    loadChannel() {
+        this.channelStore.loadChannel(this.channelId).then((channel) => {
+            this.channel = channel;
+        });
     }
 
     showAddPocastPrompt(event) {
