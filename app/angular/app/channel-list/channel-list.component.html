@@ -48,7 +48,27 @@
             </md-button>
         </md-toolbar>
 
-        <md-list>
+        <div layout="column" flex>
+            <div ng-hide="$ctrl.isHidden({channel : channel}) || false"
+                 ng-repeat="channel in $ctrl.channelList | filter:searchText"
+                 layout="column" 
+                 flex>
+                    <mh-channel-preview mh-channel="channel"
+                                        mh-on-channel-click="$ctrl.selectChannel({channel: channel})"
+                                        mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
+                                        mh-on-channel-remove="$ctrl.removeChannel({channel : channel})"
+                                        mh-on-channel-unselect="$ctrl.unselectChannel({channel: channel})"                                   
+                                        >
+                    </mh-channel-preview>
+                    <mh-channel-view mh-channel="$ctrl.selectedChannel"
+                                    mh-on-channel-changed="$ctrl.channelChanged({channel : channel})"
+                                    ng-show="$ctrl.selectedChannel != null"
+                                    flex>
+                    </mh-channel-view>
+            </div>
+        </div>
+        <!--
+        <md-list flex>
             <md-list-item ng-hide="$ctrl.isHidden({channel : channel})"
                           ng-repeat="channel in $ctrl.channelList | filter:searchText"
                           layout="column" flex>
@@ -66,6 +86,6 @@
                 </mh-channel-view>
             </md-list-item>
         </md-list>
-
+        -->
     </md-content>
 </div>
