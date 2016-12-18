@@ -113,7 +113,6 @@
 }
 
 .mh-channel {
-  background-color: rgba(96,125,139,.8);
   margin-bottom: 10px;
   margin-right: 10px;
 }
@@ -230,6 +229,6 @@ div.mh-bar p {
 
 }
 
-.material-icons.yellow { color: #e8d831; }
+.material-icons.white { color: #FFFFFF; }
 
 

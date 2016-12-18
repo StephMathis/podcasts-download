@@ -1,38 +1,31 @@
-
 <div class="mh-channel" layout="row" >
-   <!-- <md-button class="md-raised" ng-click="$ctrl.onChannelClick({channel: $ctrl.channel})" flex>-->
-        <div layout="column" flex style="background-image: url('{{ $ctrl.channel.thumbnail_url }}');">
-            <a ui-sref='channel({channelId: $ctrl.channel.channelId})'>
-                <!--<div class="mh-content" layout="column" layout-align="start end" flex>-->
-                <div class="mh-top-bar" flex></div>
-                <div class="mh-bar" layout="column">
-                        <h4>{{ $ctrl.channel.title }}</h4>
-                        <p>{{ $ctrl.channel.getPodcastsId().length }} podcasts</p>
-                </div>
-                <!--</div> -->
-            </a>
-        </div>
-<!--   </md-button>-->
-   <div layout="column">
-       <md-button class="md-icon-button"
-                  aria-label="Edit"
-                  ng-click="$ctrl.showEditChannelPrompt($event)">
-<!--           <md-tooltip md-direction="right">
-               Editer
-           </md-tooltip>-->
-           <i class="material-icons yellow">edit</i>
-       </md-button>
-       <md-button class="md-icon-button"
-                  aria-label="Delete"
-                  ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
-<!--           <md-tooltip md-direction="right">
-               Supprimer
-           </md-tooltip>-->
-           <i class="material-icons yellow">delete</i>
-       </md-button>
-   </div>
+    <!-- <md-button class="md-raised" ng-click="$ctrl.onChannelClick({channel: $ctrl.channel})" flex>-->
+    <div layout="column" flex style="background-image: url('{{ $ctrl.channel.thumbnail_url }}');">
+        <a ui-sref='channel({channelId: $ctrl.channel.channelId})'>
+            <!--<div class="mh-content" layout="column" layout-align="start end" flex>-->
+            <div layout="raw">
+                <div flex></div>
+                <md-button class="md-icon-button"
+                           aria-label="Edit"
+                           ng-click="$ctrl.showEditChannelPrompt($event)">
+
+                    <i class="material-icons white">edit</i>
+                </md-button>
+                <md-button class="md-icon-button"
+                           aria-label="Delete"
+                           ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
+
+                    <i class="material-icons white">delete</i>
+                </md-button>
+            </div>
+            <div class="mh-top-bar" flex></div>
+            <div class="mh-bar" layout="column">
+                <h4>{{ $ctrl.channel.title }}</h4>
+                <p>{{ $ctrl.channel.getPodcastsId().length }} podcasts</p>
+            </div>
+            <!--</div> -->
+        </a>
+    </div>
+    <!--   </md-button>-->
+
 </div>
-
-
-
-
