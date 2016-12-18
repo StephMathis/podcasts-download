@@ -1,5 +1,5 @@
 
-<div layout="row" >
+<div class="mh-channel" layout="row" >
    <!-- <md-button class="md-raised" ng-click="$ctrl.onChannelClick({channel: $ctrl.channel})" flex>-->
         <div layout="column" flex style="background-image: url('{{ $ctrl.channel.thumbnail_url }}');">
             <a ui-sref='channel({channelId: $ctrl.channel.channelId})'>
@@ -9,30 +9,28 @@
                         <h4>{{ $ctrl.channel.title }}</h4>
                         <p>{{ $ctrl.channel.getPodcastsId().length }} podcasts</p>
                 </div>
-                <!--</div>-->
+                <!--</div> -->
             </a>
-
         </div>
-        
-   <!-- </md-button>-->
-    <div layout="column">
-        <md-button class="md-icon-button"
-                   aria-label="Edit"
-                   ng-click="$ctrl.showEditChannelPrompt($event)">
-            <md-tooltip md-direction="right">
-                Editer
-            </md-tooltip>
-            <i class="material-icons">edit</i>
-        </md-button>
-        <md-button class="md-icon-button"
-                   aria-label="Delete"
-                   ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
-            <md-tooltip md-direction="right">
-                Supprimer
-            </md-tooltip>
-            <i class="material-icons">delete</i>
-        </md-button>
-    </div>
+<!--   </md-button>-->
+   <div layout="column">
+       <md-button class="md-icon-button"
+                  aria-label="Edit"
+                  ng-click="$ctrl.showEditChannelPrompt($event)">
+           <md-tooltip md-direction="right">
+               Editer
+           </md-tooltip>
+           <i class="material-icons yellow">edit</i>
+       </md-button>
+       <md-button class="md-icon-button"
+                  aria-label="Delete"
+                  ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
+           <md-tooltip md-direction="right">
+               Supprimer
+           </md-tooltip>
+           <i class="material-icons yellow">delete</i>
+       </md-button>
+   </div>
 </div>
 
 
