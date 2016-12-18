@@ -62,8 +62,23 @@ export class ChannelListComponent {
         this.selectedChannel = channel;
     }
 
+    unselectChannel({channel} : {channel: Channel}) {
+        this.selectedChannel = null;
+    }
+
+    isSelected({channel} : {channel: Channel}) {
+        return this.selectedChannel === channel;
+    }
+
     channelChanged({channel} : {channel: Channel}) {
         this.loadChannelList();
+    }
+
+    isHidden({channel} : {channel: Channel}) {
+        if (this.selectedChannel === null) {
+            return false;
+        } 
+        return this.isSelected({channel: channel}) === false;
     }
 
 }

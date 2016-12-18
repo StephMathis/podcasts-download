@@ -18,18 +18,28 @@
         <md-button class="md-icon-button" 
                 aria-label="Edit" 
                 ng-click="$ctrl.showEditChannelPrompt($event)">
-            <md-tooltip md-direction="right">
+            <md-tooltip md-direction="bottom">
                 Editer
             </md-tooltip>
             <i class="material-icons">edit</i>
         </md-button>
+        
         <md-button class="md-icon-button" 
                 aria-label="Delete" 
                 ng-click="$ctrl.showRemoveChannelConfirmModal($event)">
-            <md-tooltip md-direction="right">
+            <md-tooltip md-direction="bottom">
                 Supprimer
             </md-tooltip>
             <i class="material-icons">delete</i>
+        </md-button>
+
+        <md-button class="md-icon-button" 
+                aria-label="Close" 
+                ng-click="$ctrl.onChannelUnselect({channel: $ctrl.channel})">
+            <md-tooltip md-direction="bottom">
+                Fermer
+            </md-tooltip>
+            <i class="material-icons">close</i>
         </md-button>
     </div>
 </div>

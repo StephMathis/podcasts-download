@@ -1,4 +1,5 @@
 <div class="container" layout="raw" flex>
+    <!--
     <md-sidenav md-is-locked-open="true" class="md-whiteframe-5dp">
         <md-toolbar layout="row" layout-align="space-between center">
             <span></span>
@@ -36,5 +37,35 @@
         </mh-channel-view>
         
        
+    </md-content>
+    -->
+    <md-content id="content" flex>
+        <md-toolbar layout="row" layout-align="space-between center">
+            <span></span>
+            <h4>Podcasts</h4>
+            <md-button class="md-fab" aria-label="Ajouter une chaine" ng-click="$ctrl.showAddChannelPrompt($event)" >
+                <i class="material-icons">add</i>
+            </md-button>
+        </md-toolbar>
+
+        <md-list>
+            <md-list-item ng-hide="$ctrl.isHidden({channel : channel})"
+                          ng-repeat="channel in $ctrl.channelList | filter:searchText"
+                          layout="column" flex>
+                <mh-channel-preview mh-channel="channel"
+                                    mh-on-channel-click="$ctrl.selectChannel({channel: channel})"
+                                    mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
+                                    mh-on-channel-remove="$ctrl.removeChannel({channel : channel})"
+                                    mh-on-channel-unselect="$ctrl.unselectChannel({channel: channel})"                                   
+                                    flex>
+                </mh-channel-preview>
+                <mh-channel-view mh-channel="$ctrl.selectedChannel"
+                                 mh-on-channel-changed="$ctrl.channelChanged({channel : channel})"
+                                 ng-show="$ctrl.selectedChannel != null"
+                                 flex>
+                </mh-channel-view>
+            </md-list-item>
+        </md-list>
+
     </md-content>
 </div>
