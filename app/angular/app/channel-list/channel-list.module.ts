@@ -10,6 +10,7 @@ import {ChannelAddComponent} from "./channel-add/channel-add.component";
 import {ChannelEditComponent} from "./channel-edit/channel-edit.component";
 
 export const channelListModule = angular.module('app.channelList', [
+    'ngAnimate',
     channelModule.name
 ]);
 

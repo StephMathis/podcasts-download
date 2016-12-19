@@ -1,10 +1,10 @@
 
-<div class="mh-channel fade" layout="row" flex>
+<div class="mh-channel-preview" layout="row" flex>
     <md-button class="md-raised" ng-click="$ctrl.onChannelClick({channel: $ctrl.channel})" flex>
         <div layout="row" flex>
 
             <img alt="channel image"
-                class="md-avatar" 
+                class="mh-channel-preview-image" 
                 ng-src="{{ $ctrl.channel.thumbnail_url }}" >          
             <div layout="column" layout-align="start end" flex>
                 <div><h4>{{ $ctrl.channel.title }}</h4></div>
