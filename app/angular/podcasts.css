@@ -7,6 +7,7 @@
   margin-left: 10px;
   margin-right: 10px;
   box-shadow: 0 6px 15px 0 rgba(255, 255, 255, 0.26);
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
 }
 
 .mh-channel-preview-image {
@@ -15,12 +16,14 @@
 }
 
 .mh-channel-preview-in-list.ng-hide {
-  transition:.3s linear all;
+  /*transition:.3s linear all;*/
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
   opacity:0;
 }
 .mh-channel-preview-in-list.on {
-  background: white;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  /*transition: all .2s ease-in-out;*/
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transform: scale(1.02); 
 }
 
 
