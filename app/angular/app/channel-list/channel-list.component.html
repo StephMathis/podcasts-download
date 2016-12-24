@@ -49,12 +49,13 @@
         </md-toolbar>
 
         <div layout="column" flex>
+                 <!--ng-hide="$ctrl.isHidden({channel : channel})"-->
             <div class="mh-channel-preview-in-list"
-                 ng-hide="$ctrl.isHidden({channel : channel})"
+                 ng-class="{off:$ctrl.selectedChannel != null && $ctrl.selectedChannel !== channel}"
                  ng-class="{on:$ctrl.selectedChannel === channel}"
                  ng-repeat="channel in $ctrl.channelList | filter:searchText"
                  layout="column" 
-                 flex>
+                 >
                     <mh-channel-preview mh-channel="channel"
                                         mh-on-channel-click="$ctrl.selectChannel({channel: channel})"
                                         mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
@@ -62,10 +63,11 @@
                                         mh-on-channel-unselect="$ctrl.unselectChannel({channel: channel})"                                   
                                         >
                     </mh-channel-preview>
-                    <mh-channel-view mh-channel="channel"
+                    <mh-channel-view class="mh-channel-view-in-list"
+                                     mh-channel="channel"
                                      mh-on-channel-changed="$ctrl.channelChanged({channel : channel})"
-                                     ng-hide="$ctrl.selectedChannel != channel"
-                                     flex>
+                                     ng-class="{off:$ctrl.selectedChannel !== channel, on:$ctrl.selectedChannel === channel}"
+                                     >
                     </mh-channel-view>
             </div>
         </div>

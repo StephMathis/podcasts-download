@@ -7,7 +7,6 @@
   margin-left: 10px;
   margin-right: 10px;
   box-shadow: 0 6px 15px 0 rgba(255, 255, 255, 0.26);
-  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
 }
 
 .mh-channel-preview-image {
@@ -15,15 +14,54 @@
   padding: 10px;
 }
 
-.mh-channel-preview-in-list.ng-hide {
-  /*transition:.3s linear all;*/
-  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  opacity:0;
+.mh-channel-preview-in-list {
+  height: 130px;
+  -webkit-transition: height 1s ease;
+  -moz-transition: height 1s ease;
+  -o-transition: height 1s ease;
+  transition: height 1s ease;
 }
+.mh-channel-preview-in-list.off {
+  /*transition:.3s linear all;*/
+  /*transition: 2000ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;*/
+  /*transition: all linear 1s;*/
+  /*line-height: 0px;
+  padding: 0px;*/
+  opacity:0;
+  transition:opacity 0.4s ease, height 0.5s ease 0.4s;
+  height: 0px;
+
+  /*transform: scaleY(0);
+  transition:transform 1s ease;*/
+}
+
+.mh-channel-view-in-list.on {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease 1s;
+  -moz-transition: all 0.2s ease 1s;
+  -o-transition: all 0.2s ease 1s;
+  transition: all 0.2s ease 1s;
+}
+
+.mh-channel-view-in-list.off {
+  opacity: 0;
+}
+
+.mh-channel-preview-in-list.off button {
+  /*height: 0px;*/
+  /*transition:all 3s ease;*/
+}
+.mh-channel-preview-in-list.off div {
+  /*height: 50px;*/
+
+}
+
 .mh-channel-preview-in-list.on {
-  /*transition: all .2s ease-in-out;*/
-  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  transform: scale(1.02); 
+  /*top: 550px;*/
+  /*transform: scale(1.01);*/
+  transition: all 1s ease-in-out;
+  /*transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transform: scale(1.02); */
 }
 
 
