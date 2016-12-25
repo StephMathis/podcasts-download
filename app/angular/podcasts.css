@@ -17,10 +17,13 @@
 .mh-channel-preview-in-list {
   height: 130px;
   opacity: 1;
-  -webkit-transition: height 0.5s ease, opacity 0.4s ease 0.5s;
-  -moz-transition: height 0.5s ease, opacity 0.4s ease 0.5s;
-  -o-transition: height 0.5s ease, opacity 0.4s ease 0.5s;
-  transition: height 0.5s ease, opacity 0.4s ease 0.5s;
+  -webkit-transition: height 0.5s ease 0.3s, opacity 0.4s ease 0.8s;
+  -moz-transition: height 0.5s ease 0.3s, opacity 0.4s ease 0.8s;
+  -o-transition: height 0.5s ease 0.3s, opacity 0.4s ease 0.8s;
+  transition: height 0.5s ease 0.3s, opacity 0.4s ease 0.8s;
+}
+.mh-channel-preview-in-list.on {
+  perspective: 100px;
 }
 
 .mh-channel-preview-in-list.off {

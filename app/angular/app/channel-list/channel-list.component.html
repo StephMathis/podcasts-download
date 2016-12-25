@@ -51,8 +51,7 @@
         <div layout="column" flex>
                  <!--ng-hide="$ctrl.isHidden({channel : channel})"-->
             <div class="mh-channel-preview-in-list"
-                 ng-class="{off:$ctrl.selectedChannel != null && $ctrl.selectedChannel !== channel}"
-                 ng-class="{on:$ctrl.selectedChannel === channel}"
+                 ng-class="{off:$ctrl.selectedChannel != null && $ctrl.selectedChannel !== channel, on:$ctrl.selectedChannel === channel}"
                  ng-repeat="channel in $ctrl.channelList | filter:searchText"
                  layout="column" 
                  >
