@@ -22,8 +22,23 @@
   -o-transition: height 0.5s ease 0.3s, opacity 0.4s ease 0.8s;
   transition: height 0.5s ease 0.3s, opacity 0.4s ease 0.8s;
 }
+
+/*
+ * off (for the unselected channels) :
+ *   - 0.0s -> 0.4s : opacity to 0 in 0.4s
+ *   - 0.4s -> 0.9s : height  to 0 in 0.5s
+ * on (during off but for the seleted channel) :
+ *   - 
+ */
+@keyframes myscale {
+    0%   {}
+    50%  {transform: scale(1.02);}
+    75%  {}
+    100% {transform: scale(1);}
+}
+
 .mh-channel-preview-in-list.on {
-  perspective: 100px;
+  animation: myscale 0.9s ease-in-out;
 }
 
 .mh-channel-preview-in-list.off {
