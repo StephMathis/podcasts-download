@@ -100,7 +100,7 @@
 
 .mh-podcast-view-in-list {
   margin: 30px;
-  /*background-color: rgba(red, green, blue, 0.5);*/
+  z-index: 10;
 }
 
 .mh-episode-actions-column {
