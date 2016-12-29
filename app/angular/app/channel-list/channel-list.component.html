@@ -1,94 +1,47 @@
-<div class="container" layout="raw" flex>
-    <!--
-    <md-sidenav md-is-locked-open="true" class="md-whiteframe-5dp">
-        <md-toolbar layout="row" layout-align="space-between center">
-            <span></span>
-            <h4>Les chaines</h4>
-            <md-button class="md-fab" aria-label="Ajouter une chaine" ng-click="$ctrl.showAddChannelPrompt($event)" >
-                <i class="material-icons">add</i>
-            </md-button>
-        </md-toolbar>
-
-        <md-list>
-            <md-list-item ng-repeat="channel in $ctrl.channelList | filter:searchText">
-                <mh-channel-preview mh-channel="channel"
-                                    mh-on-channel-click="$ctrl.selectChannel({channel: channel})"
-                                    mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
-                                    mh-on-channel-remove="$ctrl.removeChannel({channel : channel})"
-                                    flex>
-                </mh-channel-preview>
-            </md-list-item>
-        </md-list>
-
-
-
-    </md-sidenav>
-    <md-content id="content" flex>
-        <md-toolbar>
-            <h2>Les podcasts</h2>
-            <span ng-if="$ctrl.downloadTrackerStore.length > 0"> : {{ $ctrl.downloadTrackerStore.length }} téléchargements en cours ...</span>
-        </md-toolbar>
-        
-        <img ng-show="$ctrl.selectedChannel != null" class="mh-channel-img-in-channel-view" ng-src="{{ $ctrl.selectedChannel.thumbnail_url }}"/>
-
-        <mh-channel-view mh-channel="$ctrl.selectedChannel"
-                         mh-on-channel-changed="$ctrl.channelChanged({channel : channel})"
-                         ng-show="$ctrl.selectedChannel != null">
-        </mh-channel-view>
-        
-       
-    </md-content>
-    -->
-    <md-content id="content" flex>
-        <md-toolbar layout="row" layout-align="space-between center">
+<div layout="column" class="relative" layout-fill role="main">
+    <md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event)">
+        <ng-md-icon icon="add"></ng-md-icon>
+    </md-button>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
             <span></span>
             <h4>Podcasts</h4>
-            <md-button class="md-fab" aria-label="Ajouter une chaine" ng-click="$ctrl.showAddChannelPrompt($event)" >
+            <md-button class="md-fab md-fab-top-right" aria-label="Ajouter une chaine"
+                       ng-click="$ctrl.showAddChannelPrompt($event)" >
                 <i class="material-icons">add</i>
             </md-button>
-        </md-toolbar>
+            <span flex></span>
+        </div>
+    </md-toolbar>
 
-        <div layout="column" flex>
-                 <!--ng-hide="$ctrl.isHidden({channel : channel})"-->
-            <div class="mh-channel-preview-in-list"
-                 ng-class="{off:$ctrl.selectedChannel != null && $ctrl.selectedChannel !== channel, on:$ctrl.selectedChannel === channel}"
-                 ng-repeat="channel in $ctrl.channelList | filter:searchText"
-                 layout="column" 
-                 >
+    <md-content flex md-scroll-y>
+        <ui-view layout="column" layout-fill layout-padding>
+
+            <div layout="column" flex>
+                <!--ng-hide="$ctrl.isHidden({channel : channel})"-->
+                <div class="mh-channel-preview-in-list"
+                     ng-class="{off:$ctrl.selectedChannel != null && $ctrl.selectedChannel !== channel, on:$ctrl.selectedChannel === channel}"
+                     ng-repeat="channel in $ctrl.channelList | filter:searchText"
+                     layout="column"
+                >
                     <mh-channel-preview mh-channel="channel"
                                         mh-on-channel-click="$ctrl.selectChannel({channel: channel})"
                                         mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
                                         mh-on-channel-remove="$ctrl.removeChannel({channel : channel})"
-                                        mh-on-channel-unselect="$ctrl.unselectChannel({channel: channel})"                                   
-                                        >
+                                        mh-on-channel-unselect="$ctrl.unselectChannel({channel: channel})"
+                    >
                     </mh-channel-preview>
                     <mh-channel-view class="mh-channel-view-in-list"
                                      mh-channel="channel"
                                      mh-on-channel-changed="$ctrl.channelChanged({channel : channel})"
                                      ng-class="{off:$ctrl.selectedChannel !== channel, on:$ctrl.selectedChannel === channel}"
-                                     >
+                    >
                     </mh-channel-view>
+
+                </div>
             </div>
-        </div>
-        <!--
-        <md-list flex>
-            <md-list-item ng-hide="$ctrl.isHidden({channel : channel})"
-                          ng-repeat="channel in $ctrl.channelList | filter:searchText"
-                          layout="column" flex>
-                <mh-channel-preview mh-channel="channel"
-                                    mh-on-channel-click="$ctrl.selectChannel({channel: channel})"
-                                    mh-on-channel-edit="$ctrl.showEditChannelPrompt($event, channel)"
-                                    mh-on-channel-remove="$ctrl.removeChannel({channel : channel})"
-                                    mh-on-channel-unselect="$ctrl.unselectChannel({channel: channel})"                                   
-                                    flex>
-                </mh-channel-preview>
-                <mh-channel-view mh-channel="$ctrl.selectedChannel"
-                                 mh-on-channel-changed="$ctrl.channelChanged({channel : channel})"
-                                 ng-show="$ctrl.selectedChannel != null"
-                                 flex>
-                </mh-channel-view>
-            </md-list-item>
-        </md-list>
-        -->
+
+
+        </ui-view>
     </md-content>
 </div>

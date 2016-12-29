@@ -1,9 +1,5 @@
 <div>
-        <h3>Podcasts</h3>
-        &nbsp;
-        <span flex></span>
-
-        <mh-podcast-form mh-on-podcast-add="$ctrl.addPodcast({podcast: $ctrl.podcast})">
+       <mh-podcast-form mh-on-podcast-add="$ctrl.addPodcast({podcast: $ctrl.podcast})">
         </mh-podcast-form>
 </div>
 
@@ -16,29 +12,3 @@
                      ng-repeat="podcast in $ctrl._podcastList" >
     </mh-podcast-view>
 <div>
-<!--
-    <md-content class="md-padding" layout-xs="column" layout="row">
-        <div layout="column" >
-
-                <md-card class="podcast-card podcast-card-item-1"
-                         layout="row"  
-                         ng-repeat="podcast in $ctrl._podcastList" 
-                         ng-class="{'podcast-selected-box md-whiteframe-22dp': $ctrl.episodesToShow({podcast : podcast})}">
-                    <mh-podcast-preview mh-podcast="podcast" 
-                                        mh-on-podcast-remove="$ctrl.removePodcast({podcast : podcast})" 
-                                        mh-on-show-episodes="$ctrl.onShowEpisodes({podcast : podcast})">
-                    </mh-podcast-preview>                  
-                </md-card>
-
-        </div>
-        <div layout="column" style="flex-grow: 2">
-            <div ng-repeat="podcast in $ctrl._podcastList" 
-                 class="episodes-box episodes-box-item-1"
-                 ng-show="$ctrl.episodesToShow({podcast : podcast})">
-
-                <mh-episode-list mh-podcast-id="podcast.podcastId"></mh-episode-list>
-            </div>
-        </div>
-    </md-content>
-</div>
--->
